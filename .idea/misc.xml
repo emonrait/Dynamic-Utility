@@ -4,16 +4,23 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="../../../../layout/custom_preview.xml" value="0.16304347826086957" />
+        <entry key="app/src/main/res/drawable/bt_background_rounded_green.xml" value="0.18" />
+        <entry key="app/src/main/res/drawable/btn_round_border_transparent.xml" value="0.18" />
+        <entry key="app/src/main/res/drawable/ic_date.xml" value="0.18" />
         <entry key="app/src/main/res/drawable/ic_programmer.xml" value="0.18" />
         <entry key="app/src/main/res/layout/activity_about_me.xml" value="0.24270833333333333" />
+        <entry key="app/src/main/res/layout/activity_bills_report.xml" value="0.24270833333333333" />
         <entry key="app/src/main/res/layout/activity_electricity_bill_payment.xml" value="0.24270833333333333" />
         <entry key="app/src/main/res/layout/activity_fullscreen.xml" value="0.28072916666666664" />
         <entry key="app/src/main/res/layout/activity_gasbill_payment.xml" value="0.24270833333333333" />
+        <entry key="app/src/main/res/layout/activity_splash_screen.xml" value="0.24270833333333333" />
         <entry key="app/src/main/res/layout/activity_wasabill_payment.xml" value="0.24270833333333333" />
         <entry key="app/src/main/res/layout/dropdown_item.xml" value="0.24270833333333333" />
         <entry key="app/src/main/res/layout/electricity_input_layout.xml" value="0.24270833333333333" />
         <entry key="app/src/main/res/layout/gas_input_layout.xml" value="0.24270833333333333" />
         <entry key="app/src/main/res/layout/header_layout.xml" value="0.2947916666666667" />
+        <entry key="app/src/main/res/layout/param_layout.xml" value="0.24270833333333333" />
+        <entry key="app/src/main/res/layout/report_header.xml" value="0.24270833333333333" />
         <entry key="app/src/main/res/layout/row_menu.xml" value="0.2947916666666667" />
         <entry key="app/src/main/res/layout/wasa_input_layout.xml" value="0.24270833333333333" />
       </map>

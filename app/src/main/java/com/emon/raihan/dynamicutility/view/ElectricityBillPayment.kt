@@ -8,7 +8,6 @@ import android.widget.ArrayAdapter
 import android.widget.LinearLayout
 import androidx.appcompat.widget.Toolbar
 import androidx.cardview.widget.CardView
-import com.emon.raihan.dynamicutility.MainActivity
 import com.emon.raihan.dynamicutility.R
 import com.emon.raihan.dynamicutility.model.CodeDesOptions
 import com.emon.raihan.dynamicutility.util.CustomActivityClear

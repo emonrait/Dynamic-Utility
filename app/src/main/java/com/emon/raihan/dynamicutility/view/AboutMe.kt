@@ -13,7 +13,6 @@ import android.widget.TextView
 import androidx.appcompat.widget.Toolbar
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import com.emon.raihan.dynamicutility.MainActivity
 import com.emon.raihan.dynamicutility.R
 import com.emon.raihan.dynamicutility.util.CustomActivityClear
 import java.util.*

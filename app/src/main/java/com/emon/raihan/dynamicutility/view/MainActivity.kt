@@ -1,23 +1,13 @@
-package com.emon.raihan.dynamicutility
+package com.emon.raihan.dynamicutility.view
 
 import androidx.appcompat.app.AppCompatActivity
-import android.annotation.SuppressLint
 import android.content.Intent
-import android.os.Build
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
-import android.view.MotionEvent
 import android.view.View
-import android.view.WindowInsets
 import android.widget.*
+import com.emon.raihan.dynamicutility.R
 import com.emon.raihan.dynamicutility.adaptar.MenuAdapter
-import com.emon.raihan.dynamicutility.databinding.ActivityFullscreenBinding
 import com.emon.raihan.dynamicutility.model.Menu
-import com.emon.raihan.dynamicutility.view.AboutMe
-import com.emon.raihan.dynamicutility.view.ElectricityBillPayment
-import com.emon.raihan.dynamicutility.view.GASBillPayment
-import com.emon.raihan.dynamicutility.view.WASABillPayment
 import java.util.ArrayList
 
 class MainActivity : AppCompatActivity() {
@@ -35,14 +25,14 @@ class MainActivity : AppCompatActivity() {
 
         // tv_version_name.text = "Version Name:- " + BuildConfig.VERSION_NAME
 
-        menuList.add(Menu("EBP", "Electricity Bill Payment", R.drawable.ic_programmer))
-        menuList.add(Menu("WASA", "WASA Bill Payment", R.drawable.ic_programmer))
-        menuList.add(Menu("GAS", "GAS Bill Payment", R.drawable.ic_programmer))
-        menuList.add(Menu("GAS", "Education Bill Payment", R.drawable.ic_programmer))
-        menuList.add(Menu("IN", "Insurance Bill Payment", R.drawable.ic_programmer))
-        menuList.add(Menu("IN", "Internet Bill Payment", R.drawable.ic_programmer))
-        menuList.add(Menu("EN", "Entertainment Bill Payment", R.drawable.ic_programmer))
-        menuList.add(Menu("BR", "Bill Report", R.drawable.ic_programmer))
+        menuList.add(Menu("EBP", "Electricity Bill Payment", R.drawable.electricity_bill))
+        menuList.add(Menu("WASA", "WASA Bill Payment", R.drawable.water_bill))
+        menuList.add(Menu("GAS", "GAS Bill Payment", R.drawable.gas_bill))
+        menuList.add(Menu("EDU", "Education Bill Payment", R.drawable.education_bill))
+        menuList.add(Menu("INS", "Insurance Bill Payment", R.drawable.insurance_bill))
+        menuList.add(Menu("IN", "Internet Bill Payment", R.drawable.internet_bill))
+        menuList.add(Menu("EN", "Entertainment Bill Payment", R.drawable.entertainment_bill))
+        menuList.add(Menu("BR", "Bill Report", R.drawable.invoice))
         menuList.add(Menu("AM", "About Me", R.drawable.ic_programmer))
 
         adapter = MenuAdapter(this, menuList)
@@ -69,23 +59,29 @@ class MainActivity : AppCompatActivity() {
                         startActivity(intent)
                     }
                     "AM" == menu_soft_code.text.toString() -> {
-                         val intent = Intent(this, AboutMe::class.java)
+                        val intent = Intent(this, AboutMe::class.java)
                         startActivity(intent)
                     }
-                    "RO" == menu_soft_code.text.toString() -> {
+                    "EDU" == menu_soft_code.text.toString() -> {
 
                     }
-                    "QR" == menu_soft_code.text.toString() -> {
+                    "INS" == menu_soft_code.text.toString() -> {
 
                     }
-                    "ST" == menu_soft_code.text.toString() -> {
+                    "IN" == menu_soft_code.text.toString() -> {
 
                     }
-                    "TS" == menu_soft_code.text.toString() -> {
+                    "EN" == menu_soft_code.text.toString() -> {
                         //val intent = Intent(this, QRGenerate::class.java)
                         // startActivity(intent)
                         Toast.makeText(this, "Total Summary Coming Soon...", Toast.LENGTH_SHORT)
                             .show()
+                    }
+                    "BR" == menu_soft_code.text.toString() -> {
+                        val intent = Intent(this, BillsReport::class.java)
+                        startActivity(intent)
+                       // Toast.makeText(this, "Total Summary Coming Soon...", Toast.LENGTH_SHORT)
+                       //     .show()
                     }
 
                 }
