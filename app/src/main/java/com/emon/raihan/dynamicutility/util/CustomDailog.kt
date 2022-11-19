@@ -6,6 +6,7 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.view.LayoutInflater
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.NumberPicker
 import android.widget.TextView
 import com.emon.raihan.dynamicutility.R
@@ -36,12 +37,14 @@ class CustomDailog {
             lateinit var dayPicker: NumberPicker
             lateinit var monthPicker: NumberPicker
             lateinit var yearPicker: NumberPicker
+            lateinit var ivClose: ImageView
             val dialog = AlertDialog.Builder(activity).setCancelable(false)
             val inflater = LayoutInflater.from(activity)
             val regLayout = inflater.inflate(R.layout.dialog_year_picker, null)
             //val dateValue = reg_layout.findViewById<TextView>(R.id.dateValue)
             dateValue = regLayout.findViewById(R.id.dateValue)
             yearPicker = regLayout.findViewById(R.id.yearPicker)
+            ivClose = regLayout.findViewById(R.id.ivClose)
             val btnOk = regLayout.findViewById<Button>(R.id.btn_ok)
             val btnCancel = regLayout.findViewById<Button>(R.id.btn_cancel)
             dialog.setView(regLayout)
@@ -69,6 +72,8 @@ class CustomDailog {
 
             btnCancel.setOnClickListener { alertDialog.dismiss() }
 
+            ivClose.setOnClickListener { alertDialog.dismiss() }
+
 
             alertDialog.show()
         }
@@ -76,11 +81,13 @@ class CustomDailog {
         fun createMonthPicker(activity: Activity, setYear: MaterialAutoCompleteTextView) {
             lateinit var dateValue: TextView
             lateinit var monthPicker: NumberPicker
+            lateinit var ivClose: ImageView
             val dialog = AlertDialog.Builder(activity).setCancelable(false)
             val inflater = LayoutInflater.from(activity)
             val regLayout = inflater.inflate(R.layout.dialog_year_picker, null)
             dateValue = regLayout.findViewById(R.id.dateValue)
             monthPicker = regLayout.findViewById(R.id.yearPicker)
+            ivClose = regLayout.findViewById(R.id.ivClose)
             val btnOk = regLayout.findViewById<Button>(R.id.btn_ok)
             val btnCancel = regLayout.findViewById<Button>(R.id.btn_cancel)
             dialog.setView(regLayout)
@@ -111,6 +118,8 @@ class CustomDailog {
             }
 
             btnCancel.setOnClickListener { alertDialog.dismiss() }
+            ivClose.setOnClickListener { alertDialog.dismiss() }
+
 
 
             alertDialog.show()
