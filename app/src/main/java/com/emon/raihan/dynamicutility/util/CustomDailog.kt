@@ -77,7 +77,7 @@ class CustomDailog {
             lateinit var dateValue: TextView
             lateinit var dayPicker: NumberPicker
             lateinit var monthPicker: NumberPicker
-         //   lateinit var yearPicker: NumberPicker
+            //   lateinit var yearPicker: NumberPicker
             val dialog = AlertDialog.Builder(activity).setCancelable(false)
             val inflater = LayoutInflater.from(activity)
             val regLayout = inflater.inflate(R.layout.dialog_year_picker, null)
@@ -89,7 +89,7 @@ class CustomDailog {
             dialog.setView(regLayout)
             val alertDialog = dialog.create()
             alertDialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-
+            dateValue.setText(R.string.select_month)
             val cal = Calendar.getInstance()
             val year = cal.get(Calendar.YEAR)
             val day = cal.get(Calendar.DAY_OF_MONTH)
