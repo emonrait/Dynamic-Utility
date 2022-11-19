@@ -1,10 +1,12 @@
 package com.emon.raihan.dynamicutility.view
 
+import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.*
+import com.emon.raihan.dynamicutility.BuildConfig
 import com.emon.raihan.dynamicutility.R
 import com.emon.raihan.dynamicutility.adaptar.MenuAdapter
 import com.emon.raihan.dynamicutility.model.Menu
@@ -15,6 +17,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var menuGridView: GridView
     var adapter: MenuAdapter? = null
     private lateinit var tv_version_name: TextView
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_fullscreen)
@@ -23,7 +26,7 @@ class MainActivity : AppCompatActivity() {
         tv_version_name = findViewById(R.id.tv_version_name)
         menuList = ArrayList<Menu>()
 
-        // tv_version_name.text = "Version Name:- " + BuildConfig.VERSION_NAME
+         tv_version_name.text = "Version Name:- " + BuildConfig.VERSION_NAME
 
         menuList.add(Menu("EBP", "Electricity Bill Payment", R.drawable.electricity_bill))
         menuList.add(Menu("WASA", "WASA Bill Payment", R.drawable.water_bill))
