@@ -282,8 +282,10 @@
                     android:layout_marginTop="@dimen/margin_20"
                     android:layout_marginRight="@dimen/margin_10"
                     android:layout_marginBottom="@dimen/margin_10"
+                    android:background="@drawable/bt_background_rounded_green"
                     android:padding="@dimen/padding_5"
                     android:text="@string/validate"
+                    android:textColor="@color/white"
                     android:textStyle="bold" />
 
 
