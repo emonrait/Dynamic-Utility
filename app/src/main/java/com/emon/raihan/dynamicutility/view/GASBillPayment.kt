@@ -67,6 +67,7 @@ class GASBillPayment : AppCompatActivity() {
 
         sp_bill_type_value.setOnItemClickListener { parent, arg1, position, id ->
             billType = codeDesOptions[position].code.toString()
+            input_value_param_layout.visibility=View.VISIBLE
 
             if (billType.endsWith("GLS")) {
                 year_month_layout.visibility = View.VISIBLE
