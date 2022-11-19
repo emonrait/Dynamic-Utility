@@ -25,6 +25,10 @@ import androidx.core.content.ContextCompat
 import com.emon.raihan.dynamicutility.R
 import com.emon.raihan.dynamicutility.model.CodeDesOptions
 import com.emon.raihan.dynamicutility.util.CustomActivityClear
+import com.emon.raihan.dynamicutility.util.CustomDailog
+import com.emon.raihan.dynamicutility.util.CustomDailog.Companion.addJpgSignatureToGallery
+import com.emon.raihan.dynamicutility.util.CustomDailog.Companion.requestPermission
+import com.emon.raihan.dynamicutility.util.CustomDailog.Companion.verifyStoragePermissions
 import com.emon.raihan.dynamicutility.util.DateUtil
 import com.google.android.material.textfield.MaterialAutoCompleteTextView
 import com.google.android.material.textfield.TextInputEditText
@@ -80,7 +84,7 @@ class BillsReport : AppCompatActivity() {
         }
 
         verifyStoragePermissions(this)
-        requestPermission()
+        requestPermission(this)
 
         codeDesOptions.add(CodeDesOptions("Dhaka Wasa", "DWASA"))
         codeDesOptions.add(CodeDesOptions("Chattagram Wasa", "CWASA"))
@@ -95,8 +99,11 @@ class BillsReport : AppCompatActivity() {
         et_from_date.setText(fromDate)
         et_to_date.setText(toDate)
 
-        et_from_date.setOnClickListener { fromDate() }
-        et_to_date.setOnClickListener { toDate() }
+        //  et_from_date.setOnClickListener { fromDate() }
+        //  et_to_date.setOnClickListener { toDate() }
+
+        et_from_date.setOnClickListener { CustomDailog.fromDate(this, et_from_date) }
+        et_to_date.setOnClickListener { CustomDailog.toDate(this, et_to_date) }
 
         btnLastMonth.setOnClickListener {
             fromDate = DateUtil.getCommission_date(30)
@@ -130,8 +137,8 @@ class BillsReport : AppCompatActivity() {
         }
 
         btnSearch.setOnClickListener {
-            val bitmap = getBitmapFromView(peram_layout)
-            if (bitmap.let { it1 -> addJpgSignatureToGallery(it1) }) {
+            val bitmap = CustomDailog.getBitmapFromView(peram_layout)
+            if (addJpgSignatureToGallery(this, bitmap)) {
                 Toast.makeText(
                     this@BillsReport,
                     "Voucher saved into the Gallery",
@@ -148,89 +155,6 @@ class BillsReport : AppCompatActivity() {
 
     }
 
-    fun fromDate() {
-        // Get Current Date
-        val mYear: Int
-        val mMonth: Int
-        val mDay: Int
-        // Get Current Date
-        val c = Calendar.getInstance()
-        mYear = c[Calendar.YEAR]
-        mMonth = c[Calendar.MONTH]
-        mDay = c[Calendar.DAY_OF_MONTH]
-
-
-        val datePickerDialog = DatePickerDialog(
-            this,
-            { view, year, monthOfYear, dayOfMonth ->
-                val month1: String = if (monthOfYear < 9) {
-                    "0" + (monthOfYear + 1)
-                } else {
-                    "" + (monthOfYear + 1)
-                }
-                val day1: String = if (view!!.dayOfMonth <= 9) {
-                    "0" + view.dayOfMonth
-                } else {
-                    "" + view.dayOfMonth
-                }
-
-                et_from_date.setText("$day1/$month1/$year")
-            }, mYear, mMonth, mDay
-        )
-        datePickerDialog.show()
-    }
-
-
-    fun toDate() {
-        // Get Current Date
-        val mYear: Int
-        val mMonth: Int
-        val mDay: Int
-        // Get Current Date
-        val c = Calendar.getInstance()
-        mYear = c[Calendar.YEAR]
-        mMonth = c[Calendar.MONTH]
-        mDay = c[Calendar.DAY_OF_MONTH]
-
-
-        val datePickerDialog = DatePickerDialog(
-            this,
-            { view, year, monthOfYear, dayOfMonth ->
-                val month1: String = if (monthOfYear < 9) {
-                    "0" + (monthOfYear + 1)
-                } else {
-                    "" + (monthOfYear + 1)
-                }
-                val day1: String = if (view!!.dayOfMonth <= 9) {
-                    "0" + view.dayOfMonth
-                } else {
-                    "" + view.dayOfMonth
-                }
-
-                et_to_date.setText("$day1/$month1/$year")
-            }, mYear, mMonth, mDay
-        )
-        datePickerDialog.show()
-    }
-
-    fun getBitmapFromView(view: View): Bitmap {
-        val bitmap = Bitmap.createBitmap(
-            view.width, view.height, Bitmap.Config.ARGB_8888
-        )
-        val canvas = Canvas(bitmap)
-        view.draw(canvas)
-        return bitmap
-    }
-
-    fun getBitmapFromView(view: View, defaultColor: Int): Bitmap {
-        val bitmap = Bitmap.createBitmap(
-            view.width, view.height, Bitmap.Config.ARGB_8888
-        )
-        val canvas = Canvas(bitmap)
-        canvas.drawColor(defaultColor)
-        view.draw(canvas)
-        return bitmap
-    }
 
     override fun onRequestPermissionsResult(
         requestCode: Int,
@@ -254,128 +178,5 @@ class BillsReport : AppCompatActivity() {
         }
     }
 
-    fun getAlbumStorageDir(albumName: String): File {
-        // Get the directory for the user's public pictures directory.
-
-        val file = File(
-            Environment.getExternalStoragePublicDirectory(
-                Environment.DIRECTORY_PICTURES
-            ), albumName
-        )
-        if (!file.mkdirs()) {
-            Log.e("DynamicUtility-->", "Directory not created")
-        }
-        return file
-    }
-
-    @Throws(IOException::class)
-    fun saveBitmapToJPG(bitmap: Bitmap, photo: File) {
-        val newBitmap = Bitmap.createBitmap(bitmap.width, bitmap.height, Bitmap.Config.ARGB_8888)
-        val canvas = Canvas(newBitmap)
-        canvas.drawColor(Color.WHITE)
-        canvas.drawBitmap(bitmap, 0f, 0f, null)
-        val stream: OutputStream = FileOutputStream(photo)
-        newBitmap.compress(Bitmap.CompressFormat.PNG, 100, stream)
-        stream.close()
-    }
-
-    fun addJpgSignatureToGallery(signature: Bitmap): Boolean {
-        var result = false
-        try {
-            val photo = File(
-                getAlbumStorageDir("Utility"),
-                String.format("utility_%d.jpg", System.currentTimeMillis())
-            )
-            saveBitmapToJPG(signature, photo)
-            scanMediaFile(photo)
-            result = true
-        } catch (e: IOException) {
-            e.printStackTrace()
-        }
-        return result
-    }
-
-    private fun scanMediaFile(photo: File) {
-        /* val mediaScanIntent = Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE)
-          val contentUri = Uri.fromFile(photo)
-          mediaScanIntent.data = contentUri
-          this@QRGenerateActivity.sendBroadcast(mediaScanIntent)*/
-
-        val scan = MediaScannerConnection.scanFile(
-            this, arrayOf(photo.toString()),
-            null, null
-        )
-
-        MediaScannerConnection.scanFile(
-            applicationContext, arrayOf(photo.absolutePath),
-            null
-        ) { path, uri ->
-            Log.v(
-                "vslue-->",
-                "file $path was scanned seccessfully: $uri"
-            )
-        }
-    }
-
-    fun verifyStoragePermissions(activity: Activity?) {
-        // Check if we have write permission
-        val permission = ActivityCompat.checkSelfPermission(
-            activity!!,
-            Manifest.permission.WRITE_EXTERNAL_STORAGE
-        )
-        if (permission != PackageManager.PERMISSION_GRANTED) {
-            // We don't have permission so prompt the user
-            ActivityCompat.requestPermissions(
-                activity,
-                PERMISSIONS_STORAGE,
-                REQUEST_EXTERNAL_STORAGE
-            )
-        }
-    }
-
-    fun requestPermission() {
-        try {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-
-
-                val READ_EXTERNAL_STORAGE = ContextCompat.checkSelfPermission(
-                    this,
-                    Manifest.permission.READ_EXTERNAL_STORAGE
-                )
-
-                val WRITE_EXTERNAL_STORAGE = ContextCompat.checkSelfPermission(
-                    this,
-                    Manifest.permission.WRITE_EXTERNAL_STORAGE
-                )
-
-                val CAMERA = ContextCompat.checkSelfPermission(
-                    this,
-                    Manifest.permission.CAMERA
-                )
-
-
-
-                if (READ_EXTERNAL_STORAGE != PackageManager.PERMISSION_GRANTED
-                    || WRITE_EXTERNAL_STORAGE != PackageManager.PERMISSION_GRANTED
-                    || CAMERA != PackageManager.PERMISSION_GRANTED
-                ) {
-                    ActivityCompat.requestPermissions(
-                        this, arrayOf(
-                            Manifest.permission.READ_EXTERNAL_STORAGE,
-                            Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                            Manifest.permission.CAMERA
-                        ), 1
-                    )
-                }
-
-
-            }
-
-
-        } catch (ex: Exception) {
-            Log.e("", ex.message.toString())
-        }
-
-    }
 
 }
