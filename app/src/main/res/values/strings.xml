@@ -43,4 +43,6 @@
     <string name="app_slogan">Welcome to Dynamic Utility Bill Collection</string>
     <string name="invoice_no">Enter Invoice No</string>
     <string name="mobile_number">Enter Mobile Number</string>
+    <string name="policy_number">Enter Policy Number</string>
+    <string name="select_purpose">Select Purpose</string>
 </resources>

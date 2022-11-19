@@ -36,12 +36,12 @@
                 android:orientation="vertical">
 
                 <LinearLayout
-                    android:id="@+id/gas_input_layout"
+                    android:id="@+id/insurance_input_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                    <include layout="@layout/gas_input_layout" />
+                    <include layout="@layout/insurance_input_layout" />
                 </LinearLayout>
 
                 <LinearLayout
