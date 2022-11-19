@@ -64,12 +64,16 @@ class MainActivity : AppCompatActivity() {
                     }
                     "EDU" == menu_soft_code.text.toString() -> {
 
+                        val intent = Intent(this, EductaionBillPayment::class.java)
+                        startActivity(intent)
                     }
                     "INS" == menu_soft_code.text.toString() -> {
-
+                        val intent = Intent(this, InsuranceBillPayment::class.java)
+                        startActivity(intent)
                     }
                     "IN" == menu_soft_code.text.toString() -> {
-
+                        val intent = Intent(this, InternetBillPayment::class.java)
+                        startActivity(intent)
                     }
                     "EN" == menu_soft_code.text.toString() -> {
                         //val intent = Intent(this, QRGenerate::class.java)
@@ -80,8 +84,8 @@ class MainActivity : AppCompatActivity() {
                     "BR" == menu_soft_code.text.toString() -> {
                         val intent = Intent(this, BillsReport::class.java)
                         startActivity(intent)
-                       // Toast.makeText(this, "Total Summary Coming Soon...", Toast.LENGTH_SHORT)
-                       //     .show()
+                        // Toast.makeText(this, "Total Summary Coming Soon...", Toast.LENGTH_SHORT)
+                        //     .show()
                     }
 
                 }

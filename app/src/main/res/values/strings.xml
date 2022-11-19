@@ -41,4 +41,6 @@
     <string name="bill_type">Bill Type</string>
     <string name="quantity">Amount</string>
     <string name="app_slogan">Welcome to Dynamic Utility Bill Collection</string>
+    <string name="invoice_no">Enter Invoice No</string>
+    <string name="mobile_number">Enter Mobile Number</string>
 </resources>
