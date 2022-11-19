@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
          tv_version_name.text = "Version Name:- " + BuildConfig.VERSION_NAME
 
         menuList.add(Menu("EBP", "Electricity Bill Payment", R.drawable.electricity_bill))
-        menuList.add(Menu("WASA", "WASA Bill Payment", R.drawable.water_bill))
+        menuList.add(Menu("WASA", "Water Bill Payment", R.drawable.water_bill))
         menuList.add(Menu("GAS", "GAS Bill Payment", R.drawable.gas_bill))
         menuList.add(Menu("EDU", "Education Bill Payment", R.drawable.education_bill))
         menuList.add(Menu("INS", "Insurance Bill Payment", R.drawable.insurance_bill))

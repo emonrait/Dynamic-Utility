@@ -153,8 +153,6 @@ class BillsReport : AppCompatActivity() {
         val mYear: Int
         val mMonth: Int
         val mDay: Int
-        var mHour: Int
-        var mMinute: Int
         // Get Current Date
         val c = Calendar.getInstance()
         mYear = c[Calendar.YEAR]
@@ -165,14 +163,12 @@ class BillsReport : AppCompatActivity() {
         val datePickerDialog = DatePickerDialog(
             this,
             { view, year, monthOfYear, dayOfMonth ->
-                var month1: String? = null
-                var day1: String? = null
-                month1 = if (monthOfYear < 9) {
+                val month1: String = if (monthOfYear < 9) {
                     "0" + (monthOfYear + 1)
                 } else {
                     "" + (monthOfYear + 1)
                 }
-                day1 = if (view!!.dayOfMonth <= 9) {
+                val day1: String = if (view!!.dayOfMonth <= 9) {
                     "0" + view.dayOfMonth
                 } else {
                     "" + view.dayOfMonth
@@ -190,8 +186,6 @@ class BillsReport : AppCompatActivity() {
         val mYear: Int
         val mMonth: Int
         val mDay: Int
-        var mHour: Int
-        var mMinute: Int
         // Get Current Date
         val c = Calendar.getInstance()
         mYear = c[Calendar.YEAR]
@@ -202,14 +196,12 @@ class BillsReport : AppCompatActivity() {
         val datePickerDialog = DatePickerDialog(
             this,
             { view, year, monthOfYear, dayOfMonth ->
-                var month1: String? = null
-                var day1: String? = null
-                month1 = if (monthOfYear < 9) {
+                val month1: String = if (monthOfYear < 9) {
                     "0" + (monthOfYear + 1)
                 } else {
                     "" + (monthOfYear + 1)
                 }
-                day1 = if (view!!.dayOfMonth <= 9) {
+                val day1: String = if (view!!.dayOfMonth <= 9) {
                     "0" + view.dayOfMonth
                 } else {
                     "" + view.dayOfMonth
@@ -271,7 +263,7 @@ class BillsReport : AppCompatActivity() {
             ), albumName
         )
         if (!file.mkdirs()) {
-            Log.e("QRCode-->", "Directory not created")
+            Log.e("DynamicUtility-->", "Directory not created")
         }
         return file
     }
