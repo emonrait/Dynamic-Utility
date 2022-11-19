@@ -19,4 +19,5 @@
     <dimen name="row_width_60">60dp</dimen>
     <dimen name="margin_1">1dp</dimen>
     <dimen name="main_layout_maring_top_base">20dp</dimen>
+    <dimen name="margin_15">15dp</dimen>
 </resources>

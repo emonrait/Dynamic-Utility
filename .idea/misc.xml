@@ -18,6 +18,7 @@
         <entry key="app/src/main/res/layout/activity_internet_bill_payment.xml" value="0.2578125" />
         <entry key="app/src/main/res/layout/activity_splash_screen.xml" value="0.24270833333333333" />
         <entry key="app/src/main/res/layout/activity_wasabill_payment.xml" value="0.24270833333333333" />
+        <entry key="app/src/main/res/layout/dialog_year_picker.xml" value="0.21425037110341416" />
         <entry key="app/src/main/res/layout/dropdown_item.xml" value="0.24270833333333333" />
         <entry key="app/src/main/res/layout/electricity_input_layout.xml" value="0.24270833333333333" />
         <entry key="app/src/main/res/layout/gas_input_layout.xml" value="0.24270833333333333" />
