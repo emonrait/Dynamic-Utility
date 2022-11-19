@@ -11,7 +11,9 @@ import androidx.cardview.widget.CardView
 import com.emon.raihan.dynamicutility.R
 import com.emon.raihan.dynamicutility.model.CodeDesOptions
 import com.emon.raihan.dynamicutility.util.CustomActivityClear
+import com.emon.raihan.dynamicutility.util.CustomDailog
 import com.google.android.material.textfield.MaterialAutoCompleteTextView
+import com.google.android.material.textfield.TextInputLayout
 import java.util.*
 
 class ElectricityBillPayment : AppCompatActivity() {
@@ -22,6 +24,10 @@ class ElectricityBillPayment : AppCompatActivity() {
     private lateinit var input_amount_cardview: CardView
     private lateinit var btn_validate_cardview: CardView
     private lateinit var customer_code_input_cardview: CardView
+    private lateinit var sp_year_value: MaterialAutoCompleteTextView
+    private lateinit var sp_month_value: MaterialAutoCompleteTextView
+    private lateinit var sp_month_input: TextInputLayout
+    private lateinit var sp_year_input: TextInputLayout
 
     var codeDesOptions: ArrayList<CodeDesOptions> = ArrayList<CodeDesOptions>()
     var billType = ""
@@ -35,6 +41,10 @@ class ElectricityBillPayment : AppCompatActivity() {
         input_amount_cardview = findViewById(R.id.input_amount_cardview)
         btn_validate_cardview = findViewById(R.id.btn_validate_cardview)
         customer_code_input_cardview = findViewById(R.id.customer_code_input_cardview)
+        sp_year_value = findViewById(R.id.sp_year_value)
+        sp_month_value = findViewById(R.id.sp_month_value)
+        sp_month_input = findViewById(R.id.sp_month_input)
+        sp_year_input = findViewById(R.id.sp_year_input)
 
         setSupportActionBar(toolbar)
         Objects.requireNonNull(supportActionBar)?.setHomeButtonEnabled(true)
@@ -88,6 +98,22 @@ class ElectricityBillPayment : AppCompatActivity() {
 
             }
 
+        }
+
+
+        sp_year_value.setOnClickListener {
+            CustomDailog.createYearPicker(this,sp_year_value)
+        }
+
+        sp_year_input.setOnClickListener {
+            CustomDailog.createYearPicker(this,sp_year_value)
+        }
+
+        sp_month_value.setOnClickListener {
+            CustomDailog.createMonthPicker(this,sp_month_value)
+        }
+        sp_month_input.setOnClickListener {
+            CustomDailog.createMonthPicker(this,sp_month_value)
         }
     }
 }

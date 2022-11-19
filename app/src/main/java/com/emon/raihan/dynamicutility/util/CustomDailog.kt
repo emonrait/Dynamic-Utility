@@ -75,13 +75,10 @@ class CustomDailog {
 
         fun createMonthPicker(activity: Activity, setYear: MaterialAutoCompleteTextView) {
             lateinit var dateValue: TextView
-            lateinit var dayPicker: NumberPicker
             lateinit var monthPicker: NumberPicker
-            //   lateinit var yearPicker: NumberPicker
             val dialog = AlertDialog.Builder(activity).setCancelable(false)
             val inflater = LayoutInflater.from(activity)
             val regLayout = inflater.inflate(R.layout.dialog_year_picker, null)
-            //val dateValue = reg_layout.findViewById<TextView>(R.id.dateValue)
             dateValue = regLayout.findViewById(R.id.dateValue)
             monthPicker = regLayout.findViewById(R.id.yearPicker)
             val btnOk = regLayout.findViewById<Button>(R.id.btn_ok)
@@ -91,8 +88,6 @@ class CustomDailog {
             alertDialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
             dateValue.setText(R.string.select_month)
             val cal = Calendar.getInstance()
-            val year = cal.get(Calendar.YEAR)
-            val day = cal.get(Calendar.DAY_OF_MONTH)
             val month = cal.get(Calendar.MONTH) + 1
 
 
