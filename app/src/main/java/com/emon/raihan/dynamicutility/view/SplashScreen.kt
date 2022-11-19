@@ -1,5 +1,6 @@
 package com.emon.raihan.dynamicutility.view
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -9,6 +10,7 @@ import android.widget.ImageView
 import com.emon.raihan.dynamicutility.R
 import java.util.*
 
+@SuppressLint("CustomSplashScreen")
 class SplashScreen : AppCompatActivity() {
     private lateinit var handler: Handler
     private lateinit var runnable: Runnable
@@ -19,7 +21,6 @@ class SplashScreen : AppCompatActivity() {
         setContentView(R.layout.activity_splash_screen)
 
         iv_logo = findViewById(R.id.iv_logo)
-
 
         iv_logo.animate().rotation(180f).setDuration(2000).start()
 

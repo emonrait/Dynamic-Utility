@@ -22,7 +22,7 @@
     <string name="www_facebook_com_emon_raihan"><u>www.facebook.com/emon.raihan</u></string>
     <string name="git_link"><u>https://github.com/emonrait</u></string>
     <string name="colon">:</string>
-    <string name="select_type">Select Type</string>
+    <string name="select_type">Select Bill Type</string>
     <string name="customer_code">Enter Customer Code</string>
     <string name="meter_no">Enter Meter No</string>
     <string name="amount">Enter Amount</string>
@@ -45,4 +45,5 @@
     <string name="mobile_number">Enter Mobile Number</string>
     <string name="policy_number">Enter Policy Number</string>
     <string name="select_purpose">Select Purpose</string>
+    <string name="customer_id">Enter Customer ID</string>
 </resources>

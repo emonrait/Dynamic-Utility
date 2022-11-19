@@ -43,16 +43,16 @@ class ElectricityBillPayment : AppCompatActivity() {
 
         toolbar.setNavigationOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
-            CustomActivityClear.doClearActivity(intent,this)
+            CustomActivityClear.doClearActivity(intent, this)
         }
 
-        btn_validate_cardview.visibility=View.GONE
-        year_month_layout.visibility=View.GONE
-        meter_no_input_cardview.visibility=View.GONE
-        input_amount_cardview.visibility=View.GONE
-        customer_code_input_cardview.visibility=View.GONE
+        btn_validate_cardview.visibility = View.GONE
+        year_month_layout.visibility = View.GONE
+        meter_no_input_cardview.visibility = View.GONE
+        input_amount_cardview.visibility = View.GONE
+        customer_code_input_cardview.visibility = View.GONE
 
-        codeDesOptions.add(CodeDesOptions("DESCO Postpaid", "DESC"))
+        codeDesOptions.add(CodeDesOptions("DESCO Postpaid", "DESCO"))
         codeDesOptions.add(CodeDesOptions("DESCO Prepaid", "DESCOPRE"))
         codeDesOptions.add(CodeDesOptions("DPDC Postpaid", "DPDC"))
         codeDesOptions.add(CodeDesOptions("DPDC Prepaid", "DPDCPRE"))
@@ -60,6 +60,12 @@ class ElectricityBillPayment : AppCompatActivity() {
         codeDesOptions.add(CodeDesOptions("NESCO Prepaid", "NESCOPRE"))
         codeDesOptions.add(CodeDesOptions("Palli Biddyt Postpaid", "PALLI"))
         codeDesOptions.add(CodeDesOptions("Palli Biddyt Prepaid", "PALLIPRE"))
+        codeDesOptions.add(CodeDesOptions("BPDB Postpaid", "BPDB"))
+        codeDesOptions.add(CodeDesOptions("BPDB Prepaid", "BPDBPRE"))
+        codeDesOptions.add(CodeDesOptions("BPDB Prepaid Sylhet", "BPDBSPRE"))
+        codeDesOptions.add(CodeDesOptions("Westzone Postpaid", "WESTZ"))
+        codeDesOptions.add(CodeDesOptions("Westzone Prepaid", "WESTZPRE"))
+
         val arrayAdapter = ArrayAdapter(this, R.layout.dropdown_item, codeDesOptions)
         sp_bill_type_value.setAdapter(arrayAdapter)
 
@@ -67,18 +73,18 @@ class ElectricityBillPayment : AppCompatActivity() {
         sp_bill_type_value.setOnItemClickListener { parent, arg1, position, id ->
             billType = codeDesOptions[position].code.toString()
             if (billType.endsWith("PRE")) {
-                year_month_layout.visibility=View.GONE
-                meter_no_input_cardview.visibility=View.VISIBLE
-                input_amount_cardview.visibility=View.VISIBLE
-                btn_validate_cardview.visibility=View.VISIBLE
-                customer_code_input_cardview.visibility=View.VISIBLE
+                year_month_layout.visibility = View.GONE
+                meter_no_input_cardview.visibility = View.VISIBLE
+                input_amount_cardview.visibility = View.VISIBLE
+                btn_validate_cardview.visibility = View.VISIBLE
+                customer_code_input_cardview.visibility = View.VISIBLE
 
             } else {
-                year_month_layout.visibility=View.VISIBLE
-                meter_no_input_cardview.visibility=View.GONE
-                input_amount_cardview.visibility=View.GONE
-                btn_validate_cardview.visibility=View.VISIBLE
-                customer_code_input_cardview.visibility=View.VISIBLE
+                year_month_layout.visibility = View.VISIBLE
+                meter_no_input_cardview.visibility = View.GONE
+                input_amount_cardview.visibility = View.GONE
+                btn_validate_cardview.visibility = View.VISIBLE
+                customer_code_input_cardview.visibility = View.VISIBLE
 
             }
 
