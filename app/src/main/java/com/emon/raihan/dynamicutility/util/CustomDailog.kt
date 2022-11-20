@@ -54,7 +54,7 @@ class CustomDailog {
             Manifest.permission.READ_EXTERNAL_STORAGE
         )
 
-        fun createYearPicker(activity: Activity, setYear: MaterialAutoCompleteTextView): String {
+        fun createYearPicker(activity: Activity, setYear: MaterialAutoCompleteTextView){
             var value = ""
             lateinit var dateValue: TextView
             lateinit var dayPicker: NumberPicker
@@ -99,10 +99,10 @@ class CustomDailog {
 
 
             alertDialog.show()
-            return value
+
         }
 
-        fun createMonthPicker(activity: Activity, setYear: MaterialAutoCompleteTextView): String {
+        fun createMonthPicker(activity: Activity, setYear: MaterialAutoCompleteTextView) {
             var value = ""
             lateinit var dateValue: TextView
             lateinit var monthPicker: NumberPicker
@@ -150,7 +150,6 @@ class CustomDailog {
 
             alertDialog.show()
 
-            return value
 
         }
 

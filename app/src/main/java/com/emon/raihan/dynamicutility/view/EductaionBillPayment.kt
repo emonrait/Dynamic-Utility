@@ -65,18 +65,18 @@ class EductaionBillPayment : CustomAppCompatActivity() {
         }
 
         sp_year_value.setOnClickListener {
-            year = CustomDailog.createYearPicker(this, sp_year_value)
+           CustomDailog.createYearPicker(this, sp_year_value)
         }
 
         sp_year_input.setOnClickListener {
-            year = CustomDailog.createYearPicker(this, sp_year_value)
+            CustomDailog.createYearPicker(this, sp_year_value)
         }
 
         sp_month_value.setOnClickListener {
-            month = CustomDailog.createMonthPicker(this, sp_month_value)
+            CustomDailog.createMonthPicker(this, sp_month_value)
         }
         sp_month_input.setOnClickListener {
-            month = CustomDailog.createMonthPicker(this, sp_month_value)
+            CustomDailog.createMonthPicker(this, sp_month_value)
         }
     }
 }

@@ -68,7 +68,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_margin="@dimen/margin_5"
-                    android:hint="@string/select_month"
+                    android:hint="@string/select_purpose"
                     android:padding="@dimen/padding_5">
 
                     <com.google.android.material.textfield.MaterialAutoCompleteTextView
@@ -78,7 +78,6 @@
                         android:inputType="none"
                         android:padding="@dimen/padding_5"
                         android:singleLine="true"
-                        android:text="@string/select_purpose"
                         android:textColor="@color/black"
                         android:textSize="@dimen/textsize_base" />
 

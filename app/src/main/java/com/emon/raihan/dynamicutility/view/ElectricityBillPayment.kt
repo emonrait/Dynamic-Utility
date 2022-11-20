@@ -3,6 +3,7 @@ package com.emon.raihan.dynamicutility.view
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.LinearLayout
@@ -116,19 +117,23 @@ class ElectricityBillPayment : CustomAppCompatActivity() {
 
 
         sp_year_value.setOnClickListener {
-            year=   CustomDailog.createYearPicker(this, sp_year_value)
+            CustomDailog.createYearPicker(this, sp_year_value)
+
 
         }
 
         sp_year_input.setOnClickListener {
-          year=  CustomDailog.createYearPicker(this, sp_year_value)
+            CustomDailog.createYearPicker(this, sp_year_value)
+            Log.d("value-->", year)
         }
 
         sp_month_value.setOnClickListener {
-            month=  CustomDailog.createMonthPicker(this, sp_month_value)
+            CustomDailog.createMonthPicker(this, sp_month_value)
+            Log.d("value-->", month)
         }
         sp_month_input.setOnClickListener {
-            month = CustomDailog.createMonthPicker(this, sp_month_value)
+            CustomDailog.createMonthPicker(this, sp_month_value)
+
         }
 
         btn_validate.setOnClickListener {
@@ -143,13 +148,17 @@ class ElectricityBillPayment : CustomAppCompatActivity() {
                     Toast.makeText(this, "Please Enter Recharge Amount", Toast.LENGTH_SHORT).show()
                 }
             } else {
-                if (year.isEmpty()) {
+                if (sp_year_value.text.toString().isEmpty()) {
                     Toast.makeText(this, "Please Select Bill Year", Toast.LENGTH_SHORT).show()
-                } else if (month.isEmpty()) {
+                } else if (sp_month_value.text.toString().isEmpty()) {
                     Toast.makeText(this, "Please Select Bill Month", Toast.LENGTH_SHORT).show()
                 } else if (et_customer_code_value.text.toString().isEmpty()) {
                     Toast.makeText(this, "Please Enter Customer Code", Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(this, "Success!", Toast.LENGTH_SHORT).show()
+
                 }
+
             }
         }
     }
