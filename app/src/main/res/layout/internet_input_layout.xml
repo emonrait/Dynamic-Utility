@@ -70,7 +70,7 @@
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/sp_year_input"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_margin="@dimen/margin_5"
@@ -81,6 +81,7 @@
                             android:id="@+id/sp_year_value"
                             android:layout_width="match_parent"
                             android:layout_height="60dp"
+                            android:drawableEnd="@drawable/ic_date"
                             android:inputType="none"
                             android:padding="@dimen/padding_5"
                             android:singleLine="true"
@@ -104,7 +105,7 @@
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/sp_month_input"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_margin="@dimen/margin_5"
@@ -115,6 +116,7 @@
                             android:id="@+id/sp_month_value"
                             android:layout_width="match_parent"
                             android:layout_height="60dp"
+                            android:drawableEnd="@drawable/ic_date"
                             android:inputType="none"
                             android:padding="@dimen/padding_5"
                             android:singleLine="true"

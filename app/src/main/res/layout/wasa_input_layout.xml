@@ -64,7 +64,7 @@
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/sp_year_input"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_margin="@dimen/margin_5"
@@ -75,11 +75,17 @@
                         android:id="@+id/sp_year_value"
                         android:layout_width="match_parent"
                         android:layout_height="60dp"
+                        android:clickable="false"
+                        android:drawableEnd="@drawable/ic_date"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"
                         android:inputType="none"
+                        android:longClickable="false"
                         android:padding="@dimen/padding_5"
                         android:singleLine="true"
                         android:textColor="@color/black"
-                        android:textSize="@dimen/textsize_base" />
+                        android:textSize="@dimen/textsize_base"
+                        app:endIconDrawable="@drawable/ic_date" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -98,7 +104,7 @@
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/sp_month_input"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_margin="@dimen/margin_5"
@@ -109,11 +115,17 @@
                         android:id="@+id/sp_month_value"
                         android:layout_width="match_parent"
                         android:layout_height="60dp"
+                        android:clickable="false"
+                        android:drawableEnd="@drawable/ic_date"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"
                         android:inputType="none"
+                        android:longClickable="false"
                         android:padding="@dimen/padding_5"
                         android:singleLine="true"
                         android:textColor="@color/black"
-                        android:textSize="@dimen/textsize_base" />
+                        android:textSize="@dimen/textsize_base"
+                        app:endIconDrawable="@drawable/ic_date"  />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
