@@ -76,7 +76,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="60dp"
                         android:clickable="false"
-                        android:drawableEnd="@drawable/ic_date"
+                        android:drawableEnd="@drawable/ic_touch"
                         android:focusable="false"
                         android:focusableInTouchMode="false"
                         android:gravity="center"
@@ -85,8 +85,7 @@
                         android:padding="@dimen/padding_5"
                         android:singleLine="true"
                         android:textColor="@color/black"
-                        android:textSize="@dimen/textsize_base"
-                        app:endIconDrawable="@drawable/ic_date" />
+                        android:textSize="@dimen/textsize_base" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -117,7 +116,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="60dp"
                         android:clickable="false"
-                        android:drawableEnd="@drawable/ic_date"
+                        android:drawableEnd="@drawable/ic_touch"
                         android:focusable="false"
                         android:focusableInTouchMode="false"
                         android:gravity="center"
@@ -126,8 +125,7 @@
                         android:padding="@dimen/padding_5"
                         android:singleLine="true"
                         android:textColor="@color/black"
-                        android:textSize="@dimen/textsize_base"
-                        app:endIconDrawable="@drawable/ic_date" />
+                        android:textSize="@dimen/textsize_base" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
