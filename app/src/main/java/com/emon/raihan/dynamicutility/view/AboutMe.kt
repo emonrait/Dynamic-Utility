@@ -15,9 +15,10 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.emon.raihan.dynamicutility.R
 import com.emon.raihan.dynamicutility.util.CustomActivityClear
+import com.emon.raihan.dynamicutility.util.CustomAppCompatActivity
 import java.util.*
 
-class AboutMe : AppCompatActivity() {
+class AboutMe : CustomAppCompatActivity() {
     private lateinit var toolbar: Toolbar
     private lateinit var gitlink: TextView
     private lateinit var fblink: TextView

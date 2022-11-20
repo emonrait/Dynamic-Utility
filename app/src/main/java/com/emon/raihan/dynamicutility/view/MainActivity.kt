@@ -10,9 +10,10 @@ import com.emon.raihan.dynamicutility.BuildConfig
 import com.emon.raihan.dynamicutility.R
 import com.emon.raihan.dynamicutility.adaptar.MenuAdapter
 import com.emon.raihan.dynamicutility.model.Menu
+import com.emon.raihan.dynamicutility.util.CustomAppCompatActivity
 import java.util.ArrayList
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : CustomAppCompatActivity() {
     private lateinit var menuList: ArrayList<Menu>
     private lateinit var menuGridView: GridView
     var adapter: MenuAdapter? = null

@@ -11,12 +11,13 @@ import androidx.cardview.widget.CardView
 import com.emon.raihan.dynamicutility.R
 import com.emon.raihan.dynamicutility.model.CodeDesOptions
 import com.emon.raihan.dynamicutility.util.CustomActivityClear
+import com.emon.raihan.dynamicutility.util.CustomAppCompatActivity
 import com.emon.raihan.dynamicutility.util.CustomDailog
 import com.google.android.material.textfield.MaterialAutoCompleteTextView
 import com.google.android.material.textfield.TextInputLayout
 import java.util.*
 
-class GASBillPayment : AppCompatActivity() {
+class GASBillPayment : CustomAppCompatActivity() {
     private lateinit var toolbar: Toolbar
     private lateinit var sp_bill_type_value: MaterialAutoCompleteTextView
     private lateinit var input_value_param_layout: LinearLayout

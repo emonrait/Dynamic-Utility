@@ -8,12 +8,13 @@ import androidx.appcompat.widget.Toolbar
 import com.emon.raihan.dynamicutility.R
 import com.emon.raihan.dynamicutility.model.CodeDesOptions
 import com.emon.raihan.dynamicutility.util.CustomActivityClear
+import com.emon.raihan.dynamicutility.util.CustomAppCompatActivity
 import com.emon.raihan.dynamicutility.util.CustomDailog
 import com.google.android.material.textfield.MaterialAutoCompleteTextView
 import com.google.android.material.textfield.TextInputLayout
 import java.util.*
 
-class EductaionBillPayment : AppCompatActivity() {
+class EductaionBillPayment : CustomAppCompatActivity() {
     private lateinit var toolbar: Toolbar
     private lateinit var sp_bill_type_value: MaterialAutoCompleteTextView
 

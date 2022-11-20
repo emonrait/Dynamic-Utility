@@ -25,6 +25,7 @@ import androidx.core.content.ContextCompat
 import com.emon.raihan.dynamicutility.R
 import com.emon.raihan.dynamicutility.model.CodeDesOptions
 import com.emon.raihan.dynamicutility.util.CustomActivityClear
+import com.emon.raihan.dynamicutility.util.CustomAppCompatActivity
 import com.emon.raihan.dynamicutility.util.CustomDailog
 import com.emon.raihan.dynamicutility.util.CustomDailog.Companion.addJpgSignatureToGallery
 import com.emon.raihan.dynamicutility.util.CustomDailog.Companion.requestPermission
@@ -38,7 +39,7 @@ import java.io.IOException
 import java.io.OutputStream
 import java.util.*
 
-class BillsReport : AppCompatActivity() {
+class BillsReport : CustomAppCompatActivity() {
     private lateinit var toolbar: Toolbar
     private lateinit var sp_bill_type_value: MaterialAutoCompleteTextView
     private lateinit var et_from_date: TextInputEditText

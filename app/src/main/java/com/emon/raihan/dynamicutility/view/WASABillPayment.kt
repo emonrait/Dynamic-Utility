@@ -8,12 +8,13 @@ import androidx.appcompat.widget.Toolbar
 import com.emon.raihan.dynamicutility.R
 import com.emon.raihan.dynamicutility.model.CodeDesOptions
 import com.emon.raihan.dynamicutility.util.CustomActivityClear
+import com.emon.raihan.dynamicutility.util.CustomAppCompatActivity
 import com.emon.raihan.dynamicutility.util.CustomDailog
 import com.google.android.material.textfield.MaterialAutoCompleteTextView
 import com.google.android.material.textfield.TextInputLayout
 import java.util.*
 
-class WASABillPayment : AppCompatActivity() {
+class WASABillPayment : CustomAppCompatActivity() {
     private lateinit var toolbar: Toolbar
     private lateinit var sp_bill_type_value: MaterialAutoCompleteTextView
     private lateinit var sp_year_value: MaterialAutoCompleteTextView
@@ -70,18 +71,18 @@ class WASABillPayment : AppCompatActivity() {
         }
 
         sp_year_value.setOnClickListener {
-            CustomDailog.createYearPicker(this,sp_year_value)
+            CustomDailog.createYearPicker(this, sp_year_value)
         }
 
         sp_year_input.setOnClickListener {
-            CustomDailog.createYearPicker(this,sp_year_value)
+            CustomDailog.createYearPicker(this, sp_year_value)
         }
 
         sp_month_value.setOnClickListener {
-            CustomDailog.createMonthPicker(this,sp_month_value)
+            CustomDailog.createMonthPicker(this, sp_month_value)
         }
         sp_month_input.setOnClickListener {
-            CustomDailog.createMonthPicker(this,sp_month_value)
+            CustomDailog.createMonthPicker(this, sp_month_value)
         }
 
 

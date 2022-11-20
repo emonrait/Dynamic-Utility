@@ -68,20 +68,6 @@ public class DateUtil {
         int day = 0;
         int daycheck = c.get(Calendar.DAY_OF_MONTH);
         String monthchk = new SimpleDateFormat("MMM").format(c.getTime()).toUpperCase();
-        //String monthchk2 = c.getActualMaximum(Calendar.DAY_OF_MONTH);
-       /* if (daycheck == 31) {
-            day = 01;
-            month = c.get(Calendar.MONTH) + 1;
-        } else if (daycheck == 28 && monthchk.equals("FEB")) {
-            day = 01;
-            month = c.get(Calendar.MONTH) + 1;
-        } else if (daycheck == 29 && monthchk.equals("FEB")) {
-            day = 01;
-            month = c.get(Calendar.MONTH) + 1;
-        } else {
-            day = c.get(Calendar.DAY_OF_MONTH) + 1;
-            month = c.get(Calendar.MONTH);
-        }*/
 
         day = c.get(Calendar.DAY_OF_MONTH);
         month = c.get(Calendar.MONTH);
