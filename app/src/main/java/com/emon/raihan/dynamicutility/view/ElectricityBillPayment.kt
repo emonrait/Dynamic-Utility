@@ -6,6 +6,8 @@ import android.os.Bundle
 import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.LinearLayout
+import android.widget.Toast
+import androidx.appcompat.widget.AppCompatButton
 import androidx.appcompat.widget.Toolbar
 import androidx.cardview.widget.CardView
 import com.emon.raihan.dynamicutility.R
@@ -14,6 +16,7 @@ import com.emon.raihan.dynamicutility.util.CustomActivityClear
 import com.emon.raihan.dynamicutility.util.CustomAppCompatActivity
 import com.emon.raihan.dynamicutility.util.CustomDailog
 import com.google.android.material.textfield.MaterialAutoCompleteTextView
+import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import java.util.*
 
@@ -29,9 +32,15 @@ class ElectricityBillPayment : CustomAppCompatActivity() {
     private lateinit var sp_month_value: MaterialAutoCompleteTextView
     private lateinit var sp_month_input: TextInputLayout
     private lateinit var sp_year_input: TextInputLayout
+    private lateinit var btn_validate: AppCompatButton
+    private lateinit var et_customer_code_value: TextInputEditText
+    private lateinit var et_meter_no_value: TextInputEditText
+    private lateinit var et_amount_value: TextInputEditText
 
     var codeDesOptions: ArrayList<CodeDesOptions> = ArrayList<CodeDesOptions>()
     var billType = ""
+    var year = ""
+    var month = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_electricity_bill_payment)
@@ -46,6 +55,10 @@ class ElectricityBillPayment : CustomAppCompatActivity() {
         sp_month_value = findViewById(R.id.sp_month_value)
         sp_month_input = findViewById(R.id.sp_month_input)
         sp_year_input = findViewById(R.id.sp_year_input)
+        btn_validate = findViewById(R.id.btn_validate)
+        et_customer_code_value = findViewById(R.id.et_customer_code_value)
+        et_meter_no_value = findViewById(R.id.et_meter_no_value)
+        et_amount_value = findViewById(R.id.et_amount_value)
 
         setSupportActionBar(toolbar)
         Objects.requireNonNull(supportActionBar)?.setHomeButtonEnabled(true)
@@ -103,18 +116,41 @@ class ElectricityBillPayment : CustomAppCompatActivity() {
 
 
         sp_year_value.setOnClickListener {
-            CustomDailog.createYearPicker(this,sp_year_value)
+            year=   CustomDailog.createYearPicker(this, sp_year_value)
+
         }
 
         sp_year_input.setOnClickListener {
-            CustomDailog.createYearPicker(this,sp_year_value)
+          year=  CustomDailog.createYearPicker(this, sp_year_value)
         }
 
         sp_month_value.setOnClickListener {
-            CustomDailog.createMonthPicker(this,sp_month_value)
+            month=  CustomDailog.createMonthPicker(this, sp_month_value)
         }
         sp_month_input.setOnClickListener {
-            CustomDailog.createMonthPicker(this,sp_month_value)
+            month = CustomDailog.createMonthPicker(this, sp_month_value)
+        }
+
+        btn_validate.setOnClickListener {
+            if (billType.isEmpty()) {
+                Toast.makeText(this, "Please Select Bill Type", Toast.LENGTH_SHORT).show()
+            } else if (billType.endsWith("PRE")) {
+                if (et_customer_code_value.text.toString().isEmpty()) {
+                    Toast.makeText(this, "Please Enter Customer Code", Toast.LENGTH_SHORT).show()
+                } else if (et_meter_no_value.text.toString().isEmpty()) {
+                    Toast.makeText(this, "Please Enter Meter No", Toast.LENGTH_SHORT).show()
+                } else if (et_amount_value.text.toString().isEmpty()) {
+                    Toast.makeText(this, "Please Enter Recharge Amount", Toast.LENGTH_SHORT).show()
+                }
+            } else {
+                if (year.isEmpty()) {
+                    Toast.makeText(this, "Please Select Bill Year", Toast.LENGTH_SHORT).show()
+                } else if (month.isEmpty()) {
+                    Toast.makeText(this, "Please Select Bill Month", Toast.LENGTH_SHORT).show()
+                } else if (et_customer_code_value.text.toString().isEmpty()) {
+                    Toast.makeText(this, "Please Enter Customer Code", Toast.LENGTH_SHORT).show()
+                }
+            }
         }
     }
 }

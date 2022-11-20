@@ -18,6 +18,7 @@ class MainActivity : CustomAppCompatActivity() {
     private lateinit var menuGridView: GridView
     var adapter: MenuAdapter? = null
     private lateinit var tv_version_name: TextView
+
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,7 +28,7 @@ class MainActivity : CustomAppCompatActivity() {
         tv_version_name = findViewById(R.id.tv_version_name)
         menuList = ArrayList<Menu>()
 
-         tv_version_name.text = "Version Name:- " + BuildConfig.VERSION_NAME
+        tv_version_name.text = "Version Name:- " + BuildConfig.VERSION_NAME
 
         menuList.add(Menu("EBP", "Electricity Bill Payment", R.drawable.electricity_bill))
         menuList.add(Menu("WASA", "Water Bill Payment", R.drawable.water_bill))
@@ -80,16 +81,14 @@ class MainActivity : CustomAppCompatActivity() {
                         startActivity(intent)
                     }
                     "EN" == menu_soft_code.text.toString() -> {
-                        //val intent = Intent(this, QRGenerate::class.java)
-                        // startActivity(intent)
-                        Toast.makeText(this, "Total Summary Coming Soon...", Toast.LENGTH_SHORT)
-                            .show()
+                        val intent = Intent(this, EntertainmentBillPayment::class.java)
+                        startActivity(intent)
+
                     }
                     "BR" == menu_soft_code.text.toString() -> {
                         val intent = Intent(this, BillsReport::class.java)
                         startActivity(intent)
-                        // Toast.makeText(this, "Total Summary Coming Soon...", Toast.LENGTH_SHORT)
-                        //     .show()
+
                     }
 
                 }

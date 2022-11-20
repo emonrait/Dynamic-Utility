@@ -5,7 +5,10 @@
       <map>
         <entry key="../../../../layout/custom_preview.xml" value="0.16304347826086957" />
         <entry key="..\:/Workspace/Android/Dynamic-Utility/app/src/main/res/layout/activity_about_me.xml" value="0.20416666666666666" />
+        <entry key="..\:/Workspace/Android/Dynamic-Utility/app/src/main/res/layout/activity_electricity_bill_payment.xml" value="0.25" />
+        <entry key="..\:/Workspace/Android/Dynamic-Utility/app/src/main/res/layout/activity_entertainment_bill_payment.xml" value="0.20416666666666666" />
         <entry key="..\:/Workspace/Android/Dynamic-Utility/app/src/main/res/layout/activity_gasbill_payment.xml" value="0.20416666666666666" />
+        <entry key="..\:/Workspace/Android/Dynamic-Utility/app/src/main/res/layout/activity_wasabill_payment.xml" value="0.20416666666666666" />
         <entry key="..\:/Workspace/Android/Dynamic-Utility/app/src/main/res/layout/electricity_input_layout.xml" value="0.20416666666666666" />
         <entry key="..\:/Workspace/Android/Dynamic-Utility/app/src/main/res/layout/gas_input_layout.xml" value="0.20416666666666666" />
         <entry key="app/src/main/res/drawable/bt_background_rounded_green.xml" value="0.18" />

@@ -27,6 +27,8 @@ class InsuranceBillPayment : CustomAppCompatActivity() {
 
     var codeDesOptions: ArrayList<CodeDesOptions> = ArrayList<CodeDesOptions>()
     var billType = ""
+    var year = ""
+    var month = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_insurance_bill_payment)

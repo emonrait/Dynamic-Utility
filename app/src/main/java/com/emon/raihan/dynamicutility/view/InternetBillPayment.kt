@@ -34,6 +34,8 @@ class InternetBillPayment : CustomAppCompatActivity() {
 
     var codeDesOptions: ArrayList<CodeDesOptions> = ArrayList<CodeDesOptions>()
     var billType = ""
+    var year = ""
+    var month = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_internet_bill_payment)

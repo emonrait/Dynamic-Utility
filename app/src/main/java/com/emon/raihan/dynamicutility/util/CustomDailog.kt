@@ -53,7 +53,9 @@ class CustomDailog {
             Manifest.permission.WRITE_EXTERNAL_STORAGE,
             Manifest.permission.READ_EXTERNAL_STORAGE
         )
-        fun createYearPicker(activity: Activity, setYear: MaterialAutoCompleteTextView) {
+
+        fun createYearPicker(activity: Activity, setYear: MaterialAutoCompleteTextView): String {
+            var value = ""
             lateinit var dateValue: TextView
             lateinit var dayPicker: NumberPicker
             lateinit var monthPicker: NumberPicker
@@ -87,7 +89,7 @@ class CustomDailog {
 
             btnOk.setOnClickListener {
                 setYear.setText(yearPicker.value.toString())
-
+                value = yearPicker.value.toString()
                 alertDialog.dismiss()
             }
 
@@ -97,9 +99,11 @@ class CustomDailog {
 
 
             alertDialog.show()
+            return value
         }
 
-        fun createMonthPicker(activity: Activity, setYear: MaterialAutoCompleteTextView) {
+        fun createMonthPicker(activity: Activity, setYear: MaterialAutoCompleteTextView): String {
+            var value = ""
             lateinit var dateValue: TextView
             lateinit var monthPicker: NumberPicker
             lateinit var ivClose: ImageView
@@ -134,8 +138,9 @@ class CustomDailog {
                     monthPicker.value.toString()
                 }
                 setYear.setText(newmonth)
-
+                value = newmonth
                 alertDialog.dismiss()
+
             }
 
             btnCancel.setOnClickListener { alertDialog.dismiss() }
@@ -144,6 +149,9 @@ class CustomDailog {
 
 
             alertDialog.show()
+
+            return value
+
         }
 
         fun fromDate(activity: Activity, et_from_date: TextInputEditText) {
@@ -246,7 +254,8 @@ class CustomDailog {
 
         @Throws(IOException::class)
         fun saveBitmapToJPG(bitmap: Bitmap, photo: File) {
-            val newBitmap = Bitmap.createBitmap(bitmap.width, bitmap.height, Bitmap.Config.ARGB_8888)
+            val newBitmap =
+                Bitmap.createBitmap(bitmap.width, bitmap.height, Bitmap.Config.ARGB_8888)
             val canvas = Canvas(newBitmap)
             canvas.drawColor(Color.WHITE)
             canvas.drawBitmap(bitmap, 0f, 0f, null)
@@ -255,7 +264,7 @@ class CustomDailog {
             stream.close()
         }
 
-        fun addJpgSignatureToGallery(activity: Activity,signature: Bitmap): Boolean {
+        fun addJpgSignatureToGallery(activity: Activity, signature: Bitmap): Boolean {
             var result = false
             try {
                 val photo = File(
@@ -263,7 +272,7 @@ class CustomDailog {
                     String.format("utility_%d.jpg", System.currentTimeMillis())
                 )
                 saveBitmapToJPG(signature, photo)
-                scanMediaFile(activity,photo)
+                scanMediaFile(activity, photo)
                 result = true
             } catch (e: IOException) {
                 e.printStackTrace()
@@ -271,7 +280,7 @@ class CustomDailog {
             return result
         }
 
-        private fun scanMediaFile(activity: Activity,photo: File) {
+        private fun scanMediaFile(activity: Activity, photo: File) {
             /* val mediaScanIntent = Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE)
               val contentUri = Uri.fromFile(photo)
               mediaScanIntent.data = contentUri
@@ -309,7 +318,7 @@ class CustomDailog {
             }
         }
 
-        fun requestPermission(activity:Activity) {
+        fun requestPermission(activity: Activity) {
             try {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
 

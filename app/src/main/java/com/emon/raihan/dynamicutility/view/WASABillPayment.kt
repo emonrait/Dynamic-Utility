@@ -25,6 +25,8 @@ class WASABillPayment : CustomAppCompatActivity() {
 
     var codeDesOptions: ArrayList<CodeDesOptions> = ArrayList<CodeDesOptions>()
     var billType = ""
+    var year = ""
+    var month = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_wasabill_payment)
@@ -71,18 +73,18 @@ class WASABillPayment : CustomAppCompatActivity() {
         }
 
         sp_year_value.setOnClickListener {
-            CustomDailog.createYearPicker(this, sp_year_value)
+            year=  CustomDailog.createYearPicker(this, sp_year_value)
         }
 
         sp_year_input.setOnClickListener {
-            CustomDailog.createYearPicker(this, sp_year_value)
+            year=   CustomDailog.createYearPicker(this, sp_year_value)
         }
 
         sp_month_value.setOnClickListener {
-            CustomDailog.createMonthPicker(this, sp_month_value)
+          month=  CustomDailog.createMonthPicker(this, sp_month_value)
         }
         sp_month_input.setOnClickListener {
-            CustomDailog.createMonthPicker(this, sp_month_value)
+         month=   CustomDailog.createMonthPicker(this, sp_month_value)
         }
 
 
