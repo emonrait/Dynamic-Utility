@@ -17,7 +17,6 @@
             android:layout_height="wrap_content"
             android:elevation="@dimen/margin_10"
             android:visibility="visible"
-            app:cardCornerRadius="@dimen/margin_5"
             app:cardElevation="@dimen/margin_10">
 
 
@@ -26,14 +25,17 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_margin="@dimen/margin_5"
+                android:layout_marginStart="@dimen/text_input_layout_left_size"
+                android:layout_marginTop="@dimen/text_input_layout_top_size"
+                android:layout_marginEnd="@dimen/text_input_layout_right_size"
+                android:layout_marginBottom="@dimen/text_input_layout_bottom_size"
                 android:hint="@string/select_type"
                 android:padding="@dimen/padding_5">
 
                 <com.google.android.material.textfield.MaterialAutoCompleteTextView
                     android:id="@+id/sp_bill_type_value"
                     android:layout_width="match_parent"
-                    android:layout_height="60dp"
+                    android:layout_height="@dimen/input_field_height_size"
                     android:inputType="none"
                     android:padding="@dimen/padding_5"
                     android:singleLine="true"
@@ -66,7 +68,6 @@
                 android:layout_height="wrap_content"
                 android:elevation="@dimen/margin_10"
                 android:visibility="visible"
-                app:cardCornerRadius="@dimen/margin_5"
                 app:cardElevation="@dimen/margin_10">
 
 
@@ -75,14 +76,17 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_margin="@dimen/margin_5"
+                    android:layout_marginStart="@dimen/text_input_layout_left_size"
+                    android:layout_marginTop="@dimen/text_input_layout_top_size"
+                    android:layout_marginEnd="@dimen/text_input_layout_right_size"
+                    android:layout_marginBottom="@dimen/text_input_layout_bottom_size"
                     android:hint="@string/customer_code"
                     android:padding="@dimen/padding_5">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/et_customer_code_value"
                         android:layout_width="match_parent"
-                        android:layout_height="60dp"
+                        android:layout_height="@dimen/input_field_height_size"
                         android:inputType="number"
                         android:padding="@dimen/padding_5"
                         android:singleLine="true"
@@ -100,7 +104,6 @@
                 android:layout_height="wrap_content"
                 android:elevation="@dimen/margin_10"
                 android:visibility="visible"
-                app:cardCornerRadius="@dimen/margin_5"
                 app:cardElevation="@dimen/margin_10">
 
 
@@ -109,14 +112,17 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_margin="@dimen/margin_5"
+                    android:layout_marginStart="@dimen/text_input_layout_left_size"
+                    android:layout_marginTop="@dimen/text_input_layout_top_size"
+                    android:layout_marginEnd="@dimen/text_input_layout_right_size"
+                    android:layout_marginBottom="@dimen/text_input_layout_bottom_size"
                     android:hint="@string/meter_no"
                     android:padding="@dimen/padding_5">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/et_meter_no_value"
                         android:layout_width="match_parent"
-                        android:layout_height="60dp"
+                        android:layout_height="@dimen/input_field_height_size"
                         android:inputType="number"
                         android:padding="@dimen/padding_5"
                         android:singleLine="true"
@@ -134,7 +140,6 @@
                 android:layout_height="wrap_content"
                 android:elevation="@dimen/margin_10"
                 android:visibility="visible"
-                app:cardCornerRadius="@dimen/margin_5"
                 app:cardElevation="@dimen/margin_10">
 
 
@@ -143,14 +148,17 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_margin="@dimen/margin_5"
+                    android:layout_marginStart="@dimen/text_input_layout_left_size"
+                    android:layout_marginTop="@dimen/text_input_layout_top_size"
+                    android:layout_marginEnd="@dimen/text_input_layout_right_size"
+                    android:layout_marginBottom="@dimen/text_input_layout_bottom_size"
                     android:hint="@string/invoice_no"
                     android:padding="@dimen/padding_5">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/et_invoice_no_value"
                         android:layout_width="match_parent"
-                        android:layout_height="60dp"
+                        android:layout_height="@dimen/input_field_height_size"
                         android:inputType="number"
                         android:padding="@dimen/padding_5"
                         android:singleLine="true"
@@ -168,7 +176,6 @@
                 android:layout_height="wrap_content"
                 android:elevation="@dimen/margin_10"
                 android:visibility="visible"
-                app:cardCornerRadius="@dimen/margin_5"
                 app:cardElevation="@dimen/margin_10">
 
 
@@ -177,14 +184,17 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_margin="@dimen/margin_5"
+                    android:layout_marginStart="@dimen/text_input_layout_left_size"
+                    android:layout_marginTop="@dimen/text_input_layout_top_size"
+                    android:layout_marginEnd="@dimen/text_input_layout_right_size"
+                    android:layout_marginBottom="@dimen/text_input_layout_bottom_size"
                     android:hint="@string/mobile_number"
                     android:padding="@dimen/padding_5">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/et_mobile_no_value"
                         android:layout_width="match_parent"
-                        android:layout_height="60dp"
+                        android:layout_height="@dimen/input_field_height_size"
                         android:inputType="number"
                         android:padding="@dimen/padding_5"
                         android:singleLine="true"
