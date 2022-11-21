@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/input_value"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/input_loan_amount_cardview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="@dimen/margin_10"
+            android:visibility="visible"
+            app:cardCornerRadius="@dimen/margin_5"
+            app:cardElevation="@dimen/margin_10">
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/loan_amount_input"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/margin_5"
+                android:hint="@string/loan_amount_bdt"
+                android:padding="@dimen/padding_5">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_loan_amount_value"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:inputType="numberDecimal"
+                    android:padding="@dimen/padding_5"
+                    android:singleLine="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/textsize_base" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/input_duration_months_cardview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="@dimen/margin_10"
+            android:visibility="visible"
+            app:cardCornerRadius="@dimen/margin_5"
+            app:cardElevation="@dimen/margin_10">
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/duration_months_input"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/margin_5"
+                android:hint="@string/duration_months"
+                android:padding="@dimen/padding_5">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_duration_months_value"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:inputType="number"
+                    android:padding="@dimen/padding_5"
+                    android:singleLine="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/textsize_base" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/inputapplied_for_cardview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="@dimen/margin_10"
+
+            android:visibility="visible"
+            app:cardCornerRadius="@dimen/margin_5"
+            app:cardElevation="@dimen/margin_10">
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/applied_for_input"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/margin_5"
+                android:hint="@string/applied_for"
+                android:padding="@dimen/padding_5">
+
+                <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                    android:id="@+id/sp_applied_for_value"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:inputType="none"
+                    android:padding="@dimen/padding_5"
+                    android:singleLine="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/textsize_base" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/input_receiving_ac_cardview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="@dimen/margin_10"
+
+            android:visibility="visible"
+            app:cardCornerRadius="@dimen/margin_5"
+            app:cardElevation="@dimen/margin_10">
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/input_receiving_ac"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/margin_5"
+                android:hint="@string/receiving_ac"
+                android:padding="@dimen/padding_5">
+
+                <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                    android:id="@+id/sp_receiving_ac_value"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:inputType="none"
+                    android:padding="@dimen/padding_5"
+                    android:singleLine="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/textsize_base" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <LinearLayout
+            android:id="@+id/checkbox_lyt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:id="@+id/chk_sure_checkbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:padding="@dimen/margin_2"
+                android:textColor="@color/black"
+                android:textSize="@dimen/textsize_base" />
+
+            <TextView
+                android:id="@+id/terms_condition"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:lineSpacingExtra="2dp"
+                android:text="@string/comfire_registration"
+                android:textColor="@color/black"
+                android:textSize="@dimen/textsize_base"
+                android:visibility="visible" />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/input_value"
+        android:orientation="vertical">
+
+        <include layout="@layout/loan_btn_validate_layout" />
+    </LinearLayout>
+
+
+</RelativeLayout>

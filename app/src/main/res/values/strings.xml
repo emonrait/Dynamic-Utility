@@ -48,4 +48,10 @@
     <string name="customer_id">Enter Customer ID</string>
     <string name="cancel">Cancel</string>
     <string name="ok">Ok</string>
+    <string name="loan_amount_bdt">Loan Amount (BDT)</string>
+    <string name="duration_months">Duration (MONTHS)</string>
+    <string name="applied_for">Applied For</string>
+    <string name="receiving_ac">Receiving (AC)</string>
+    <string name="comfire_registration"> I agree  to the<u> Terms &amp; Conditions</u> </string>
+    <string name="apply_for_loan">Apply For Loan</string>
 </resources>
