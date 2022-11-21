@@ -29,4 +29,11 @@
         <item name="android:textColor">@android:color/white</item>
         <item name="textAllCaps">true</item>
     </style>
+
+
+    <style name="Base.Widget.Design.TabLayout" parent="android:Widget">
+        <item name="tabIndicatorHeight">5dp</item>
+    </style>
+
+    <dimen name="tab_max_width">30dp</dimen>
 </resources>
