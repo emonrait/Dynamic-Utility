@@ -2,10 +2,10 @@
 <resources>
     <dimen name="margin_10">10dp</dimen>
     <dimen name="margin_5">5dp</dimen>
-    <dimen name="welcome_gridview_hs_base">10dp</dimen>
+    <dimen name="welcome_gridview_hs_base">2dp</dimen>
     <dimen name="welcome_gridview_padding_base">10dp</dimen>
-    <dimen name="welcome_gridview_vs_base">10dp</dimen>
-    <dimen name="header_height_base">160dp</dimen>
+    <dimen name="welcome_gridview_vs_base">2dp</dimen>
+    <dimen name="header_height_base">130dp</dimen>
     <dimen name="header_image_height_base">90dp</dimen>
     <dimen name="row_welcome_menu_ll_margin_top_base">10dp</dimen>
     <dimen name="menu_size">60dp</dimen>

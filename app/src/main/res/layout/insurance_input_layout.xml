@@ -17,7 +17,6 @@
             android:layout_height="wrap_content"
             android:elevation="@dimen/margin_10"
             android:visibility="visible"
-            app:cardCornerRadius="@dimen/margin_5"
             app:cardElevation="@dimen/margin_10">
 
 
@@ -58,7 +57,6 @@
                 android:layout_weight="1"
                 android:elevation="@dimen/margin_10"
                 android:visibility="visible"
-                app:cardCornerRadius="@dimen/margin_5"
                 app:cardElevation="@dimen/margin_10">
 
 
@@ -91,7 +89,6 @@
                 android:layout_height="wrap_content"
                 android:elevation="@dimen/margin_10"
                 android:visibility="visible"
-                app:cardCornerRadius="@dimen/margin_5"
                 app:cardElevation="@dimen/margin_10">
 
 
