@@ -4,9 +4,7 @@ import android.Manifest
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.ArrayAdapter
-import android.widget.Button
-import android.widget.LinearLayout
+import android.widget.*
 import androidx.appcompat.widget.Toolbar
 import com.emon.raihan.dynamicutility.R
 import com.emon.raihan.dynamicutility.model.CodeDesOptions
@@ -19,6 +17,10 @@ import java.util.*
 
 class LoanApplication : CustomAppCompatActivity() {
     private lateinit var toolbar: Toolbar
+    private lateinit var iv_header_back: ImageView
+    private lateinit var toolbar_title: TextView
+    private lateinit var iv_header_logout: ImageView
+
     private lateinit var sp_applied_for_value: MaterialAutoCompleteTextView
     private lateinit var sp_receiving_ac_value: MaterialAutoCompleteTextView
 
@@ -36,19 +38,24 @@ class LoanApplication : CustomAppCompatActivity() {
         setContentView(R.layout.activity_loan_application)
 
         toolbar = findViewById(R.id.toolbar)
+        iv_header_back = toolbar.findViewById(R.id.iv_header_back)
+        toolbar_title = toolbar.findViewById(R.id.toolbar_title)
+        iv_header_logout = toolbar.findViewById(R.id.iv_header_logout)
+
         sp_applied_for_value = findViewById(R.id.sp_applied_for_value)
         sp_receiving_ac_value = findViewById(R.id.sp_receiving_ac_value)
 
-        setSupportActionBar(toolbar)
-        Objects.requireNonNull(supportActionBar)?.setHomeButtonEnabled(true)
-        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-        supportActionBar!!.title = "Apply Loan"
 
-        toolbar.setNavigationOnClickListener {
+        setSupportActionBar(toolbar)
+        toolbar_title.text = "Apply Loan"
+        // Objects.requireNonNull(supportActionBar)?.setHomeButtonEnabled(true)
+        //  supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        //  supportActionBar!!.title = "About Me"
+
+        iv_header_back.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             CustomActivityClear.doClearActivity(intent, this)
         }
-
 
         codeDesOptions.add(CodeDesOptions("Personal Loan", "PL"))
         codeDesOptions.add(CodeDesOptions("Car Loan", "CL"))

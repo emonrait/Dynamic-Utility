@@ -106,7 +106,7 @@ class ElectricityBillPayment : CustomAppCompatActivity() {
             billType = codeDesOptions[position].code.toString()
             if (billType.endsWith("PRE")) {
                 year_month_layout.visibility = View.GONE
-                meter_no_input_cardview.visibility = View.VISIBLE
+                meter_no_input_cardview.visibility = View.GONE
                 input_amount_cardview.visibility = View.VISIBLE
                 btn_validate_cardview.visibility = View.VISIBLE
                 customer_code_input_cardview.visibility = View.VISIBLE

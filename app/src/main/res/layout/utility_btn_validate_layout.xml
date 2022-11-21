@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginLeft="@dimen/button_margin_left"
-            android:layout_marginTop="@dimen/margin_20"
+            android:layout_marginTop="@dimen/btn_utility_validate_top_size"
             android:layout_marginRight="@dimen/button_margin_right"
             android:layout_marginBottom="@dimen/margin_10"
             android:background="@drawable/bt_background_rounded_app_color"

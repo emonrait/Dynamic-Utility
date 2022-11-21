@@ -12,6 +12,7 @@ import com.emon.raihan.dynamicutility.adaptar.MenuAdapter
 import com.emon.raihan.dynamicutility.model.Menu
 import com.emon.raihan.dynamicutility.util.CustomAppCompatActivity
 import com.emon.raihan.dynamicutility.view.loan.LoanApplication
+import com.emon.raihan.dynamicutility.view.loan.LoanDashboard
 import java.util.ArrayList
 
 class MainActivity : CustomAppCompatActivity() {
@@ -38,7 +39,7 @@ class MainActivity : CustomAppCompatActivity() {
         menuList.add(Menu("INS", "Insurance Bill Payment", R.drawable.insurance_bill))
         menuList.add(Menu("IN", "Internet Bill Payment", R.drawable.internet_bill))
         menuList.add(Menu("EN", "Entertainment Bill Payment", R.drawable.entertainment_bill))
-        menuList.add(Menu("BR", "Bill Report", R.drawable.invoice))
+        menuList.add(Menu("LD", "Loan Dashboard", R.drawable.invoice))
         menuList.add(Menu("LA", "Loan Application", R.drawable.internet_bill))
         menuList.add(Menu("LR", "Loan Result", R.drawable.entertainment_bill))
         menuList.add(Menu("BR", "Bill Report", R.drawable.invoice))
@@ -96,6 +97,11 @@ class MainActivity : CustomAppCompatActivity() {
                     }
                     "LA" == menu_soft_code.text.toString() -> {
                         val intent = Intent(this, LoanApplication::class.java)
+                        startActivity(intent)
+
+                    }
+                    "LD" == menu_soft_code.text.toString() -> {
+                        val intent = Intent(this, LoanDashboard::class.java)
                         startActivity(intent)
 
                     }

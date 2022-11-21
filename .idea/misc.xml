@@ -16,6 +16,9 @@
         <entry key="app/src/main/res/layout/activity_gasbill_payment.xml" value="0.24270833333333333" />
         <entry key="app/src/main/res/layout/activity_insurance_bill_payment.xml" value="0.2578125" />
         <entry key="app/src/main/res/layout/activity_internet_bill_payment.xml" value="0.2578125" />
+        <entry key="app/src/main/res/layout/activity_loan_application.xml" value="0.2578125" />
+        <entry key="app/src/main/res/layout/activity_loan_dashboard.xml" value="0.2578125" />
+        <entry key="app/src/main/res/layout/activity_loan_result.xml" value="0.2578125" />
         <entry key="app/src/main/res/layout/activity_splash_screen.xml" value="0.24270833333333333" />
         <entry key="app/src/main/res/layout/activity_wasabill_payment.xml" value="0.24270833333333333" />
         <entry key="app/src/main/res/layout/dialog_year_picker.xml" value="0.165" />
@@ -29,7 +32,9 @@
         <entry key="app/src/main/res/layout/param_layout.xml" value="0.24270833333333333" />
         <entry key="app/src/main/res/layout/report_header.xml" value="0.24270833333333333" />
         <entry key="app/src/main/res/layout/row_menu.xml" value="0.2947916666666667" />
-        <entry key="app/src/main/res/layout/wasa_input_layout.xml" value="0.24270833333333333" />
+        <entry key="app/src/main/res/layout/row_sub_menu.xml" value="0.2578125" />
+        <entry key="app/src/main/res/layout/utility_btn_validate_layout.xml" value="0.2578125" />
+        <entry key="app/src/main/res/layout/wasa_input_layout.xml" value="0.375" />
       </map>
     </option>
   </component>

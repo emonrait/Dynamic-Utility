@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".view.loan.LoanDashboard">
+    tools:context=".view.loan.LoanResult">
 
     <LinearLayout
         android:id="@+id/toolbar_layout"
@@ -23,19 +23,11 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/toolbar_layout"
         android:layout_marginLeft="5dp"
-        android:layout_marginTop="@dimen/margin_10"
+        android:layout_marginTop="@dimen/main_layout_maring_top_base"
         android:layout_marginRight="5dp"
         android:orientation="vertical">
 
-        <GridView
-            android:id="@+id/menuGridView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/white"
-            android:horizontalSpacing="@dimen/margin_1"
-            android:numColumns="2"
-            android:scrollbars="none"
-            android:verticalSpacing="@dimen/margin_1" />
+
     </LinearLayout>
 
 
