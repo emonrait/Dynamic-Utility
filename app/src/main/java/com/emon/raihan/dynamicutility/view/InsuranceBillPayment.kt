@@ -83,7 +83,7 @@ class InsuranceBillPayment : CustomAppCompatActivity() {
             input_value_param_layout.visibility = View.VISIBLE
             bill_type_title.text = codeDesOptions[position].desc.toString()
             bill_type_view_layout.visibility = View.VISIBLE
-            iv_bill_type_logo.setImageResource(R.drawable.water_bill)
+            iv_bill_type_logo.setImageResource(R.drawable.insurance_bill)
 
             if (billType.equals("METLIFE")) {
                 sp_purpose_cardview.visibility = View.VISIBLE

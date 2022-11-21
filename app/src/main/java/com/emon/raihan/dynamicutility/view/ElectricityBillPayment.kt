@@ -114,7 +114,7 @@ class ElectricityBillPayment : CustomAppCompatActivity() {
             billType = codeDesOptions[position].code.toString()
             bill_type_title.text = codeDesOptions[position].desc.toString()
             bill_type_view_layout.visibility = View.VISIBLE
-            iv_bill_type_logo.setImageResource(R.drawable.water_bill)
+            iv_bill_type_logo.setImageResource(R.drawable.electricity_bill)
             if (billType.endsWith("PRE")) {
                 year_month_layout.visibility = View.GONE
                 meter_no_input_cardview.visibility = View.GONE

@@ -95,7 +95,7 @@ class InternetBillPayment : CustomAppCompatActivity() {
             input_value_param_layout.visibility = View.VISIBLE
             bill_type_title.text = codeDesOptions[position].desc.toString()
             bill_type_view_layout.visibility = View.VISIBLE
-            iv_bill_type_logo.setImageResource(R.drawable.water_bill)
+            iv_bill_type_logo.setImageResource(R.drawable.internet_bill)
             if (billType.endsWith("PRE")) {
                 year_month_layout.visibility = View.GONE
                 customer_code_input_cardview.visibility = View.VISIBLE
