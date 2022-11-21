@@ -54,4 +54,6 @@
     <string name="receiving_ac">Receiving (AC)</string>
     <string name="comfire_registration"> I agree  to the<u> Terms &amp; Conditions</u> </string>
     <string name="apply_for_loan">Apply For Loan</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

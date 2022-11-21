@@ -13,6 +13,7 @@ import com.emon.raihan.dynamicutility.model.Menu
 import com.emon.raihan.dynamicutility.util.CustomAppCompatActivity
 import com.emon.raihan.dynamicutility.view.loan.LoanApplication
 import com.emon.raihan.dynamicutility.view.loan.LoanDashboard
+import com.emon.raihan.dynamicutility.view.loan.LoanResult
 import java.util.ArrayList
 
 class MainActivity : CustomAppCompatActivity() {
@@ -106,7 +107,7 @@ class MainActivity : CustomAppCompatActivity() {
 
                     }
                     "LR" == menu_soft_code.text.toString() -> {
-                        val intent = Intent(this, BillsReport::class.java)
+                        val intent = Intent(this, LoanResult::class.java)
                         startActivity(intent)
 
                     }
