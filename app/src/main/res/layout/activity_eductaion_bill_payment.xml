@@ -9,19 +9,21 @@
     android:orientation="vertical"
     tools:context=".view.EductaionBillPayment">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
+    <LinearLayout
+        android:id="@+id/toolbar_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/purple_500"
-        app:theme="@style/ToolbarColoredBackArrow"
-        app:titleTextColor="@color/white" />
+        android:orientation="vertical">
+
+        <include layout="@layout/header_layout_toolbar" />
+    </LinearLayout>
+
 
     <LinearLayout
         android:id="@+id/layout_content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/toolbar"
+        android:layout_below="@+id/toolbar_layout"
         android:orientation="vertical">
 
 

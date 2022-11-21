@@ -21,4 +21,7 @@
     <dimen name="main_layout_maring_top_base">20dp</dimen>
     <dimen name="margin_15">15dp</dimen>
     <dimen name="margin_100">100dp</dimen>
+    <dimen name="margin_30">30dp</dimen>
+    <dimen name="button_margin_left">40dp</dimen>
+    <dimen name="button_margin_right">40dp</dimen>
 </resources>

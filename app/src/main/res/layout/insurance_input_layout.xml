@@ -153,32 +153,14 @@
 
             </androidx.cardview.widget.CardView>
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/btn_validate_cardview"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/input_value"
-                android:elevation="@dimen/margin_10"
-                android:visibility="visible"
-                app:cardCornerRadius="@dimen/margin_5"
-                app:cardElevation="@dimen/margin_10">
+                android:orientation="vertical">
 
-                <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/btn_validate"
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp"
-                    android:layout_marginLeft="@dimen/margin_10"
-                    android:layout_marginTop="@dimen/margin_20"
-                    android:layout_marginRight="@dimen/margin_10"
-                    android:layout_marginBottom="@dimen/margin_10"
-                    android:background="@drawable/bt_background_rounded_green"
-                    android:padding="@dimen/padding_5"
-                    android:text="@string/validate"
-                    android:textColor="@color/white"
-                    android:textStyle="bold" />
-
-
-            </androidx.cardview.widget.CardView>
+                <include layout="@layout/utility_btn_validate_layout" />
+            </LinearLayout>
 
         </LinearLayout>
 
