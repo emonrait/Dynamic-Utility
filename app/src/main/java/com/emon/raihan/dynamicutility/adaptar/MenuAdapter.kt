@@ -53,7 +53,7 @@ class MenuAdapter(
         item.imageId?.let { viewHolder.menu_icon?.setImageResource(it) }
 
         // viewHolder.menu_name?.typeface = typeface_regular
-        return view as View
+        return view
     }
 
     override fun getItem(i: Int): Menu {

@@ -15,10 +15,7 @@ import android.os.Bundle
 import android.os.Environment
 import android.util.Log
 import android.view.View
-import android.widget.ArrayAdapter
-import android.widget.Button
-import android.widget.LinearLayout
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.widget.Toolbar
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -41,6 +38,10 @@ import java.util.*
 
 class BillsReport : CustomAppCompatActivity() {
     private lateinit var toolbar: Toolbar
+    private lateinit var iv_header_back: ImageView
+    private lateinit var toolbar_title: TextView
+    private lateinit var iv_header_logout: ImageView
+
     private lateinit var sp_bill_type_value: MaterialAutoCompleteTextView
     private lateinit var et_from_date: TextInputEditText
     private lateinit var et_to_date: TextInputEditText
@@ -65,6 +66,10 @@ class BillsReport : CustomAppCompatActivity() {
         setContentView(R.layout.activity_bills_report)
 
         toolbar = findViewById(R.id.toolbar)
+        iv_header_back = toolbar.findViewById(R.id.iv_header_back)
+        toolbar_title = toolbar.findViewById(R.id.toolbar_title)
+        iv_header_logout = toolbar.findViewById(R.id.iv_header_logout)
+
         sp_bill_type_value = findViewById(R.id.sp_bill_type_value)
         et_from_date = findViewById(R.id.et_from_date)
         et_to_date = findViewById(R.id.et_to_date)
@@ -75,11 +80,12 @@ class BillsReport : CustomAppCompatActivity() {
         peram_layout = findViewById(R.id.peram_layout)
 
         setSupportActionBar(toolbar)
-        Objects.requireNonNull(supportActionBar)?.setHomeButtonEnabled(true)
-        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-        supportActionBar!!.title = "Bill Payment Report"
+        toolbar_title.text = "Bills Report"
+        // Objects.requireNonNull(supportActionBar)?.setHomeButtonEnabled(true)
+        //  supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        //  supportActionBar!!.title = "About Me"
 
-        toolbar.setNavigationOnClickListener {
+        iv_header_back.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             CustomActivityClear.doClearActivity(intent, this)
         }

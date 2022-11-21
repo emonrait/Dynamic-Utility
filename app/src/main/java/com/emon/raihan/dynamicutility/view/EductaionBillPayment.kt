@@ -4,6 +4,8 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.appcompat.widget.Toolbar
 import com.emon.raihan.dynamicutility.R
 import com.emon.raihan.dynamicutility.model.CodeDesOptions
@@ -16,6 +18,10 @@ import java.util.*
 
 class EductaionBillPayment : CustomAppCompatActivity() {
     private lateinit var toolbar: Toolbar
+    private lateinit var iv_header_back: ImageView
+    private lateinit var toolbar_title: TextView
+    private lateinit var iv_header_logout: ImageView
+
     private lateinit var sp_bill_type_value: MaterialAutoCompleteTextView
 
     var codeDesOptions: ArrayList<CodeDesOptions> = ArrayList<CodeDesOptions>()
@@ -33,6 +39,10 @@ class EductaionBillPayment : CustomAppCompatActivity() {
         setContentView(R.layout.activity_eductaion_bill_payment)
 
         toolbar = findViewById(R.id.toolbar)
+        iv_header_back = toolbar.findViewById(R.id.iv_header_back)
+        toolbar_title = toolbar.findViewById(R.id.toolbar_title)
+        iv_header_logout = toolbar.findViewById(R.id.iv_header_logout)
+
         sp_bill_type_value = findViewById(R.id.sp_bill_type_value)
         sp_year_value = findViewById(R.id.sp_year_value)
         sp_month_value = findViewById(R.id.sp_month_value)
@@ -40,11 +50,12 @@ class EductaionBillPayment : CustomAppCompatActivity() {
         sp_year_input = findViewById(R.id.sp_year_input)
 
         setSupportActionBar(toolbar)
-        Objects.requireNonNull(supportActionBar)?.setHomeButtonEnabled(true)
-        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-        supportActionBar!!.title = "Education Bill Payment"
+        toolbar_title.text = "Education Bill Payment"
+        // Objects.requireNonNull(supportActionBar)?.setHomeButtonEnabled(true)
+        //  supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        //  supportActionBar!!.title = "About Me"
 
-        toolbar.setNavigationOnClickListener {
+        iv_header_back.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             CustomActivityClear.doClearActivity(intent, this)
         }

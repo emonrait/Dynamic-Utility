@@ -8,10 +8,46 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/purple_500"
+        android:layout_centerVertical="false"
+        android:background="@color/app_color"
         android:gravity="center"
         app:theme="@style/ToolbarColoredBackArrow"
-        app:titleTextColor="@color/white" />
+        app:titleTextColor="@color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="10">
+
+            <ImageView
+                android:id="@+id/iv_header_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginLeft="-10dp"
+                android:layout_weight="1"
+                android:src="@drawable/ic_arrow_back" />
+
+            <TextView
+                android:id="@+id/toolbar_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="8"
+                android:gravity="center"
+                android:text="@string/select_year"
+                android:textColor="@color/white"
+                android:textSize="@dimen/textsize_base" />
+
+            <ImageView
+                android:id="@+id/iv_header_logout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/ic_logout"
+                android:visibility="invisible" />
+        </LinearLayout>
+    </androidx.appcompat.widget.Toolbar>
 
 
 </RelativeLayout>

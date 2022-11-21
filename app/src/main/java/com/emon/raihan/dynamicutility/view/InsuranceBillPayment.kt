@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.ArrayAdapter
+import android.widget.ImageView
 import android.widget.LinearLayout
+import android.widget.TextView
 import androidx.appcompat.widget.Toolbar
 import androidx.cardview.widget.CardView
 import com.emon.raihan.dynamicutility.R
@@ -19,6 +21,10 @@ import java.util.*
 
 class InsuranceBillPayment : CustomAppCompatActivity() {
     private lateinit var toolbar: Toolbar
+    private lateinit var iv_header_back: ImageView
+    private lateinit var toolbar_title: TextView
+    private lateinit var iv_header_logout: ImageView
+
     private lateinit var sp_bill_type_value: MaterialAutoCompleteTextView
     private lateinit var input_value_param_layout: LinearLayout
     private lateinit var sp_purpose_cardview: CardView
@@ -33,6 +39,10 @@ class InsuranceBillPayment : CustomAppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_insurance_bill_payment)
         toolbar = findViewById(R.id.toolbar)
+        iv_header_back = toolbar.findViewById(R.id.iv_header_back)
+        toolbar_title = toolbar.findViewById(R.id.toolbar_title)
+        iv_header_logout = toolbar.findViewById(R.id.iv_header_logout)
+
         sp_bill_type_value = findViewById(R.id.sp_bill_type_value)
         input_value_param_layout = findViewById(R.id.input_value_param_layout)
         sp_purpose_cardview = findViewById(R.id.sp_purpose_cardview)
@@ -40,14 +50,16 @@ class InsuranceBillPayment : CustomAppCompatActivity() {
         input_mobile_no_cardview = findViewById(R.id.input_mobile_no_cardview)
 
         setSupportActionBar(toolbar)
-        Objects.requireNonNull(supportActionBar)?.setHomeButtonEnabled(true)
-        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-        supportActionBar!!.title = "Insurance Bill Payment"
+        toolbar_title.text = "Insurance Bill Payment"
+        // Objects.requireNonNull(supportActionBar)?.setHomeButtonEnabled(true)
+        //  supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        //  supportActionBar!!.title = "About Me"
 
-        toolbar.setNavigationOnClickListener {
+        iv_header_back.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             CustomActivityClear.doClearActivity(intent, this)
         }
+
         input_value_param_layout.visibility = View.GONE
 
         codeDesOptions.add(CodeDesOptions("Metlife", "METLIFE"))
