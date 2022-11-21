@@ -148,11 +148,15 @@ class ElectricityBillPayment : CustomAppCompatActivity() {
                 Toast.makeText(this, "Please Select Bill Type", Toast.LENGTH_SHORT).show()
             } else if (billType.endsWith("PRE")) {
                 if (et_customer_code_value.text.toString().isEmpty()) {
+                    et_customer_code_value.requestFocus()
                     Toast.makeText(this, "Please Enter Customer Code", Toast.LENGTH_SHORT).show()
-                } else if (et_meter_no_value.text.toString().isEmpty()) {
-                    Toast.makeText(this, "Please Enter Meter No", Toast.LENGTH_SHORT).show()
                 } else if (et_amount_value.text.toString().isEmpty()) {
+                    et_amount_value.requestFocus()
+
                     Toast.makeText(this, "Please Enter Recharge Amount", Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(this, "Success!", Toast.LENGTH_SHORT).show()
+
                 }
             } else {
                 if (sp_year_value.text.toString().isEmpty()) {
@@ -160,6 +164,7 @@ class ElectricityBillPayment : CustomAppCompatActivity() {
                 } else if (sp_month_value.text.toString().isEmpty()) {
                     Toast.makeText(this, "Please Select Bill Month", Toast.LENGTH_SHORT).show()
                 } else if (et_customer_code_value.text.toString().isEmpty()) {
+                    et_customer_code_value.requestFocus()
                     Toast.makeText(this, "Please Enter Customer Code", Toast.LENGTH_SHORT).show()
                 } else {
                     Toast.makeText(this, "Success!", Toast.LENGTH_SHORT).show()

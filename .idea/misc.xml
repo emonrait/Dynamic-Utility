@@ -6,6 +6,7 @@
         <entry key="../../../../layout/custom_preview.xml" value="0.16304347826086957" />
         <entry key="app/src/main/res/drawable/bt_background_rounded_green.xml" value="0.18" />
         <entry key="app/src/main/res/drawable/btn_round_border_transparent.xml" value="0.18" />
+        <entry key="app/src/main/res/drawable/cardview_background_shadow.xml" value="0.18" />
         <entry key="app/src/main/res/drawable/ic_date.xml" value="0.18" />
         <entry key="app/src/main/res/drawable/ic_programmer.xml" value="0.18" />
         <entry key="app/src/main/res/layout/activity_about_me.xml" value="0.24270833333333333" />
@@ -29,11 +30,13 @@
         <entry key="app/src/main/res/layout/header_layout_toolbar.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/insurance_input_layout.xml" value="0.2578125" />
         <entry key="app/src/main/res/layout/internet_input_layout.xml" value="0.2578125" />
+        <entry key="app/src/main/res/layout/loan_input_layout.xml" value="0.2578125" />
         <entry key="app/src/main/res/layout/param_layout.xml" value="0.24270833333333333" />
         <entry key="app/src/main/res/layout/report_header.xml" value="0.24270833333333333" />
         <entry key="app/src/main/res/layout/row_menu.xml" value="0.2947916666666667" />
         <entry key="app/src/main/res/layout/row_sub_menu.xml" value="0.2578125" />
         <entry key="app/src/main/res/layout/utility_btn_validate_layout.xml" value="0.2578125" />
+        <entry key="app/src/main/res/layout/utility_year_month_layout.xml" value="0.2578125" />
         <entry key="app/src/main/res/layout/wasa_input_layout.xml" value="0.375" />
       </map>
     </option>
