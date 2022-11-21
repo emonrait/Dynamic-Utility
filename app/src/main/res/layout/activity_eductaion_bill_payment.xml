@@ -18,12 +18,23 @@
         <include layout="@layout/header_layout_toolbar" />
     </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/bill_type_view_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar_layout"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <include layout="@layout/bill_type_view_layout" />
+    </LinearLayout>
+
 
     <LinearLayout
         android:id="@+id/layout_content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/toolbar_layout"
+        android:layout_below="@+id/bill_type_view_layout"
         android:orientation="vertical">
 
 

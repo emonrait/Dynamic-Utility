@@ -24,6 +24,9 @@ class InternetBillPayment : CustomAppCompatActivity() {
     private lateinit var iv_header_back: ImageView
     private lateinit var toolbar_title: TextView
     private lateinit var iv_header_logout: ImageView
+    private lateinit var iv_bill_type_logo: ImageView
+    private lateinit var bill_type_title: TextView
+    private lateinit var bill_type_view_layout: LinearLayout
 
     private lateinit var sp_bill_type_value: MaterialAutoCompleteTextView
     private lateinit var year_month_layout: LinearLayout
@@ -50,6 +53,9 @@ class InternetBillPayment : CustomAppCompatActivity() {
         iv_header_back = toolbar.findViewById(R.id.iv_header_back)
         toolbar_title = toolbar.findViewById(R.id.toolbar_title)
         iv_header_logout = toolbar.findViewById(R.id.iv_header_logout)
+        iv_bill_type_logo = findViewById(R.id.iv_bill_type_logo)
+        bill_type_title = findViewById(R.id.bill_type_title)
+        bill_type_view_layout = findViewById(R.id.bill_type_view_layout)
 
         sp_bill_type_value = findViewById(R.id.sp_bill_type_value)
         year_month_layout = findViewById(R.id.year_month_layout)
@@ -87,7 +93,9 @@ class InternetBillPayment : CustomAppCompatActivity() {
         sp_bill_type_value.setOnItemClickListener { parent, arg1, position, id ->
             billType = codeDesOptions[position].code.toString()
             input_value_param_layout.visibility = View.VISIBLE
-
+            bill_type_title.text = codeDesOptions[position].desc.toString()
+            bill_type_view_layout.visibility = View.VISIBLE
+            iv_bill_type_logo.setImageResource(R.drawable.water_bill)
             if (billType.endsWith("PRE")) {
                 year_month_layout.visibility = View.GONE
                 customer_code_input_cardview.visibility = View.VISIBLE

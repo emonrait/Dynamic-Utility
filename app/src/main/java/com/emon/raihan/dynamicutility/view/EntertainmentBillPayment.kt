@@ -3,8 +3,10 @@ package com.emon.raihan.dynamicutility.view
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.widget.Toolbar
 import com.emon.raihan.dynamicutility.R
@@ -21,6 +23,9 @@ class EntertainmentBillPayment : CustomAppCompatActivity() {
     private lateinit var iv_header_back: ImageView
     private lateinit var toolbar_title: TextView
     private lateinit var iv_header_logout: ImageView
+    private lateinit var iv_bill_type_logo: ImageView
+    private lateinit var bill_type_title: TextView
+    private lateinit var bill_type_view_layout: LinearLayout
 
     private lateinit var sp_bill_type_value: MaterialAutoCompleteTextView
     private lateinit var sp_year_value: MaterialAutoCompleteTextView
@@ -41,6 +46,9 @@ class EntertainmentBillPayment : CustomAppCompatActivity() {
         iv_header_back = toolbar.findViewById(R.id.iv_header_back)
         toolbar_title = toolbar.findViewById(R.id.toolbar_title)
         iv_header_logout = toolbar.findViewById(R.id.iv_header_logout)
+        iv_bill_type_logo = findViewById(R.id.iv_bill_type_logo)
+        bill_type_title = findViewById(R.id.bill_type_title)
+        bill_type_view_layout = findViewById(R.id.bill_type_view_layout)
 
         sp_bill_type_value = findViewById(R.id.sp_bill_type_value)
         customer_code_input = findViewById(R.id.customer_code_input)
@@ -71,6 +79,9 @@ class EntertainmentBillPayment : CustomAppCompatActivity() {
 
         sp_bill_type_value.setOnItemClickListener { parent, arg1, position, id ->
             billType = codeDesOptions[position].code.toString()
+            bill_type_title.text = codeDesOptions[position].desc.toString()
+            bill_type_view_layout.visibility = View.VISIBLE
+            iv_bill_type_logo.setImageResource(R.drawable.water_bill)
 
             if (billType == "DWASA") {
                 customer_code_input.hint = "Enter Bill Number"
