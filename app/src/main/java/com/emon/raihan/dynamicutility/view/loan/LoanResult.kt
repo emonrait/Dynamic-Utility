@@ -6,13 +6,19 @@ import android.widget.ImageView
 import android.widget.TableLayout
 import android.widget.TextView
 import androidx.appcompat.widget.Toolbar
+import androidx.core.view.get
 import androidx.viewpager.widget.ViewPager
+import androidx.viewpager2.widget.ViewPager2
 import com.emon.raihan.dynamicutility.R
 import com.emon.raihan.dynamicutility.adaptar.ViewPagerAdapter
 import com.emon.raihan.dynamicutility.util.CustomActivityClear
 import com.emon.raihan.dynamicutility.util.CustomAppCompatActivity
 import com.emon.raihan.dynamicutility.view.MainActivity
+import com.emon.raihan.dynamicutility.view.loan.fragment.LoanAllFragment
+import com.emon.raihan.dynamicutility.view.loan.fragment.LoanApprovedFragment
+import com.emon.raihan.dynamicutility.view.loan.fragment.LoanRejectedFragment
 import com.google.android.material.tabs.TabLayout
+import com.google.android.material.tabs.TabLayoutMediator
 
 class LoanResult : CustomAppCompatActivity() {
     private lateinit var toolbar: Toolbar
@@ -21,7 +27,7 @@ class LoanResult : CustomAppCompatActivity() {
     private lateinit var iv_header_logout: ImageView
 
     private lateinit var tabLayout: TabLayout
-    private lateinit var viewPager: ViewPager
+    private lateinit var viewPager: ViewPager2
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_loan_result)
@@ -40,16 +46,23 @@ class LoanResult : CustomAppCompatActivity() {
             val intent = Intent(this, MainActivity::class.java)
             CustomActivityClear.doClearActivity(intent, this)
         }
-        tabLayout.addTab(tabLayout.newTab().setText("ALL"))
-        tabLayout.addTab(tabLayout.newTab().setText("Approved"))
-        tabLayout.addTab(tabLayout.newTab().setText("Rejected"))
+      //  tabLayout.addTab(tabLayout.newTab().setText("ALL"))
+       // tabLayout.addTab(tabLayout.newTab().setText("Approved"))
+      //  tabLayout.addTab(tabLayout.newTab().setText("Rejected"))
         tabLayout.tabGravity = TabLayout.GRAVITY_FILL
 
-        val adapter = ViewPagerAdapter(this, supportFragmentManager, tabLayout.tabCount)
+        val adapter = ViewPagerAdapter(this)
+        // viewPager.adapter = adapter
+
+
+        adapter.addFragment(LoanAllFragment(), "All")
+        adapter.addFragment(LoanApprovedFragment(), "Approved")
+        adapter.addFragment(LoanRejectedFragment(), "Rejected")
+
         viewPager.adapter = adapter
+        viewPager.currentItem = 0
 
-        viewPager.addOnPageChangeListener(TabLayout.TabLayoutOnPageChangeListener(tabLayout))
-
+/*
         tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab) {
                 viewPager.currentItem = tab.position
@@ -63,7 +76,13 @@ class LoanResult : CustomAppCompatActivity() {
 
             }
         })
+*/
 
+
+        TabLayoutMediator(tabLayout, viewPager) { tab, position ->
+            tab.text = adapter.getTabTitle(position)
+            viewPager.currentItem = tab.position
+        }.attach()
 
     }
 }
