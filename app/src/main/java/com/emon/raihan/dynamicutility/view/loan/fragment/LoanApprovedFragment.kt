@@ -29,8 +29,8 @@ class LoanApprovedFragment : Fragment() {
         approved_loan_recyclerview = view.findViewById(R.id.approved_loan_recyclerview)
 
         loanList.clear()
-        loanList.add(Loan("20,000. BDT", "22/11/2022 at 09.58 AM", "Personal Loan", "A"))
-        loanList.add(Loan("50,000. BDT", "25/11/2022 at 11.40 PM", "Personal Loan", "A"))
+        loanList.add(Loan("20,000.00 BDT", "22/11/2022 at 09.58 AM", "Personal Loan", "A"))
+        loanList.add(Loan("50,000.00 BDT", "25/11/2022 at 11.40 PM", "Personal Loan", "A"))
 
 
         val mLayoutManager = LinearLayoutManager(activity)
