@@ -14,6 +14,7 @@
     <dimen name="row_welcome_menu_tv2_size_base">12sp</dimen>
     <dimen name="row_welcome_menu_tv2_margin_top_base">10dp</dimen>
     <dimen name="textsize_base">14sp</dimen>
+    <dimen name="loan_amount_textsize_base">18sp</dimen>
     <dimen name="toolbar_textsize_base">16sp</dimen>
     <dimen name="margin_20">20dp</dimen>
     <dimen name="login_button_height_base">60dp</dimen>

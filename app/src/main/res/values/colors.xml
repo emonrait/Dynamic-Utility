@@ -6,6 +6,7 @@
     <color name="teal_200">#0053A1</color>
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
+    <color name="text_label_color">#66000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="light_blue_600">#FF039BE5</color>
     <color name="light_blue_900">#FF01579B</color>
@@ -13,6 +14,7 @@
     <color name="light_blue_A400">#FF00B0FF</color>
     <color name="black_overlay">#66000000</color>
     <color name="green">#288435</color>
+    <color name="red">#F13530</color>
     <color name="float_transparent">#00000000</color>
     <color name="app_color">#0053A1</color>
     <color name="grid_layout_bg_color">#E6E6E6</color>
