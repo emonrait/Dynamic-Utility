@@ -48,7 +48,7 @@ class LoanAllFragment : Fragment() {
                     }
                 })
 
-        all_loan_recyclerview!!.adapter = mAdapter
+        all_loan_recyclerview.adapter = mAdapter
         mAdapter?.notifyDataSetChanged()
 
 
