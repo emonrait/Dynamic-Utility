@@ -31,6 +31,7 @@ class ViewPagerAdapter(activity: FragmentActivity?) : FragmentStateAdapter(activ
     }
 
     override fun createFragment(position: Int): Fragment {
+
         return mFragmentList[position]
     }
 }
