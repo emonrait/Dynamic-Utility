@@ -1,7 +1,6 @@
 package com.emon.raihan.dynamicutility.view
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.ArrayAdapter
@@ -16,7 +15,6 @@ import com.emon.raihan.dynamicutility.util.CustomAppCompatActivity
 import com.emon.raihan.dynamicutility.util.CustomDailog
 import com.google.android.material.textfield.MaterialAutoCompleteTextView
 import com.google.android.material.textfield.TextInputLayout
-import java.util.*
 
 class WASABillPayment : CustomAppCompatActivity() {
     private lateinit var toolbar: Toolbar

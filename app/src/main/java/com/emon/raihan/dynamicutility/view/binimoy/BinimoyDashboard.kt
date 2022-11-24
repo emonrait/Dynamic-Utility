@@ -10,6 +10,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.widget.Toolbar
 import com.emon.raihan.dynamicutility.R
+import com.emon.raihan.dynamicutility.adaptar.Menu3SubAdapter
 import com.emon.raihan.dynamicutility.adaptar.MenuSubAdapter
 import com.emon.raihan.dynamicutility.model.Menu
 import com.emon.raihan.dynamicutility.util.CustomActivityClear
@@ -25,8 +26,12 @@ class BinimoyDashboard : CustomAppCompatActivity() {
     private lateinit var iv_header_logout: ImageView
 
     private lateinit var menuList: ArrayList<Menu>
+    private lateinit var menuListProfile: ArrayList<Menu>
+    private lateinit var menuListAdditiion: ArrayList<Menu>
     private lateinit var menuGridView: GridView
-    var adapter: MenuSubAdapter? = null
+    private lateinit var menuGridViewProfile: GridView
+    private lateinit var menuGridViewAdditional: GridView
+    var adapter: Menu3SubAdapter? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_binimoy_dashboard)
@@ -38,13 +43,14 @@ class BinimoyDashboard : CustomAppCompatActivity() {
 
 
         menuGridView = findViewById(R.id.menuGridView)
+        menuGridViewProfile = findViewById(R.id.menuGridViewProfile)
+        menuGridViewAdditional = findViewById(R.id.menuGridViewAdditional)
         menuList = ArrayList<Menu>()
+        menuListProfile = ArrayList<Menu>()
+        menuListAdditiion = ArrayList<Menu>()
 
         setSupportActionBar(toolbar)
         toolbar_title.text = "Binimoy Dashboard"
-        // Objects.requireNonNull(supportActionBar)?.setHomeButtonEnabled(true)
-        //  supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-        //  supportActionBar!!.title = "About Me"
 
         iv_header_back.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
@@ -55,7 +61,16 @@ class BinimoyDashboard : CustomAppCompatActivity() {
         menuList.add(Menu("RTP", "Request To Pay", R.drawable.water_bill))
         menuList.add(Menu("PRTP", "Pending RTP", R.drawable.water_bill))
 
-        adapter = MenuSubAdapter(this, menuList)
+        menuListProfile.add(Menu("UP", "User Profile", R.drawable.electricity_bill))
+        menuListProfile.add(Menu("RTP", "Deafult A/C Set-up", R.drawable.water_bill))
+        menuListProfile.add(Menu("PRTP", "Device Registration", R.drawable.water_bill))
+        menuListProfile.add(Menu("PRTP", "Pin Management", R.drawable.water_bill))
+
+        menuListAdditiion.add(Menu("DP", "Direct Pay", R.drawable.electricity_bill))
+        menuListAdditiion.add(Menu("RTP", "Request To Pay", R.drawable.water_bill))
+        menuListAdditiion.add(Menu("PRTP", "Pending RTP", R.drawable.water_bill))
+
+        adapter = Menu3SubAdapter(this, menuList)
         menuGridView.adapter = adapter
 
         menuGridView.onItemClickListener =
@@ -80,6 +95,11 @@ class BinimoyDashboard : CustomAppCompatActivity() {
                     }
                 }
             }
+        adapter = Menu3SubAdapter(this, menuListProfile)
+        menuGridViewProfile.adapter = adapter
+
+        adapter = Menu3SubAdapter(this, menuListAdditiion)
+        menuGridViewAdditional.adapter = adapter
 
 
     }

@@ -63,4 +63,7 @@
     <string name="destination_binimoy_id">Destination Binimoy ID</string>
     <string name="remarks">Enter Remarks</string>
     <string name="login_password">Enter Login Password</string>
+    <string name="fund_transfer">Fund Transfer</string>
+    <string name="profile_management">Profile Management</string>
+    <string name="additional_features">Additional Features</string>
 </resources>
