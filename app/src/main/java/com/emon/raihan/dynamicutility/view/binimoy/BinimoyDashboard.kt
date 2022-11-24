@@ -66,7 +66,7 @@ class BinimoyDashboard : CustomAppCompatActivity() {
         menuListProfile.add(Menu("PRTP", "Device Registration", R.drawable.water_bill))
         menuListProfile.add(Menu("PRTP", "Pin Management", R.drawable.water_bill))
 
-        menuListAdditiion.add(Menu("DP", "Direct Pay", R.drawable.electricity_bill))
+        menuListAdditiion.add(Menu("DP", "Beneficiary Management", R.drawable.electricity_bill))
         menuListAdditiion.add(Menu("RTP", "Request To Pay", R.drawable.water_bill))
         menuListAdditiion.add(Menu("PRTP", "Pending RTP", R.drawable.water_bill))
 
