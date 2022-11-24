@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".view.loan.LoanResult">
+    tools:context=".view.binimoy.BinimoyDashboard">
 
     <LinearLayout
         android:id="@+id/toolbar_layout"
@@ -22,32 +22,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/toolbar_layout"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="@dimen/margin_10"
+        android:layout_marginRight="5dp"
         android:orientation="vertical">
 
-        <com.google.android.material.tabs.TabLayout
-            android:id="@+id/tablayout"
-            style="@style/Base.Widget.Design.TabLayout"
+        <GridView
+            android:id="@+id/menuGridView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/app_color"
-            android:layout_gravity="center_horizontal"
-            android:scrollbarThumbVertical="@color/black"
-            android:textAlignment="center"
-            android:visibility="visible"
-            app:tabGravity="center"
-            app:tabIndicatorAnimationDuration="1"
-            app:tabIndicatorColor="@android:color/holo_orange_dark"
-            app:tabSelectedTextColor="@android:color/holo_orange_dark"
-            app:tabTextAppearance="@style/MyTabTextAppearance_base"
-            app:tabTextColor="@color/white" />
-
-        <androidx.viewpager2.widget.ViewPager2
-            android:id="@+id/viewPager"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-
-
+            android:background="@color/white"
+            android:horizontalSpacing="@dimen/margin_1"
+            android:numColumns="2"
+            android:scrollbars="none"
+            android:verticalSpacing="@dimen/margin_1" />
     </LinearLayout>
 
 

@@ -11,6 +11,7 @@ import com.emon.raihan.dynamicutility.R
 import com.emon.raihan.dynamicutility.adaptar.MenuAdapter
 import com.emon.raihan.dynamicutility.model.Menu
 import com.emon.raihan.dynamicutility.util.CustomAppCompatActivity
+import com.emon.raihan.dynamicutility.view.binimoy.BinimoyDashboard
 import com.emon.raihan.dynamicutility.view.loan.LoanApplication
 import com.emon.raihan.dynamicutility.view.loan.LoanDashboard
 import com.emon.raihan.dynamicutility.view.loan.LoanResult
@@ -42,7 +43,7 @@ class MainActivity : CustomAppCompatActivity() {
         menuList.add(Menu("EN", "Entertainment Bill Payment", R.drawable.entertainment_bill))
         menuList.add(Menu("LD", "Loan Dashboard", R.drawable.invoice))
         menuList.add(Menu("LA", "Loan Application", R.drawable.internet_bill))
-        menuList.add(Menu("LR", "Loan Result", R.drawable.entertainment_bill))
+        menuList.add(Menu("BINIMOY", "Binimoy", R.drawable.binimoy))
         menuList.add(Menu("BR", "Bill Report", R.drawable.invoice))
         menuList.add(Menu("AM", "About Me", R.drawable.ic_programmer))
 
@@ -108,6 +109,11 @@ class MainActivity : CustomAppCompatActivity() {
                     }
                     "LR" == menu_soft_code.text.toString() -> {
                         val intent = Intent(this, LoanResult::class.java)
+                        startActivity(intent)
+
+                    }
+                    "BINIMOY" == menu_soft_code.text.toString() -> {
+                        val intent = Intent(this, BinimoyDashboard::class.java)
                         startActivity(intent)
 
                     }

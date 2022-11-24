@@ -38,6 +38,7 @@ class ElectricityBillPayment : CustomAppCompatActivity() {
     private lateinit var sp_month_value: MaterialAutoCompleteTextView
     private lateinit var sp_month_input: TextInputLayout
     private lateinit var sp_year_input: TextInputLayout
+    private lateinit var customer_code_input: TextInputLayout
     private lateinit var btn_validate: AppCompatButton
     private lateinit var et_customer_code_value: TextInputEditText
     private lateinit var et_meter_no_value: TextInputEditText
@@ -58,6 +59,7 @@ class ElectricityBillPayment : CustomAppCompatActivity() {
         iv_bill_type_logo = findViewById(R.id.iv_bill_type_logo)
         bill_type_title = findViewById(R.id.bill_type_title)
         bill_type_view_layout = findViewById(R.id.bill_type_view_layout)
+        customer_code_input = findViewById(R.id.customer_code_input)
 
 
         sp_bill_type_value = findViewById(R.id.sp_bill_type_value)
@@ -122,6 +124,14 @@ class ElectricityBillPayment : CustomAppCompatActivity() {
                 btn_validate_cardview.visibility = View.VISIBLE
                 customer_code_input_cardview.visibility = View.VISIBLE
 
+            } else if (billType.equals("PALLI")) {
+                customer_code_input.hint = "Enter SMS Bill Account Number"
+                year_month_layout.visibility = View.VISIBLE
+                meter_no_input_cardview.visibility = View.GONE
+                input_amount_cardview.visibility = View.GONE
+                btn_validate_cardview.visibility = View.VISIBLE
+                customer_code_input_cardview.visibility = View.VISIBLE
+
             } else {
                 year_month_layout.visibility = View.VISIBLE
                 meter_no_input_cardview.visibility = View.GONE
@@ -169,6 +179,19 @@ class ElectricityBillPayment : CustomAppCompatActivity() {
                     Toast.makeText(this, "Success!", Toast.LENGTH_SHORT).show()
 
                 }
+            } else if (billType == "PALLI") {
+                if (sp_year_value.text.toString().isEmpty()) {
+                    Toast.makeText(this, "Please Select Bill Year", Toast.LENGTH_SHORT).show()
+                } else if (sp_month_value.text.toString().isEmpty()) {
+                    Toast.makeText(this, "Please Select Bill Month", Toast.LENGTH_SHORT).show()
+                } else if (et_customer_code_value.text.toString().isEmpty()) {
+                    et_customer_code_value.requestFocus()
+                    Toast.makeText(this, "Please Enter SMS Bill Account Number", Toast.LENGTH_SHORT)
+                        .show()
+                } else {
+                    Toast.makeText(this, "Success!", Toast.LENGTH_SHORT).show()
+
+                }
             } else {
                 if (sp_year_value.text.toString().isEmpty()) {
                     Toast.makeText(this, "Please Select Bill Year", Toast.LENGTH_SHORT).show()
@@ -179,7 +202,6 @@ class ElectricityBillPayment : CustomAppCompatActivity() {
                     Toast.makeText(this, "Please Enter Customer Code", Toast.LENGTH_SHORT).show()
                 } else {
                     Toast.makeText(this, "Success!", Toast.LENGTH_SHORT).show()
-
                 }
 
             }

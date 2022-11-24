@@ -43,7 +43,7 @@ class LoanResult : CustomAppCompatActivity() {
         toolbar_title.text = "Loan Result"
 
         iv_header_back.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, LoanDashboard::class.java)
             CustomActivityClear.doClearActivity(intent, this)
         }
       //  tabLayout.addTab(tabLayout.newTab().setText("ALL"))

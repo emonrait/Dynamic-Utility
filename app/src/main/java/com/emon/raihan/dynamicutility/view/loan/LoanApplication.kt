@@ -53,7 +53,7 @@ class LoanApplication : CustomAppCompatActivity() {
         //  supportActionBar!!.title = "About Me"
 
         iv_header_back.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, LoanDashboard::class.java)
             CustomActivityClear.doClearActivity(intent, this)
         }
 
