@@ -36,10 +36,13 @@ class BinimoyDashboard : CustomAppCompatActivity() {
     private lateinit var menuGridViewAdditional: GridView
     var adapter: Menu3SubAdapter? = null
     override fun onCreate(savedInstanceState: Bundle?) {
-        setTheme(R.style.Theme_DynamicUtility_Custom)
+        globalVariable = this.applicationContext as GlobalVariable
+        if (globalVariable.theameCode=="RED"){
+            setTheme(R.style.Theme_DynamicUtility_Custom)
+        }
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_binimoy_dashboard)
-        globalVariable = this.applicationContext as GlobalVariable
+
         toolbar = findViewById(R.id.toolbar)
         iv_header_back = toolbar.findViewById(R.id.iv_header_back)
         toolbar_title = toolbar.findViewById(R.id.toolbar_title)
@@ -52,6 +55,7 @@ class BinimoyDashboard : CustomAppCompatActivity() {
         menuList = ArrayList<Menu>()
         menuListProfile = ArrayList<Menu>()
         menuListAdditiion = ArrayList<Menu>()
+
         toolbar.setBackgroundColor(Color.parseColor(globalVariable.coloreCode))
         setSupportActionBar(toolbar)
         toolbar_title.text = "Binimoy Dashboard"
