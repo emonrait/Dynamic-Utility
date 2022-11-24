@@ -1,6 +1,7 @@
 package com.emon.raihan.dynamicutility.view.binimoy
 
 import android.content.Intent
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -15,11 +16,13 @@ import com.emon.raihan.dynamicutility.adaptar.MenuSubAdapter
 import com.emon.raihan.dynamicutility.model.Menu
 import com.emon.raihan.dynamicutility.util.CustomActivityClear
 import com.emon.raihan.dynamicutility.util.CustomAppCompatActivity
+import com.emon.raihan.dynamicutility.util.GlobalVariable
 import com.emon.raihan.dynamicutility.view.MainActivity
 import com.emon.raihan.dynamicutility.view.loan.LoanApplication
 import com.emon.raihan.dynamicutility.view.loan.LoanResult
 
 class BinimoyDashboard : CustomAppCompatActivity() {
+    private lateinit var globalVariable: GlobalVariable
     private lateinit var toolbar: Toolbar
     private lateinit var iv_header_back: ImageView
     private lateinit var toolbar_title: TextView
@@ -33,9 +36,10 @@ class BinimoyDashboard : CustomAppCompatActivity() {
     private lateinit var menuGridViewAdditional: GridView
     var adapter: Menu3SubAdapter? = null
     override fun onCreate(savedInstanceState: Bundle?) {
+        setTheme(R.style.Theme_DynamicUtility_Custom)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_binimoy_dashboard)
-
+        globalVariable = this.applicationContext as GlobalVariable
         toolbar = findViewById(R.id.toolbar)
         iv_header_back = toolbar.findViewById(R.id.iv_header_back)
         toolbar_title = toolbar.findViewById(R.id.toolbar_title)
@@ -48,7 +52,7 @@ class BinimoyDashboard : CustomAppCompatActivity() {
         menuList = ArrayList<Menu>()
         menuListProfile = ArrayList<Menu>()
         menuListAdditiion = ArrayList<Menu>()
-
+        toolbar.setBackgroundColor(Color.parseColor(globalVariable.coloreCode))
         setSupportActionBar(toolbar)
         toolbar_title.text = "Binimoy Dashboard"
 
