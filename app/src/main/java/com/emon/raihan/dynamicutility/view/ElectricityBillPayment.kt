@@ -168,7 +168,7 @@ class ElectricityBillPayment : CustomAppCompatActivity() {
 
         sp_year_input.setOnClickListener {
             CustomDailog.createYearPicker(this, sp_year_value)
-            Log.d("value-->", year)
+
         }
 
         sp_month_value.setOnClickListener {
@@ -180,10 +180,9 @@ class ElectricityBillPayment : CustomAppCompatActivity() {
 
         }
 
-
-
         btn_validate.setOnClickListener {
             Toast.makeText(this, billType, Toast.LENGTH_SHORT).show()
+            Log.d("billType-->", billType)
             /* if (billType.isEmpty()) {
                  Toast.makeText(this, "Please Select Bill Type", Toast.LENGTH_SHORT).show()
              } else {
