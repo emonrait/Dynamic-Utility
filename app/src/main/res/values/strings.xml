@@ -71,4 +71,8 @@
     <string name="profile_management">Profile Management</string>
     <string name="additional_features">Additional Features</string>
     <string name="select_type_palli">Select Type</string>
+    <string name="warning">Attention!</string>
+    <string name="do_you_want_to_logout_the_application">Do you want to logout the apps?</string>
+    <string name="no">Cancel</string>
+    <string name="log_out_title">Logout</string>
 </resources>

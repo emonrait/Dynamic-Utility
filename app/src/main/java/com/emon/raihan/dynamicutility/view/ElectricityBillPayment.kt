@@ -13,6 +13,7 @@ import com.emon.raihan.dynamicutility.model.CodeDesOptions
 import com.emon.raihan.dynamicutility.util.CustomActivityClear
 import com.emon.raihan.dynamicutility.util.CustomAppCompatActivity
 import com.emon.raihan.dynamicutility.util.CustomDailog
+import com.emon.raihan.dynamicutility.util.DialogCustom
 import com.google.android.material.textfield.MaterialAutoCompleteTextView
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
@@ -38,7 +39,6 @@ class ElectricityBillPayment : CustomAppCompatActivity() {
     private lateinit var sp_palli_type_input_value: MaterialAutoCompleteTextView
     private lateinit var sp_month_input: TextInputLayout
     private lateinit var sp_year_input: TextInputLayout
-    private lateinit var palli_type_input: TextInputLayout
     private lateinit var customer_code_input: TextInputLayout
     private lateinit var btn_validate: AppCompatButton
     private lateinit var et_customer_code_value: TextInputEditText
@@ -81,7 +81,7 @@ class ElectricityBillPayment : CustomAppCompatActivity() {
         et_meter_no_value = findViewById(R.id.et_meter_no_value)
         et_amount_value = findViewById(R.id.et_amount_value)
         sp_palli_type_input_value = findViewById(R.id.sp_palli_type_input_value)
-        palli_type_input = findViewById(R.id.palli_type_input)
+      //  palli_type_input = findViewById(R.id.palli_type_input)
 
         setSupportActionBar(toolbar)
         toolbar_title.text = getString(R.string.electricity_biill_payment)
@@ -173,7 +173,6 @@ class ElectricityBillPayment : CustomAppCompatActivity() {
 
         sp_month_value.setOnClickListener {
             CustomDailog.createMonthPicker(this, sp_month_value)
-            Log.d("value-->", month)
         }
         sp_month_input.setOnClickListener {
             CustomDailog.createMonthPicker(this, sp_month_value)
@@ -183,28 +182,37 @@ class ElectricityBillPayment : CustomAppCompatActivity() {
         btn_validate.setOnClickListener {
             Toast.makeText(this, billType, Toast.LENGTH_SHORT).show()
             Log.d("billType-->", billType)
-            /* if (billType.isEmpty()) {
+             if (billType.isEmpty()) {
                  Toast.makeText(this, "Please Select Bill Type", Toast.LENGTH_SHORT).show()
+                 DialogCustom.showErrorMessage(this,"Please Select Bill Type")
              } else {
                  if (billType.endsWith("PRE")) {
                      if (et_customer_code_value.text.toString().isEmpty()) {
                          et_customer_code_value.requestFocus()
                          Toast.makeText(this, "Please Enter Customer Code", Toast.LENGTH_SHORT)
                              .show()
+                         DialogCustom.showErrorMessage(this,"Please Enter Customer Code")
+
                      } else if (et_amount_value.text.toString().isEmpty()) {
                          et_amount_value.requestFocus()
 
                          Toast.makeText(this, "Please Enter Recharge Amount", Toast.LENGTH_SHORT)
                              .show()
+                         DialogCustom.showErrorMessage(this,"Please Enter Recharge Amount")
+
                      } else {
                          Toast.makeText(this, "Success!", Toast.LENGTH_SHORT).show()
+                         DialogCustom.showSuccessMessage(this,"Success!")
 
                      }
                  } else if (billType == "PALLI") {
                      if (sp_year_value.text.toString().isEmpty()) {
                          Toast.makeText(this, "Please Select Bill Year", Toast.LENGTH_SHORT).show()
+                         DialogCustom.showErrorMessage(this,"Please Select Bill Year")
+
                      } else if (sp_month_value.text.toString().isEmpty()) {
                          Toast.makeText(this, "Please Select Bill Month", Toast.LENGTH_SHORT).show()
+                         DialogCustom.showErrorMessage(this,"Please Select Bill Month")
                      } else if (billTypePalli.isEmpty()) {
                          Toast.makeText(
                              this,
@@ -212,6 +220,8 @@ class ElectricityBillPayment : CustomAppCompatActivity() {
                              Toast.LENGTH_SHORT
                          )
                              .show()
+                         DialogCustom.showErrorMessage(this,"Please Select Palli Bill Payment Type")
+
                      } else if (et_customer_code_value.text.toString().isEmpty()) {
                          et_customer_code_value.requestFocus()
                          Toast.makeText(
@@ -220,25 +230,34 @@ class ElectricityBillPayment : CustomAppCompatActivity() {
                              Toast.LENGTH_SHORT
                          )
                              .show()
+                         DialogCustom.showErrorMessage(this,"Please Enter SMS Bill Account Number")
+
                      } else {
                          Toast.makeText(this, "Success!", Toast.LENGTH_SHORT).show()
+                         Log.d("value-->","Success")
+                         DialogCustom.showSuccessMessage(this,"Success!")
 
                      }
                  } else {
                      if (sp_year_value.text.toString().isEmpty()) {
                          Toast.makeText(this, "Please Select Bill Year", Toast.LENGTH_SHORT).show()
+                         DialogCustom.showErrorMessage(this,"Please Select Bill Year")
                      } else if (sp_month_value.text.toString().isEmpty()) {
                          Toast.makeText(this, "Please Select Bill Month", Toast.LENGTH_SHORT).show()
+                         DialogCustom.showErrorMessage(this,"Please Select Bill Month")
                      } else if (et_customer_code_value.text.toString().isEmpty()) {
                          et_customer_code_value.requestFocus()
                          Toast.makeText(this, "Please Enter Customer Code", Toast.LENGTH_SHORT)
                              .show()
+                         DialogCustom.showErrorMessage(this,"Please Enter Customer Code")
+
                      } else {
                          Toast.makeText(this, "Success!", Toast.LENGTH_SHORT).show()
+                         DialogCustom.showSuccessMessage(this,"Success!")
                      }
 
                  }
-             }*/
+             }
         }
     }
 }

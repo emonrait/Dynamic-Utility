@@ -4,10 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.ArrayAdapter
-import android.widget.ImageView
-import android.widget.LinearLayout
-import android.widget.TextView
+import android.widget.*
 import androidx.appcompat.widget.Toolbar
 import com.emon.raihan.dynamicutility.R
 import com.emon.raihan.dynamicutility.model.CodeDesOptions
@@ -82,6 +79,12 @@ class EductaionBillPayment : CustomAppCompatActivity() {
             bill_type_title.text = codeDesOptions[position].desc.toString()
             bill_type_view_layout.visibility = View.VISIBLE
             iv_bill_type_logo.setImageResource(R.drawable.education_bill)
+
+           val toast= Toast.makeText(baseContext, "test", Toast.LENGTH_SHORT)
+               //.show()
+            toast.show()
+
+
 
 
         }
