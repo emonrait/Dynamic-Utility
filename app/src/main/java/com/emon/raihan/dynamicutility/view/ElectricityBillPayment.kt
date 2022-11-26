@@ -204,6 +204,13 @@ class ElectricityBillPayment : CustomAppCompatActivity() {
                     Toast.makeText(this, "Please Select Bill Year", Toast.LENGTH_SHORT).show()
                 } else if (sp_month_value.text.toString().isEmpty()) {
                     Toast.makeText(this, "Please Select Bill Month", Toast.LENGTH_SHORT).show()
+                } else if (billTypePalli.isEmpty()) {
+                    Toast.makeText(
+                        this,
+                        "Please Select Palli Bill Payment Type",
+                        Toast.LENGTH_SHORT
+                    )
+                        .show()
                 } else if (et_customer_code_value.text.toString().isEmpty()) {
                     et_customer_code_value.requestFocus()
                     Toast.makeText(this, "Please Enter SMS Bill Account Number", Toast.LENGTH_SHORT)
