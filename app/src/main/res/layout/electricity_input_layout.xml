@@ -57,6 +57,42 @@
         </LinearLayout>
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/palli_type_input_cardview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="@dimen/margin_10"
+            android:visibility="visible"
+            app:cardElevation="@dimen/margin_10">
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/palli_type_input"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/text_input_layout_left_size"
+                android:layout_marginTop="@dimen/text_input_layout_top_size"
+                android:layout_marginEnd="@dimen/text_input_layout_right_size"
+                android:layout_marginBottom="@dimen/text_input_layout_bottom_size"
+                android:hint="@string/select_type_palli"
+                android:padding="@dimen/padding_5">
+
+                <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                    android:id="@+id/sp_palli_type_input_value"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/input_field_height_size"
+                    android:inputType="none"
+                    android:padding="@dimen/padding_5"
+                    android:singleLine="true"
+                    android:text="@string/select_type_palli"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/textsize_base" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
             android:id="@+id/customer_code_input_cardview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

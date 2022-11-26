@@ -34,10 +34,13 @@ class ElectricityBillPayment : CustomAppCompatActivity() {
     private lateinit var input_amount_cardview: CardView
     private lateinit var btn_validate_cardview: CardView
     private lateinit var customer_code_input_cardview: CardView
+    private lateinit var palli_type_input_cardview: CardView
     private lateinit var sp_year_value: MaterialAutoCompleteTextView
     private lateinit var sp_month_value: MaterialAutoCompleteTextView
+    private lateinit var sp_palli_type_input_value: MaterialAutoCompleteTextView
     private lateinit var sp_month_input: TextInputLayout
     private lateinit var sp_year_input: TextInputLayout
+    private lateinit var palli_type_input: TextInputLayout
     private lateinit var customer_code_input: TextInputLayout
     private lateinit var btn_validate: AppCompatButton
     private lateinit var et_customer_code_value: TextInputEditText
@@ -45,7 +48,9 @@ class ElectricityBillPayment : CustomAppCompatActivity() {
     private lateinit var et_amount_value: TextInputEditText
 
     var codeDesOptions: ArrayList<CodeDesOptions> = ArrayList<CodeDesOptions>()
+    var codeDesOptionsPalli: ArrayList<CodeDesOptions> = ArrayList<CodeDesOptions>()
     var billType = ""
+    var billTypePalli = ""
     var year = ""
     var month = ""
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -60,6 +65,7 @@ class ElectricityBillPayment : CustomAppCompatActivity() {
         bill_type_title = findViewById(R.id.bill_type_title)
         bill_type_view_layout = findViewById(R.id.bill_type_view_layout)
         customer_code_input = findViewById(R.id.customer_code_input)
+        palli_type_input_cardview = findViewById(R.id.palli_type_input_cardview)
 
 
         sp_bill_type_value = findViewById(R.id.sp_bill_type_value)
@@ -76,12 +82,11 @@ class ElectricityBillPayment : CustomAppCompatActivity() {
         et_customer_code_value = findViewById(R.id.et_customer_code_value)
         et_meter_no_value = findViewById(R.id.et_meter_no_value)
         et_amount_value = findViewById(R.id.et_amount_value)
+        sp_palli_type_input_value = findViewById(R.id.sp_palli_type_input_value)
+        palli_type_input = findViewById(R.id.palli_type_input)
 
         setSupportActionBar(toolbar)
-        toolbar_title.text = "Electricity Bill Payment"
-        // Objects.requireNonNull(supportActionBar)?.setHomeButtonEnabled(true)
-        //  supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-        //  supportActionBar!!.title = "About Me"
+        toolbar_title.text = getString(R.string.electricity_biill_payment)
 
         iv_header_back.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
@@ -107,9 +112,18 @@ class ElectricityBillPayment : CustomAppCompatActivity() {
         codeDesOptions.add(CodeDesOptions("BPDB Prepaid Sylhet", "BPDBSPRE"))
         codeDesOptions.add(CodeDesOptions("Westzone Postpaid", "WESTZ"))
         codeDesOptions.add(CodeDesOptions("Westzone Prepaid", "WESTZPRE"))
+        // Palli Bill Type
+        codeDesOptionsPalli.add(CodeDesOptions("Official Receipt", "10"))
+        codeDesOptionsPalli.add(CodeDesOptions("Application Fee", "19"))
+        codeDesOptionsPalli.add(CodeDesOptions("Demand Note/Consumer Deposit", "20"))
+        codeDesOptionsPalli.add(CodeDesOptions("Advance Electricity Bill", "30"))
+        codeDesOptionsPalli.add(CodeDesOptions("Electricity Bill", "50"))
 
         val arrayAdapter = ArrayAdapter(this, R.layout.dropdown_item, codeDesOptions)
         sp_bill_type_value.setAdapter(arrayAdapter)
+
+        val arrayAdapterPalli = ArrayAdapter(this, R.layout.dropdown_item, codeDesOptionsPalli)
+        sp_palli_type_input_value.setAdapter(arrayAdapterPalli)
 
 
         sp_bill_type_value.setOnItemClickListener { parent, arg1, position, id ->
@@ -120,6 +134,7 @@ class ElectricityBillPayment : CustomAppCompatActivity() {
             if (billType.endsWith("PRE")) {
                 year_month_layout.visibility = View.GONE
                 meter_no_input_cardview.visibility = View.GONE
+                palli_type_input_cardview.visibility = View.GONE
                 input_amount_cardview.visibility = View.VISIBLE
                 btn_validate_cardview.visibility = View.VISIBLE
                 customer_code_input_cardview.visibility = View.VISIBLE
@@ -127,6 +142,7 @@ class ElectricityBillPayment : CustomAppCompatActivity() {
             } else if (billType.equals("PALLI")) {
                 customer_code_input.hint = "Enter SMS Bill Account Number"
                 year_month_layout.visibility = View.VISIBLE
+                palli_type_input_cardview.visibility = View.VISIBLE
                 meter_no_input_cardview.visibility = View.GONE
                 input_amount_cardview.visibility = View.GONE
                 btn_validate_cardview.visibility = View.VISIBLE
@@ -135,6 +151,7 @@ class ElectricityBillPayment : CustomAppCompatActivity() {
             } else {
                 year_month_layout.visibility = View.VISIBLE
                 meter_no_input_cardview.visibility = View.GONE
+                palli_type_input_cardview.visibility = View.GONE
                 input_amount_cardview.visibility = View.GONE
                 btn_validate_cardview.visibility = View.VISIBLE
                 customer_code_input_cardview.visibility = View.VISIBLE
@@ -143,11 +160,12 @@ class ElectricityBillPayment : CustomAppCompatActivity() {
 
         }
 
+        sp_bill_type_value.setOnItemClickListener { parent, arg1, position, id ->
+            billTypePalli = codeDesOptionsPalli[position].code.toString()
+        }
 
         sp_year_value.setOnClickListener {
             CustomDailog.createYearPicker(this, sp_year_value)
-
-
         }
 
         sp_year_input.setOnClickListener {
@@ -163,6 +181,8 @@ class ElectricityBillPayment : CustomAppCompatActivity() {
             CustomDailog.createMonthPicker(this, sp_month_value)
 
         }
+
+
 
         btn_validate.setOnClickListener {
             if (billType.isEmpty()) {
