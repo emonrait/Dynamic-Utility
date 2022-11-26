@@ -75,4 +75,5 @@
     <string name="do_you_want_to_logout_the_application">Do you want to logout the apps?</string>
     <string name="no">Cancel</string>
     <string name="log_out_title">Logout</string>
+    <string name="search_by_bill_type">Search by Bill Type</string>
 </resources>

@@ -22,7 +22,7 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/textField"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="@dimen/text_input_layout_left_size"
@@ -35,11 +35,15 @@
                 <com.google.android.material.textfield.MaterialAutoCompleteTextView
                     android:id="@+id/sp_bill_type_value"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/input_field_height_size"
+                    android:layout_height="60dp"
+                    android:clickable="false"
+                    android:drawableEnd="@drawable/ic_arrow_drop_down"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
                     android:inputType="none"
+                    android:longClickable="false"
                     android:padding="@dimen/padding_5"
                     android:singleLine="true"
-                    android:text="@string/select_type"
                     android:textColor="@color/black"
                     android:textSize="@dimen/textsize_base" />
 
@@ -61,13 +65,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:elevation="@dimen/margin_10"
-            android:visibility="gone"
+            android:visibility="visible"
             app:cardElevation="@dimen/margin_10">
 
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/palli_type_input"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="@dimen/text_input_layout_left_size"
@@ -80,11 +84,15 @@
                 <com.google.android.material.textfield.MaterialAutoCompleteTextView
                     android:id="@+id/sp_palli_type_input_value"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/input_field_height_size"
+                    android:layout_height="60dp"
+                    android:clickable="false"
+                    android:drawableEnd="@drawable/ic_arrow_drop_down"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
                     android:inputType="none"
+                    android:longClickable="false"
                     android:padding="@dimen/padding_5"
                     android:singleLine="true"
-                    android:text="@string/select_type_palli"
                     android:textColor="@color/black"
                     android:textSize="@dimen/textsize_base" />
 

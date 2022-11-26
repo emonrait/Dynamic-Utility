@@ -22,7 +22,14 @@ import android.widget.NumberPicker
 import android.widget.TextView
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.DefaultItemAnimator
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.emon.raihan.dynamicutility.R
+import com.emon.raihan.dynamicutility.adaptar.DropdownListAdaptar
+import com.emon.raihan.dynamicutility.adaptar.LoanListAdaptar
+import com.emon.raihan.dynamicutility.model.CodeDesOptions
+import com.emon.raihan.dynamicutility.model.Loan
 import com.google.android.material.textfield.MaterialAutoCompleteTextView
 import com.google.android.material.textfield.TextInputEditText
 import java.io.File
@@ -30,6 +37,7 @@ import java.io.FileOutputStream
 import java.io.IOException
 import java.io.OutputStream
 import java.util.*
+import kotlin.collections.ArrayList
 
 class CustomDailog {
 
@@ -55,7 +63,7 @@ class CustomDailog {
             Manifest.permission.READ_EXTERNAL_STORAGE
         )
 
-        fun createYearPicker(activity: Activity, setYear: MaterialAutoCompleteTextView){
+        fun createYearPicker(activity: Activity, setYear: MaterialAutoCompleteTextView) {
             lateinit var yearPicker: NumberPicker
             lateinit var ivClose: ImageView
             val dialog = AlertDialog.Builder(activity).setCancelable(false)
@@ -353,5 +361,53 @@ class CustomDailog {
             }
 
         }
+
+        fun showDropDoownDialog(
+            activity: Activity,
+            billTypeList: ArrayList<CodeDesOptions>,
+            sp_bill_type_value: MaterialAutoCompleteTextView
+
+        ) {
+            var billTypeValu=""
+            lateinit var et_bill_type_value: TextInputEditText
+            lateinit var mAdapter: DropdownListAdaptar
+            lateinit var ivClose: ImageView
+            lateinit var dropdown_recycler: RecyclerView
+            val dialog = AlertDialog.Builder(activity).setCancelable(false)
+            val inflater = LayoutInflater.from(activity)
+            val regLayout = inflater.inflate(R.layout.dialog_dropdown_picker, null)
+            //val dateValue = reg_layout.findViewById<TextView>(R.id.dateValue)
+            et_bill_type_value = regLayout.findViewById(R.id.et_bill_type_value)
+            dropdown_recycler = regLayout.findViewById(R.id.dropdown_recycler)
+            ivClose = regLayout.findViewById(R.id.ivClose)
+            dialog.setView(regLayout)
+            val alertDialog = dialog.create()
+            alertDialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+
+            val mLayoutManager = LinearLayoutManager(activity)
+            dropdown_recycler.layoutManager = mLayoutManager
+            dropdown_recycler.itemAnimator = DefaultItemAnimator()
+
+            mAdapter =
+                DropdownListAdaptar(
+                    billTypeList,dialog,
+                    object : DropdownListAdaptar.OnItemClickListener {
+                        override fun onItemClick(item: CodeDesOptions) {
+                            sp_bill_type_value.setText(item.desc)
+                            alertDialog.dismiss()
+                        }
+                    })
+
+            dropdown_recycler.adapter = mAdapter
+            mAdapter?.notifyDataSetChanged()
+
+
+            ivClose.setOnClickListener { alertDialog.dismiss() }
+
+
+            alertDialog.show()
+
+        }
+
     }
 }
