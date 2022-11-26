@@ -1,7 +1,6 @@
 package com.emon.raihan.dynamicutility.view
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -17,7 +16,6 @@ import com.emon.raihan.dynamicutility.util.CustomDailog
 import com.google.android.material.textfield.MaterialAutoCompleteTextView
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
-import java.util.*
 
 class ElectricityBillPayment : CustomAppCompatActivity() {
     private lateinit var toolbar: Toolbar
@@ -160,7 +158,7 @@ class ElectricityBillPayment : CustomAppCompatActivity() {
 
         }
 
-        sp_bill_type_value.setOnItemClickListener { parent, arg1, position, id ->
+        sp_palli_type_input_value.setOnItemClickListener { parent, arg1, position, id ->
             billTypePalli = codeDesOptionsPalli[position].code.toString()
         }
 
@@ -185,53 +183,63 @@ class ElectricityBillPayment : CustomAppCompatActivity() {
 
 
         btn_validate.setOnClickListener {
-            if (billType.isEmpty()) {
-                Toast.makeText(this, "Please Select Bill Type", Toast.LENGTH_SHORT).show()
-            } else if (billType.endsWith("PRE")) {
-                if (et_customer_code_value.text.toString().isEmpty()) {
-                    et_customer_code_value.requestFocus()
-                    Toast.makeText(this, "Please Enter Customer Code", Toast.LENGTH_SHORT).show()
-                } else if (et_amount_value.text.toString().isEmpty()) {
-                    et_amount_value.requestFocus()
+            Toast.makeText(this, billType, Toast.LENGTH_SHORT).show()
+            /* if (billType.isEmpty()) {
+                 Toast.makeText(this, "Please Select Bill Type", Toast.LENGTH_SHORT).show()
+             } else {
+                 if (billType.endsWith("PRE")) {
+                     if (et_customer_code_value.text.toString().isEmpty()) {
+                         et_customer_code_value.requestFocus()
+                         Toast.makeText(this, "Please Enter Customer Code", Toast.LENGTH_SHORT)
+                             .show()
+                     } else if (et_amount_value.text.toString().isEmpty()) {
+                         et_amount_value.requestFocus()
 
-                    Toast.makeText(this, "Please Enter Recharge Amount", Toast.LENGTH_SHORT).show()
-                } else {
-                    Toast.makeText(this, "Success!", Toast.LENGTH_SHORT).show()
+                         Toast.makeText(this, "Please Enter Recharge Amount", Toast.LENGTH_SHORT)
+                             .show()
+                     } else {
+                         Toast.makeText(this, "Success!", Toast.LENGTH_SHORT).show()
 
-                }
-            } else if (billType == "PALLI") {
-                if (sp_year_value.text.toString().isEmpty()) {
-                    Toast.makeText(this, "Please Select Bill Year", Toast.LENGTH_SHORT).show()
-                } else if (sp_month_value.text.toString().isEmpty()) {
-                    Toast.makeText(this, "Please Select Bill Month", Toast.LENGTH_SHORT).show()
-                } else if (billTypePalli.isEmpty()) {
-                    Toast.makeText(
-                        this,
-                        "Please Select Palli Bill Payment Type",
-                        Toast.LENGTH_SHORT
-                    )
-                        .show()
-                } else if (et_customer_code_value.text.toString().isEmpty()) {
-                    et_customer_code_value.requestFocus()
-                    Toast.makeText(this, "Please Enter SMS Bill Account Number", Toast.LENGTH_SHORT)
-                        .show()
-                } else {
-                    Toast.makeText(this, "Success!", Toast.LENGTH_SHORT).show()
+                     }
+                 } else if (billType == "PALLI") {
+                     if (sp_year_value.text.toString().isEmpty()) {
+                         Toast.makeText(this, "Please Select Bill Year", Toast.LENGTH_SHORT).show()
+                     } else if (sp_month_value.text.toString().isEmpty()) {
+                         Toast.makeText(this, "Please Select Bill Month", Toast.LENGTH_SHORT).show()
+                     } else if (billTypePalli.isEmpty()) {
+                         Toast.makeText(
+                             this,
+                             "Please Select Palli Bill Payment Type",
+                             Toast.LENGTH_SHORT
+                         )
+                             .show()
+                     } else if (et_customer_code_value.text.toString().isEmpty()) {
+                         et_customer_code_value.requestFocus()
+                         Toast.makeText(
+                             this,
+                             "Please Enter SMS Bill Account Number",
+                             Toast.LENGTH_SHORT
+                         )
+                             .show()
+                     } else {
+                         Toast.makeText(this, "Success!", Toast.LENGTH_SHORT).show()
 
-                }
-            } else {
-                if (sp_year_value.text.toString().isEmpty()) {
-                    Toast.makeText(this, "Please Select Bill Year", Toast.LENGTH_SHORT).show()
-                } else if (sp_month_value.text.toString().isEmpty()) {
-                    Toast.makeText(this, "Please Select Bill Month", Toast.LENGTH_SHORT).show()
-                } else if (et_customer_code_value.text.toString().isEmpty()) {
-                    et_customer_code_value.requestFocus()
-                    Toast.makeText(this, "Please Enter Customer Code", Toast.LENGTH_SHORT).show()
-                } else {
-                    Toast.makeText(this, "Success!", Toast.LENGTH_SHORT).show()
-                }
+                     }
+                 } else {
+                     if (sp_year_value.text.toString().isEmpty()) {
+                         Toast.makeText(this, "Please Select Bill Year", Toast.LENGTH_SHORT).show()
+                     } else if (sp_month_value.text.toString().isEmpty()) {
+                         Toast.makeText(this, "Please Select Bill Month", Toast.LENGTH_SHORT).show()
+                     } else if (et_customer_code_value.text.toString().isEmpty()) {
+                         et_customer_code_value.requestFocus()
+                         Toast.makeText(this, "Please Enter Customer Code", Toast.LENGTH_SHORT)
+                             .show()
+                     } else {
+                         Toast.makeText(this, "Success!", Toast.LENGTH_SHORT).show()
+                     }
 
-            }
+                 }
+             }*/
         }
     }
 }
