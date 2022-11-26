@@ -24,7 +24,7 @@ class RequestToPay : AppCompatActivity() {
         iv_header_logout = toolbar.findViewById(R.id.iv_header_logout)
 
         setSupportActionBar(toolbar)
-        toolbar_title.text = "Request To Pay"
+        toolbar_title.text = getString(R.string.request_to_pay)
 
 
         iv_header_back.setOnClickListener {

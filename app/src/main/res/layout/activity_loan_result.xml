@@ -24,29 +24,7 @@
         android:layout_below="@+id/toolbar_layout"
         android:orientation="vertical">
 
-        <com.google.android.material.tabs.TabLayout
-            android:id="@+id/tablayout"
-            style="@style/Base.Widget.Design.TabLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/app_color"
-            android:layout_gravity="center_horizontal"
-            android:scrollbarThumbVertical="@color/black"
-            android:textAlignment="center"
-            android:visibility="visible"
-            app:tabGravity="center"
-            app:tabIndicatorAnimationDuration="1"
-            app:tabIndicatorColor="@android:color/holo_orange_dark"
-            app:tabSelectedTextColor="@android:color/holo_orange_dark"
-            app:tabTextAppearance="@style/MyTabTextAppearance_base"
-            app:tabTextColor="@color/white" />
-
-        <androidx.viewpager2.widget.ViewPager2
-            android:id="@+id/viewPager"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-
+        <include layout="@layout/tab_viewpager_layout" />
 
     </LinearLayout>
 

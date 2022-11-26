@@ -26,12 +26,14 @@ class DirectPay : CustomAppCompatActivity() {
         iv_header_logout = toolbar.findViewById(R.id.iv_header_logout)
 
         setSupportActionBar(toolbar)
-        toolbar_title.text = "Direct Pay"
+        toolbar_title.text = getString(R.string.direct_pay)
 
 
         iv_header_back.setOnClickListener {
             val intent = Intent(this, BinimoyDashboard::class.java)
             CustomActivityClear.doClearActivity(intent, this)
         }
+
+
     }
 }

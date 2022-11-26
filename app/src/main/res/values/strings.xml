@@ -60,6 +60,9 @@
     <string name="_50_000_00_bdt">50,000.00 BDT</string>
     <string name="source_binimoy_id">Source Binimoy ID</string>
     <string name="binimoy">\@binimoy</string>
+    <string name="pending_rtp"> Pending RTP</string>
+    <string name="direct_pay">Direct Pay</string>
+    <string name="request_to_pay">Request To Pay</string>
     <string name="destination_binimoy_id">Destination Binimoy ID</string>
     <string name="remarks">Enter Remarks</string>
     <string name="login_password">Enter Login Password</string>

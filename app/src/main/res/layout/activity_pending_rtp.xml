@@ -22,12 +22,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/toolbar_layout"
-        android:layout_marginLeft="5dp"
-        android:layout_marginTop="@dimen/main_layout_maring_top_base"
         android:layout_marginRight="5dp"
         android:orientation="vertical">
 
-        <include layout="@layout/binimoy_direct_pay_input_layout" />
+        <include layout="@layout/tab_viewpager_layout" />
     </LinearLayout>
 
 
