@@ -8,10 +8,11 @@ import android.os.Handler
 import android.os.Looper
 import android.widget.ImageView
 import com.emon.raihan.dynamicutility.R
+import com.emon.raihan.dynamicutility.util.CustomAppCompatActivity
 import java.util.*
 
 @SuppressLint("CustomSplashScreen")
-class SplashScreen : AppCompatActivity() {
+class SplashScreen : CustomAppCompatActivity() {
     private lateinit var handler: Handler
     private lateinit var runnable: Runnable
     private lateinit var timer: Timer

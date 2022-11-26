@@ -1,16 +1,9 @@
 package com.emon.raihan.dynamicutility.adaptar
 
 
-import android.app.Activity
-import android.content.Context
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentPagerAdapter
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.emon.raihan.dynamicutility.view.loan.fragment.LoanAllFragment
-import com.emon.raihan.dynamicutility.view.loan.fragment.LoanApprovedFragment
-import com.emon.raihan.dynamicutility.view.loan.fragment.LoanRejectedFragment
 
 
 class ViewPagerAdapter(activity: FragmentActivity?) : FragmentStateAdapter(activity!!) {

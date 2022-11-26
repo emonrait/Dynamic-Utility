@@ -8,8 +8,9 @@ import android.widget.TextView
 import androidx.appcompat.widget.Toolbar
 import com.emon.raihan.dynamicutility.R
 import com.emon.raihan.dynamicutility.util.CustomActivityClear
+import com.emon.raihan.dynamicutility.util.CustomAppCompatActivity
 
-class RequestToPay : AppCompatActivity() {
+class RequestToPay : CustomAppCompatActivity() {
     private lateinit var toolbar: Toolbar
     private lateinit var iv_header_back: ImageView
     private lateinit var toolbar_title: TextView
