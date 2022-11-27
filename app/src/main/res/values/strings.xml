@@ -46,6 +46,10 @@
     <string name="policy_number">Enter Policy Number</string>
     <string name="select_purpose">Select Purpose</string>
     <string name="customer_id">Enter Customer ID</string>
+    <string name="binimoy_dashboard">Binimoy Dashboard</string>
+    <string name="apply_loan">Apply Loan</string>
+    <string name="loan_dashboard">Loan Dashboard</string>
+    <string name="loan_result">Loan Result</string>
     <string name="cancel">Cancel</string>
     <string name="ok">Ok</string>
     <string name="loan_amount_bdt">Loan Amount (BDT)</string>

@@ -47,10 +47,7 @@ class LoanApplication : CustomAppCompatActivity() {
 
 
         setSupportActionBar(toolbar)
-        toolbar_title.text = "Apply Loan"
-        // Objects.requireNonNull(supportActionBar)?.setHomeButtonEnabled(true)
-        //  supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-        //  supportActionBar!!.title = "About Me"
+        toolbar_title.text = getString(R.string.apply_loan)
 
         iv_header_back.setOnClickListener {
             val intent = Intent(this, LoanDashboard::class.java)

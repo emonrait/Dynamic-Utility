@@ -1,5 +1,6 @@
 package com.emon.raihan.dynamicutility.view
 
+import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.content.Intent
 import android.graphics.Color
@@ -125,6 +126,7 @@ class WASABillPayment : CustomAppCompatActivity() {
 
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     fun showDropDoownDialog() {
         lateinit var et_bill_type_value: TextInputEditText
         lateinit var mAdapter: DropdownListAdaptar
@@ -169,7 +171,7 @@ class WASABillPayment : CustomAppCompatActivity() {
                 })
 
         dropdown_recycler.adapter = mAdapter
-        mAdapter?.notifyDataSetChanged()
+        mAdapter.notifyDataSetChanged()
 
         et_bill_type_value.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}

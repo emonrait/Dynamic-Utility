@@ -3,17 +3,13 @@ package com.emon.raihan.dynamicutility.view.loan
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageView
-import android.widget.TableLayout
 import android.widget.TextView
 import androidx.appcompat.widget.Toolbar
-import androidx.core.view.get
-import androidx.viewpager.widget.ViewPager
 import androidx.viewpager2.widget.ViewPager2
 import com.emon.raihan.dynamicutility.R
 import com.emon.raihan.dynamicutility.adaptar.ViewPagerAdapter
 import com.emon.raihan.dynamicutility.util.CustomActivityClear
 import com.emon.raihan.dynamicutility.util.CustomAppCompatActivity
-import com.emon.raihan.dynamicutility.view.MainActivity
 import com.emon.raihan.dynamicutility.view.loan.fragment.LoanAllFragment
 import com.emon.raihan.dynamicutility.view.loan.fragment.LoanApprovedFragment
 import com.emon.raihan.dynamicutility.view.loan.fragment.LoanRejectedFragment
@@ -40,19 +36,16 @@ class LoanResult : CustomAppCompatActivity() {
         viewPager = findViewById(R.id.viewPager)
 
         setSupportActionBar(toolbar)
-        toolbar_title.text = "Loan Result"
+        toolbar_title.text = getString(R.string.loan_result)
 
         iv_header_back.setOnClickListener {
             val intent = Intent(this, LoanDashboard::class.java)
             CustomActivityClear.doClearActivity(intent, this)
         }
-      //  tabLayout.addTab(tabLayout.newTab().setText("ALL"))
-       // tabLayout.addTab(tabLayout.newTab().setText("Approved"))
-      //  tabLayout.addTab(tabLayout.newTab().setText("Rejected"))
+
         tabLayout.tabGravity = TabLayout.GRAVITY_FILL
 
         val adapter = ViewPagerAdapter(this)
-        // viewPager.adapter = adapter
 
 
         adapter.addFragment(LoanAllFragment(), "All")

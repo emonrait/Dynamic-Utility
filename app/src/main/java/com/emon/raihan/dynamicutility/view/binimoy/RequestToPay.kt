@@ -1,7 +1,6 @@
 package com.emon.raihan.dynamicutility.view.binimoy
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView

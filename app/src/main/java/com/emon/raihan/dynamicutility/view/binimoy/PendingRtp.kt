@@ -1,10 +1,10 @@
 package com.emon.raihan.dynamicutility.view.binimoy
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.viewpager2.widget.ViewPager2
 import com.emon.raihan.dynamicutility.R
@@ -12,9 +12,6 @@ import com.emon.raihan.dynamicutility.adaptar.ViewPagerAdapter
 import com.emon.raihan.dynamicutility.util.CustomActivityClear
 import com.emon.raihan.dynamicutility.view.binimoy.fargment.PendingRTP
 import com.emon.raihan.dynamicutility.view.binimoy.fargment.RtpHistory
-import com.emon.raihan.dynamicutility.view.loan.fragment.LoanAllFragment
-import com.emon.raihan.dynamicutility.view.loan.fragment.LoanApprovedFragment
-import com.emon.raihan.dynamicutility.view.loan.fragment.LoanRejectedFragment
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 

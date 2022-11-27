@@ -1,7 +1,6 @@
 package com.emon.raihan.dynamicutility.view.binimoy
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
@@ -9,7 +8,6 @@ import androidx.appcompat.widget.Toolbar
 import com.emon.raihan.dynamicutility.R
 import com.emon.raihan.dynamicutility.util.CustomActivityClear
 import com.emon.raihan.dynamicutility.util.CustomAppCompatActivity
-import com.emon.raihan.dynamicutility.view.loan.LoanDashboard
 
 class DirectPay : CustomAppCompatActivity() {
     private lateinit var toolbar: Toolbar

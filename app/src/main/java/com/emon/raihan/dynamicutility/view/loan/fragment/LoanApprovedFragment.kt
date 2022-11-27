@@ -1,5 +1,6 @@
 package com.emon.raihan.dynamicutility.view.loan.fragment
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -19,6 +20,7 @@ class LoanApprovedFragment : Fragment() {
     private lateinit var approved_loan_recyclerview: RecyclerView
     var loanList: ArrayList<Loan> = ArrayList<Loan>()
 
+    @SuppressLint("NotifyDataSetChanged")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -48,7 +50,7 @@ class LoanApprovedFragment : Fragment() {
                 })
 
         approved_loan_recyclerview.adapter = mAdapter
-        mAdapter?.notifyDataSetChanged()
+        mAdapter.notifyDataSetChanged()
 
 
 

@@ -2,7 +2,6 @@ package com.emon.raihan.dynamicutility.view.binimoy
 
 import android.content.Intent
 import android.graphics.Color
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
@@ -12,14 +11,11 @@ import android.widget.TextView
 import androidx.appcompat.widget.Toolbar
 import com.emon.raihan.dynamicutility.R
 import com.emon.raihan.dynamicutility.adaptar.Menu3SubAdapter
-import com.emon.raihan.dynamicutility.adaptar.MenuSubAdapter
 import com.emon.raihan.dynamicutility.model.Menu
 import com.emon.raihan.dynamicutility.util.CustomActivityClear
 import com.emon.raihan.dynamicutility.util.CustomAppCompatActivity
 import com.emon.raihan.dynamicutility.util.GlobalVariable
 import com.emon.raihan.dynamicutility.view.MainActivity
-import com.emon.raihan.dynamicutility.view.loan.LoanApplication
-import com.emon.raihan.dynamicutility.view.loan.LoanResult
 
 class BinimoyDashboard : CustomAppCompatActivity() {
     private lateinit var globalVariable: GlobalVariable
@@ -58,7 +54,7 @@ class BinimoyDashboard : CustomAppCompatActivity() {
 
         toolbar.setBackgroundColor(Color.parseColor(globalVariable.coloreCode))
         setSupportActionBar(toolbar)
-        toolbar_title.text = "Binimoy Dashboard"
+        toolbar_title.text = getString(R.string.binimoy_dashboard)
 
         iv_header_back.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
@@ -85,8 +81,7 @@ class BinimoyDashboard : CustomAppCompatActivity() {
             AdapterView.OnItemClickListener { parent, view, position, id ->
                 val menu_soft_code =
                     view.findViewById<View>(R.id.menu_soft_code) as TextView
-                val menu_name =
-                    view.findViewById<View>(R.id.menu_name) as TextView
+               // val menu_name = view.findViewById<View>(R.id.menu_name) as TextView
 
                 when {
                     "DP" == menu_soft_code.text.toString() -> {

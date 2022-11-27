@@ -7,7 +7,6 @@ import android.widget.AdapterView
 import android.widget.GridView
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import com.emon.raihan.dynamicutility.R
 import com.emon.raihan.dynamicutility.adaptar.MenuSubAdapter
@@ -40,7 +39,7 @@ class LoanDashboard : CustomAppCompatActivity() {
         menuList = ArrayList<Menu>()
 
         setSupportActionBar(toolbar)
-        toolbar_title.text = "Loan Dashboard"
+        toolbar_title.text = getString(R.string.loan_dashboard)
         // Objects.requireNonNull(supportActionBar)?.setHomeButtonEnabled(true)
         //  supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         //  supportActionBar!!.title = "About Me"
@@ -60,8 +59,7 @@ class LoanDashboard : CustomAppCompatActivity() {
             AdapterView.OnItemClickListener { parent, view, position, id ->
                 val menu_soft_code =
                     view.findViewById<View>(R.id.menu_soft_code) as TextView
-                val menu_name =
-                    view.findViewById<View>(R.id.menu_name) as TextView
+                //val menu_name =  view.findViewById<View>(R.id.menu_name) as TextView
 
                 when {
                     "AL" == menu_soft_code.text.toString() -> {
