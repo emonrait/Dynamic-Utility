@@ -1,14 +1,22 @@
 package com.emon.raihan.dynamicutility.view
 
+import android.app.Activity
+import android.app.AlertDialog
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import android.util.Log
+import android.view.LayoutInflater
 import android.view.View
 import android.widget.*
 import androidx.appcompat.widget.AppCompatButton
 import androidx.appcompat.widget.Toolbar
 import androidx.cardview.widget.CardView
+import androidx.recyclerview.widget.DefaultItemAnimator
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.emon.raihan.dynamicutility.R
+import com.emon.raihan.dynamicutility.adaptar.DropdownListAdaptar
 import com.emon.raihan.dynamicutility.model.CodeDesOptions
 import com.emon.raihan.dynamicutility.util.CustomActivityClear
 import com.emon.raihan.dynamicutility.util.CustomAppCompatActivity
@@ -39,6 +47,8 @@ class ElectricityBillPayment : CustomAppCompatActivity() {
     private lateinit var sp_palli_type_input_value: MaterialAutoCompleteTextView
     private lateinit var sp_month_input: TextInputLayout
     private lateinit var sp_year_input: TextInputLayout
+
+    // private lateinit var palli_type_input: TextInputLayout
     private lateinit var customer_code_input: TextInputLayout
     private lateinit var btn_validate: AppCompatButton
     private lateinit var et_customer_code_value: TextInputEditText
@@ -48,7 +58,6 @@ class ElectricityBillPayment : CustomAppCompatActivity() {
     var codeDesOptions: ArrayList<CodeDesOptions> = ArrayList<CodeDesOptions>()
     var codeDesOptionsPalli: ArrayList<CodeDesOptions> = ArrayList<CodeDesOptions>()
     var billType = ""
-    var billTypePalli = ""
     var year = ""
     var month = ""
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -81,7 +90,7 @@ class ElectricityBillPayment : CustomAppCompatActivity() {
         et_meter_no_value = findViewById(R.id.et_meter_no_value)
         et_amount_value = findViewById(R.id.et_amount_value)
         sp_palli_type_input_value = findViewById(R.id.sp_palli_type_input_value)
-        //  palli_type_input = findViewById(R.id.palli_type_input)
+        // palli_type_input = findViewById(R.id.palli_type_input)
 
         setSupportActionBar(toolbar)
         toolbar_title.text = getString(R.string.electricity_biill_payment)
@@ -96,6 +105,7 @@ class ElectricityBillPayment : CustomAppCompatActivity() {
         meter_no_input_cardview.visibility = View.GONE
         input_amount_cardview.visibility = View.GONE
         customer_code_input_cardview.visibility = View.GONE
+        palli_type_input_cardview.visibility = View.GONE
 
         codeDesOptions.add(CodeDesOptions("DESCO Postpaid", "DESCO"))
         codeDesOptions.add(CodeDesOptions("DESCO Prepaid", "DESCOPRE"))
@@ -117,15 +127,11 @@ class ElectricityBillPayment : CustomAppCompatActivity() {
         codeDesOptionsPalli.add(CodeDesOptions("Advance Electricity Bill", "30"))
         codeDesOptionsPalli.add(CodeDesOptions("Electricity Bill", "50"))
 
-        val arrayAdapter = ArrayAdapter(this, R.layout.dropdown_item, codeDesOptions)
+     /*   val arrayAdapter = ArrayAdapter(this, R.layout.dropdown_item, codeDesOptions)
         sp_bill_type_value.setAdapter(arrayAdapter)
 
         val arrayAdapterPalli = ArrayAdapter(this, R.layout.dropdown_item, codeDesOptionsPalli)
         sp_palli_type_input_value.setAdapter(arrayAdapterPalli)
-
-        sp_bill_type_value.setOnClickListener {
-            CustomDailog.showDropDoownDialog(this, codeDesOptions, sp_bill_type_value)
-        }
 
 
         sp_bill_type_value.setOnItemClickListener { parent, arg1, position, id ->
@@ -161,13 +167,18 @@ class ElectricityBillPayment : CustomAppCompatActivity() {
             }
 
         }
+*/
 
-        sp_palli_type_input_value.setOnItemClickListener { parent, arg1, position, id ->
-            billTypePalli = codeDesOptionsPalli[position].code.toString()
+        sp_bill_type_value.setOnClickListener {
+            showDropDoownDialog(this, codeDesOptions, sp_bill_type_value)
         }
 
+        sp_palli_type_input_value.setOnClickListener {
+            showDropDoownDialog(this, codeDesOptionsPalli, sp_palli_type_input_value)
+        }
         sp_year_value.setOnClickListener {
             CustomDailog.createYearPicker(this, sp_year_value)
+
         }
 
         sp_year_input.setOnClickListener {
@@ -177,91 +188,139 @@ class ElectricityBillPayment : CustomAppCompatActivity() {
 
         sp_month_value.setOnClickListener {
             CustomDailog.createMonthPicker(this, sp_month_value)
+
         }
         sp_month_input.setOnClickListener {
             CustomDailog.createMonthPicker(this, sp_month_value)
 
         }
 
+
         btn_validate.setOnClickListener {
-            Toast.makeText(this, billType, Toast.LENGTH_SHORT).show()
-            Log.d("billType-->", billType)
             if (billType.isEmpty()) {
                 Toast.makeText(this, "Please Select Bill Type", Toast.LENGTH_SHORT).show()
                 DialogCustom.showErrorMessage(this, "Please Select Bill Type")
-            } else {
-                if (billType.endsWith("PRE")) {
-                    if (et_customer_code_value.text.toString().isEmpty()) {
-                        et_customer_code_value.requestFocus()
-                        Toast.makeText(this, "Please Enter Customer Code", Toast.LENGTH_SHORT)
-                            .show()
-                        DialogCustom.showErrorMessage(this, "Please Enter Customer Code")
-
-                    } else if (et_amount_value.text.toString().isEmpty()) {
-                        et_amount_value.requestFocus()
-
-                        Toast.makeText(this, "Please Enter Recharge Amount", Toast.LENGTH_SHORT)
-                            .show()
-                        DialogCustom.showErrorMessage(this, "Please Enter Recharge Amount")
-
-                    } else {
-                        Toast.makeText(this, "Success!", Toast.LENGTH_SHORT).show()
-                        DialogCustom.showSuccessMessage(this, "Success!")
-
-                    }
-                } else if (billType == "PALLI") {
-                    if (sp_year_value.text.toString().isEmpty()) {
-                        Toast.makeText(this, "Please Select Bill Year", Toast.LENGTH_SHORT).show()
-                        DialogCustom.showErrorMessage(this, "Please Select Bill Year")
-
-                    } else if (sp_month_value.text.toString().isEmpty()) {
-                        Toast.makeText(this, "Please Select Bill Month", Toast.LENGTH_SHORT).show()
-                        DialogCustom.showErrorMessage(this, "Please Select Bill Month")
-                    } else if (billTypePalli.isEmpty()) {
-                        Toast.makeText(
-                            this,
-                            "Please Select Palli Bill Payment Type",
-                            Toast.LENGTH_SHORT
-                        )
-                            .show()
-                        DialogCustom.showErrorMessage(this, "Please Select Palli Bill Payment Type")
-
-                    } else if (et_customer_code_value.text.toString().isEmpty()) {
-                        et_customer_code_value.requestFocus()
-                        Toast.makeText(
-                            this,
-                            "Please Enter SMS Bill Account Number",
-                            Toast.LENGTH_SHORT
-                        )
-                            .show()
-                        DialogCustom.showErrorMessage(this, "Please Enter SMS Bill Account Number")
-
-                    } else {
-                        Toast.makeText(this, "Success!", Toast.LENGTH_SHORT).show()
-                        Log.d("value-->", "Success")
-                        DialogCustom.showSuccessMessage(this, "Success!")
-
-                    }
+            } else if (billType.endsWith("PRE")) {
+                if (et_customer_code_value.text.toString().isEmpty()) {
+                    et_customer_code_value.requestFocus()
+                    Toast.makeText(this, "Please Enter Customer Code", Toast.LENGTH_SHORT).show()
+                    DialogCustom.showErrorMessage(this, "Please Enter Customer Code")
+                } else if (et_amount_value.text.toString().isEmpty()) {
+                    et_amount_value.requestFocus()
+                    DialogCustom.showErrorMessage(this, "Please Enter Recharge Amount")
+                    Toast.makeText(this, "Please Enter Recharge Amount", Toast.LENGTH_SHORT).show()
                 } else {
-                    if (sp_year_value.text.toString().isEmpty()) {
-                        Toast.makeText(this, "Please Select Bill Year", Toast.LENGTH_SHORT).show()
-                        DialogCustom.showErrorMessage(this, "Please Select Bill Year")
-                    } else if (sp_month_value.text.toString().isEmpty()) {
-                        Toast.makeText(this, "Please Select Bill Month", Toast.LENGTH_SHORT).show()
-                        DialogCustom.showErrorMessage(this, "Please Select Bill Month")
-                    } else if (et_customer_code_value.text.toString().isEmpty()) {
-                        et_customer_code_value.requestFocus()
-                        Toast.makeText(this, "Please Enter Customer Code", Toast.LENGTH_SHORT)
-                            .show()
-                        DialogCustom.showErrorMessage(this, "Please Enter Customer Code")
-
-                    } else {
-                        Toast.makeText(this, "Success!", Toast.LENGTH_SHORT).show()
-                        DialogCustom.showSuccessMessage(this, "Success!")
-                    }
+                    Toast.makeText(this, "Success!", Toast.LENGTH_SHORT).show()
+                    DialogCustom.showSuccessMessage(this, "Success!")
 
                 }
+            } else if (billType == "PALLI") {
+                if (sp_year_value.text.toString().isEmpty()) {
+                    Toast.makeText(this, "Please Select Bill Year", Toast.LENGTH_SHORT).show()
+                    DialogCustom.showErrorMessage(this, "Please Select Bill Year")
+                } else if (sp_month_value.text.toString().isEmpty()) {
+                    Toast.makeText(this, "Please Select Bill Month", Toast.LENGTH_SHORT).show()
+                    DialogCustom.showErrorMessage(this, "Please Select Bill Month")
+                } else if (et_customer_code_value.text.toString().isEmpty()) {
+                    et_customer_code_value.requestFocus()
+                    Toast.makeText(this, "Please Enter SMS Bill Account Number", Toast.LENGTH_SHORT)
+                        .show()
+                    DialogCustom.showErrorMessage(this, "Please Enter SMS Bill Account Number")
+                } else {
+                    Toast.makeText(this, "Success!", Toast.LENGTH_SHORT).show()
+                    DialogCustom.showSuccessMessage(this, "Success!")
+                }
+            } else {
+                if (sp_year_value.text.toString().isEmpty()) {
+                    Toast.makeText(this, "Please Select Bill Year", Toast.LENGTH_SHORT).show()
+                    DialogCustom.showErrorMessage(this, "Please Select Bill Year")
+                } else if (sp_month_value.text.toString().isEmpty()) {
+                    Toast.makeText(this, "Please Select Bill Month", Toast.LENGTH_SHORT).show()
+                    DialogCustom.showErrorMessage(this, "Please Select Bill Month")
+                } else if (et_customer_code_value.text.toString().isEmpty()) {
+                    et_customer_code_value.requestFocus()
+                    Toast.makeText(this, "Please Enter Customer Code", Toast.LENGTH_SHORT).show()
+                    DialogCustom.showErrorMessage(this, "Please Enter Customer Code")
+                } else {
+                    Toast.makeText(this, "Success!", Toast.LENGTH_SHORT).show()
+                    DialogCustom.showSuccessMessage(this, "Success!")
+                }
+
             }
         }
+    }
+
+    fun showDropDoownDialog(
+        activity: Activity,
+        billTypeList: ArrayList<CodeDesOptions>,
+        sp_bill_type_value: MaterialAutoCompleteTextView
+
+    ) {
+        lateinit var et_bill_type_value: TextInputEditText
+        lateinit var mAdapter: DropdownListAdaptar
+        lateinit var ivClose: ImageView
+        lateinit var dropdown_recycler: RecyclerView
+        val dialog = AlertDialog.Builder(activity).setCancelable(false)
+        val inflater = LayoutInflater.from(activity)
+        val regLayout = inflater.inflate(R.layout.dialog_dropdown_picker, null)
+        et_bill_type_value = regLayout.findViewById(R.id.et_bill_type_value)
+        dropdown_recycler = regLayout.findViewById(R.id.dropdown_recycler)
+        ivClose = regLayout.findViewById(R.id.ivClose)
+        dialog.setView(regLayout)
+        val alertDialog = dialog.create()
+        alertDialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+
+        val mLayoutManager = LinearLayoutManager(activity)
+        dropdown_recycler.layoutManager = mLayoutManager
+        dropdown_recycler.itemAnimator = DefaultItemAnimator()
+
+        mAdapter =
+            DropdownListAdaptar(
+                billTypeList, dialog,
+                object : DropdownListAdaptar.OnItemClickListener {
+                    override fun onItemClick(item: CodeDesOptions) {
+                        sp_bill_type_value.setText(item.desc)
+                        billType = item.code.toString()
+                        bill_type_view_layout.visibility = View.VISIBLE
+                        iv_bill_type_logo.setImageResource(R.drawable.electricity_bill)
+                        if (billType.endsWith("PRE")) {
+                            year_month_layout.visibility = View.GONE
+                            meter_no_input_cardview.visibility = View.GONE
+                            palli_type_input_cardview.visibility = View.GONE
+                            input_amount_cardview.visibility = View.VISIBLE
+                            btn_validate_cardview.visibility = View.VISIBLE
+                            customer_code_input_cardview.visibility = View.VISIBLE
+
+                        } else if (billType.equals("PALLI")) {
+                            customer_code_input.hint = "Enter SMS Bill Account Number"
+                            year_month_layout.visibility = View.VISIBLE
+                            palli_type_input_cardview.visibility = View.VISIBLE
+                            meter_no_input_cardview.visibility = View.GONE
+                            input_amount_cardview.visibility = View.GONE
+                            btn_validate_cardview.visibility = View.VISIBLE
+                            customer_code_input_cardview.visibility = View.VISIBLE
+
+                        } else {
+                            year_month_layout.visibility = View.VISIBLE
+                            meter_no_input_cardview.visibility = View.GONE
+                            palli_type_input_cardview.visibility = View.GONE
+                            input_amount_cardview.visibility = View.GONE
+                            btn_validate_cardview.visibility = View.VISIBLE
+                            customer_code_input_cardview.visibility = View.VISIBLE
+
+                        }
+                        alertDialog.dismiss()
+                    }
+                })
+
+        dropdown_recycler.adapter = mAdapter
+        mAdapter?.notifyDataSetChanged()
+
+
+        ivClose.setOnClickListener { alertDialog.dismiss() }
+
+
+        alertDialog.show()
+
     }
 }

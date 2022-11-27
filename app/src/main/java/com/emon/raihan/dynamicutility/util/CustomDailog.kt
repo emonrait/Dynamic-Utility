@@ -393,7 +393,7 @@ class CustomDailog {
                     billTypeList,dialog,
                     object : DropdownListAdaptar.OnItemClickListener {
                         override fun onItemClick(item: CodeDesOptions) {
-                            sp_bill_type_value.setText(item.desc)
+                            sp_bill_type_value.setText(item.code)
                             alertDialog.dismiss()
                         }
                     })
