@@ -58,6 +58,7 @@ class ElectricityBillPayment : CustomAppCompatActivity() {
     var codeDesOptions: ArrayList<CodeDesOptions> = ArrayList<CodeDesOptions>()
     var codeDesOptionsPalli: ArrayList<CodeDesOptions> = ArrayList<CodeDesOptions>()
     var billType = ""
+    var billTypePalli = ""
     var year = ""
     var month = ""
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -127,54 +128,54 @@ class ElectricityBillPayment : CustomAppCompatActivity() {
         codeDesOptionsPalli.add(CodeDesOptions("Advance Electricity Bill", "30"))
         codeDesOptionsPalli.add(CodeDesOptions("Electricity Bill", "50"))
 
-     /*   val arrayAdapter = ArrayAdapter(this, R.layout.dropdown_item, codeDesOptions)
-        sp_bill_type_value.setAdapter(arrayAdapter)
+        /*   val arrayAdapter = ArrayAdapter(this, R.layout.dropdown_item, codeDesOptions)
+           sp_bill_type_value.setAdapter(arrayAdapter)
 
-        val arrayAdapterPalli = ArrayAdapter(this, R.layout.dropdown_item, codeDesOptionsPalli)
-        sp_palli_type_input_value.setAdapter(arrayAdapterPalli)
+           val arrayAdapterPalli = ArrayAdapter(this, R.layout.dropdown_item, codeDesOptionsPalli)
+           sp_palli_type_input_value.setAdapter(arrayAdapterPalli)
 
 
-        sp_bill_type_value.setOnItemClickListener { parent, arg1, position, id ->
-            billType = codeDesOptions[position].code.toString()
-            bill_type_title.text = codeDesOptions[position].desc.toString()
-            bill_type_view_layout.visibility = View.VISIBLE
-            iv_bill_type_logo.setImageResource(R.drawable.electricity_bill)
-            if (billType.endsWith("PRE")) {
-                year_month_layout.visibility = View.GONE
-                meter_no_input_cardview.visibility = View.GONE
-                palli_type_input_cardview.visibility = View.GONE
-                input_amount_cardview.visibility = View.VISIBLE
-                btn_validate_cardview.visibility = View.VISIBLE
-                customer_code_input_cardview.visibility = View.VISIBLE
+           sp_bill_type_value.setOnItemClickListener { parent, arg1, position, id ->
+               billType = codeDesOptions[position].code.toString()
+               bill_type_title.text = codeDesOptions[position].desc.toString()
+               bill_type_view_layout.visibility = View.VISIBLE
+               iv_bill_type_logo.setImageResource(R.drawable.electricity_bill)
+               if (billType.endsWith("PRE")) {
+                   year_month_layout.visibility = View.GONE
+                   meter_no_input_cardview.visibility = View.GONE
+                   palli_type_input_cardview.visibility = View.GONE
+                   input_amount_cardview.visibility = View.VISIBLE
+                   btn_validate_cardview.visibility = View.VISIBLE
+                   customer_code_input_cardview.visibility = View.VISIBLE
 
-            } else if (billType.equals("PALLI")) {
-                customer_code_input.hint = "Enter SMS Bill Account Number"
-                year_month_layout.visibility = View.VISIBLE
-                palli_type_input_cardview.visibility = View.VISIBLE
-                meter_no_input_cardview.visibility = View.GONE
-                input_amount_cardview.visibility = View.GONE
-                btn_validate_cardview.visibility = View.VISIBLE
-                customer_code_input_cardview.visibility = View.VISIBLE
+               } else if (billType.equals("PALLI")) {
+                   customer_code_input.hint = "Enter SMS Bill Account Number"
+                   year_month_layout.visibility = View.VISIBLE
+                   palli_type_input_cardview.visibility = View.VISIBLE
+                   meter_no_input_cardview.visibility = View.GONE
+                   input_amount_cardview.visibility = View.GONE
+                   btn_validate_cardview.visibility = View.VISIBLE
+                   customer_code_input_cardview.visibility = View.VISIBLE
 
-            } else {
-                year_month_layout.visibility = View.VISIBLE
-                meter_no_input_cardview.visibility = View.GONE
-                palli_type_input_cardview.visibility = View.GONE
-                input_amount_cardview.visibility = View.GONE
-                btn_validate_cardview.visibility = View.VISIBLE
-                customer_code_input_cardview.visibility = View.VISIBLE
+               } else {
+                   year_month_layout.visibility = View.VISIBLE
+                   meter_no_input_cardview.visibility = View.GONE
+                   palli_type_input_cardview.visibility = View.GONE
+                   input_amount_cardview.visibility = View.GONE
+                   btn_validate_cardview.visibility = View.VISIBLE
+                   customer_code_input_cardview.visibility = View.VISIBLE
 
-            }
+               }
 
-        }
-*/
+           }
+   */
 
         sp_bill_type_value.setOnClickListener {
-            showDropDoownDialog(this, codeDesOptions, sp_bill_type_value)
+            showDropDoownDialog()
         }
 
         sp_palli_type_input_value.setOnClickListener {
-            showDropDoownDialog(this, codeDesOptionsPalli, sp_palli_type_input_value)
+            showDropDoownDialogPalli()
         }
         sp_year_value.setOnClickListener {
             CustomDailog.createYearPicker(this, sp_year_value)
@@ -221,6 +222,8 @@ class ElectricityBillPayment : CustomAppCompatActivity() {
                 } else if (sp_month_value.text.toString().isEmpty()) {
                     Toast.makeText(this, "Please Select Bill Month", Toast.LENGTH_SHORT).show()
                     DialogCustom.showErrorMessage(this, "Please Select Bill Month")
+                } else if (billTypePalli.isEmpty()) {
+                    DialogCustom.showErrorMessage(this, "Please select palli bidduyat Bill Type")
                 } else if (et_customer_code_value.text.toString().isEmpty()) {
                     et_customer_code_value.requestFocus()
                     Toast.makeText(this, "Please Enter SMS Bill Account Number", Toast.LENGTH_SHORT)
@@ -250,18 +253,13 @@ class ElectricityBillPayment : CustomAppCompatActivity() {
         }
     }
 
-    fun showDropDoownDialog(
-        activity: Activity,
-        billTypeList: ArrayList<CodeDesOptions>,
-        sp_bill_type_value: MaterialAutoCompleteTextView
-
-    ) {
+    fun showDropDoownDialog() {
         lateinit var et_bill_type_value: TextInputEditText
         lateinit var mAdapter: DropdownListAdaptar
         lateinit var ivClose: ImageView
         lateinit var dropdown_recycler: RecyclerView
-        val dialog = AlertDialog.Builder(activity).setCancelable(false)
-        val inflater = LayoutInflater.from(activity)
+        val dialog = AlertDialog.Builder(this).setCancelable(false)
+        val inflater = LayoutInflater.from(this)
         val regLayout = inflater.inflate(R.layout.dialog_dropdown_picker, null)
         et_bill_type_value = regLayout.findViewById(R.id.et_bill_type_value)
         dropdown_recycler = regLayout.findViewById(R.id.dropdown_recycler)
@@ -270,13 +268,13 @@ class ElectricityBillPayment : CustomAppCompatActivity() {
         val alertDialog = dialog.create()
         alertDialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 
-        val mLayoutManager = LinearLayoutManager(activity)
+        val mLayoutManager = LinearLayoutManager(this)
         dropdown_recycler.layoutManager = mLayoutManager
         dropdown_recycler.itemAnimator = DefaultItemAnimator()
 
         mAdapter =
             DropdownListAdaptar(
-                billTypeList, dialog,
+                codeDesOptions, dialog,
                 object : DropdownListAdaptar.OnItemClickListener {
                     override fun onItemClick(item: CodeDesOptions) {
                         sp_bill_type_value.setText(item.desc)
@@ -309,6 +307,48 @@ class ElectricityBillPayment : CustomAppCompatActivity() {
                             customer_code_input_cardview.visibility = View.VISIBLE
 
                         }
+                        alertDialog.dismiss()
+                    }
+                })
+
+        dropdown_recycler.adapter = mAdapter
+        mAdapter?.notifyDataSetChanged()
+
+
+        ivClose.setOnClickListener { alertDialog.dismiss() }
+
+
+        alertDialog.show()
+
+    }
+
+    fun showDropDoownDialogPalli() {
+        lateinit var et_bill_type_value: TextInputEditText
+        lateinit var mAdapter: DropdownListAdaptar
+        lateinit var ivClose: ImageView
+        lateinit var dropdown_recycler: RecyclerView
+        val dialog = AlertDialog.Builder(this).setCancelable(false)
+        val inflater = LayoutInflater.from(this)
+        val regLayout = inflater.inflate(R.layout.dialog_dropdown_picker, null)
+        et_bill_type_value = regLayout.findViewById(R.id.et_bill_type_value)
+        dropdown_recycler = regLayout.findViewById(R.id.dropdown_recycler)
+        ivClose = regLayout.findViewById(R.id.ivClose)
+        dialog.setView(regLayout)
+        val alertDialog = dialog.create()
+        alertDialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+
+        val mLayoutManager = LinearLayoutManager(this)
+        dropdown_recycler.layoutManager = mLayoutManager
+        dropdown_recycler.itemAnimator = DefaultItemAnimator()
+
+        mAdapter =
+            DropdownListAdaptar(
+                codeDesOptionsPalli, dialog,
+                object : DropdownListAdaptar.OnItemClickListener {
+                    override fun onItemClick(item: CodeDesOptions) {
+                        sp_palli_type_input_value.setText(item.desc)
+                        billTypePalli = item.code.toString()
+
                         alertDialog.dismiss()
                     }
                 })

@@ -10,9 +10,7 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margin_15"
         android:elevation="@dimen/margin_15"
-        android:padding="@dimen/margin_15"
         app:cardCornerRadius="@dimen/margin_15">
 
         <LinearLayout
@@ -34,7 +32,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="Select Bill Type"
+                    android:text="@string/select_bill_type"
                     android:textColor="@color/black"
                     android:textSize="16sp"
                     android:textStyle="bold" />
@@ -45,7 +43,8 @@
                     android:layout_height="30dp"
                     android:layout_gravity="end"
                     android:gravity="end"
-                    android:src="@drawable/ic_close" />
+                    android:src="@drawable/ic_close"
+                    android:contentDescription="@string/close_icon" />
             </LinearLayout>
 
             <LinearLayout
@@ -68,9 +67,7 @@
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginStart="@dimen/text_input_layout_left_size"
                         android:layout_marginTop="@dimen/text_input_layout_top_size"
-                        android:layout_marginEnd="@dimen/text_input_layout_right_size"
                         android:layout_marginBottom="@dimen/text_input_layout_bottom_size"
                         android:hint="@string/search_by_bill_type"
                         android:padding="@dimen/padding_5">
@@ -79,7 +76,7 @@
                             android:id="@+id/et_bill_type_value"
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/input_field_height_size"
-                            android:drawableRight="@drawable/ic_search"
+                            android:drawableEnd="@drawable/ic_search"
                             android:inputType="number"
                             android:padding="@dimen/padding_5"
                             android:singleLine="true"

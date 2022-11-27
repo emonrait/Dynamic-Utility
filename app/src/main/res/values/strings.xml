@@ -76,4 +76,6 @@
     <string name="no">Cancel</string>
     <string name="log_out_title">Logout</string>
     <string name="search_by_bill_type">Search by Bill Type</string>
+    <string name="select_bill_type">Select Bill Type</string>
+    <string name="close_icon">Close Icon</string>
 </resources>

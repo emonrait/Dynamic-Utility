@@ -44,7 +44,7 @@ class DropdownListAdaptar(
 
         val atmListView =
             LayoutInflater.from(parent.context)
-                .inflate(R.layout.row_loan_list, parent, false)
+                .inflate(R.layout.row_dropdown_item, parent, false)
         val sch = MyViewHolder(atmListView)
         mcontext = parent.context
         return sch
@@ -52,13 +52,13 @@ class DropdownListAdaptar(
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val currentItem = requestFilterList[position]
-        val tv_amount: TextView = holder.itemView.findViewById(R.id.tv_amount)
-        val tv_status: TextView = holder.itemView.findViewById(R.id.tv_status)
-        val tv_display_amount: TextView? = holder.itemView.findViewById(R.id.tv_display_amount)
-        val tv_date: TextView? = holder.itemView.findViewById(R.id.tv_date)
-        tv_amount.text = currentItem.desc
+        val tv_bill_type_name: TextView = holder.itemView.findViewById(R.id.tv_bill_type_name)
+        val iv_bill_type: ImageView = holder.itemView.findViewById(R.id.iv_bill_type)
+        val view_layout: LinearLayout = holder.itemView.findViewById(R.id.view_layout)
 
-        tv_amount.setOnClickListener {
+        tv_bill_type_name.text = currentItem.desc
+
+        view_layout.setOnClickListener {
             val selectedList: CodeDesOptions = currentItem
             listener.onItemClick(selectedList)
 
