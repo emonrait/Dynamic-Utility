@@ -293,14 +293,15 @@ class ElectricityBillPayment : CustomAppCompatActivity() {
                 codeDesOptions, dialog,
                 object : DropdownListAdaptar.OnItemClickListener {
                     override fun onItemClick(item: CodeDesOptions) {
-                        if (listOf("PALLIPRE", "BPDBPRE", "BPDBSPRE").contains(billType)) {
-                            DialogCustom.showSuccessMessage(this@ElectricityBillPayment, "TEST")
-                        }
+
                         sp_bill_type_value.setText(item.desc)
                         bill_type_title.text = item.desc
                         billType = item.code.toString()
                         bill_type_view_layout.visibility = View.VISIBLE
                         iv_bill_type_logo.setImageResource(R.drawable.electricity_bill)
+                        if (listOf("PALLIPRE", "BPDBPRE", "BPDBSPRE").contains(billType)) {
+                            DialogCustom.showSuccessMessage(this@ElectricityBillPayment, "TEST")
+                        }
                         if (billType == "PALLIPRE" || billType == "BPDBPRE" || billType == "BPDBSPRE") {
                             customer_code_input.hint = "Enter Meter Number"
                             year_month_layout.visibility = View.GONE
