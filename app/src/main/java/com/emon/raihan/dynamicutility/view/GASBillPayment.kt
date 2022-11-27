@@ -1,8 +1,12 @@
 package com.emon.raihan.dynamicutility.view
 
+import android.app.AlertDialog
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.ImageView
@@ -10,12 +14,18 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.widget.Toolbar
 import androidx.cardview.widget.CardView
+import androidx.recyclerview.widget.DefaultItemAnimator
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.emon.raihan.dynamicutility.R
+import com.emon.raihan.dynamicutility.adaptar.DropdownListAdaptar
 import com.emon.raihan.dynamicutility.model.CodeDesOptions
 import com.emon.raihan.dynamicutility.util.CustomActivityClear
 import com.emon.raihan.dynamicutility.util.CustomAppCompatActivity
 import com.emon.raihan.dynamicutility.util.CustomDailog
+import com.emon.raihan.dynamicutility.util.DialogCustom
 import com.google.android.material.textfield.MaterialAutoCompleteTextView
+import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import java.util.*
 
@@ -140,6 +150,11 @@ class GASBillPayment : CustomAppCompatActivity() {
 
 
         }
+
+        sp_bill_type_value.setOnClickListener {
+            showDropDoownDialog()
+        }
+
         sp_year_value.setOnClickListener {
             CustomDailog.createYearPicker(this, sp_year_value)
         }
@@ -155,4 +170,87 @@ class GASBillPayment : CustomAppCompatActivity() {
             CustomDailog.createMonthPicker(this, sp_month_value)
         }
     }
+
+    fun showDropDoownDialog() {
+        lateinit var et_bill_type_value: TextInputEditText
+        lateinit var mAdapter: DropdownListAdaptar
+        lateinit var ivClose: ImageView
+        lateinit var dropdown_recycler: RecyclerView
+        val dialog = AlertDialog.Builder(this).setCancelable(false)
+        val inflater = LayoutInflater.from(this)
+        val regLayout = inflater.inflate(R.layout.dialog_dropdown_picker, null)
+        et_bill_type_value = regLayout.findViewById(R.id.et_bill_type_value)
+        dropdown_recycler = regLayout.findViewById(R.id.dropdown_recycler)
+        ivClose = regLayout.findViewById(R.id.ivClose)
+        dialog.setView(regLayout)
+        val alertDialog = dialog.create()
+        alertDialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+
+        val mLayoutManager = LinearLayoutManager(this)
+        dropdown_recycler.layoutManager = mLayoutManager
+        dropdown_recycler.itemAnimator = DefaultItemAnimator()
+
+        mAdapter =
+            DropdownListAdaptar(
+                codeDesOptions, dialog,
+                object : DropdownListAdaptar.OnItemClickListener {
+                    override fun onItemClick(item: CodeDesOptions) {
+                        sp_bill_type_value.setText(item.desc)
+                        billType = item.code.toString()
+                        input_value_param_layout.visibility=View.VISIBLE
+                        bill_type_title.text = item.desc.toString()
+                        bill_type_view_layout.visibility = View.VISIBLE
+                        iv_bill_type_logo.setImageResource(R.drawable.gas_bill)
+
+                        if (billType.endsWith("GLS")) {
+                            year_month_layout.visibility = View.VISIBLE
+                            customer_code_input_cardview.visibility = View.VISIBLE
+                            meter_no_input_cardview.visibility = View.GONE
+                            invoice_no_input_cardview.visibility = View.GONE
+                            input_mobile_no_cardview.visibility = View.GONE
+                            customer_code_input.hint = "Enter Grahohk Shonket no."
+                        } else if (billType.equals("KGL")) {
+                            year_month_layout.visibility = View.GONE
+                            customer_code_input_cardview.visibility = View.VISIBLE
+                            meter_no_input_cardview.visibility = View.GONE
+                            invoice_no_input_cardview.visibility = View.GONE
+                            input_mobile_no_cardview.visibility = View.VISIBLE
+                            customer_code_input.hint = "Enter Bill Account Number"
+                        } else if (billType.equals("TGPM")) {
+                            year_month_layout.visibility = View.GONE
+                            customer_code_input_cardview.visibility = View.VISIBLE
+                            meter_no_input_cardview.visibility = View.GONE
+                            invoice_no_input_cardview.visibility = View.VISIBLE
+                            input_mobile_no_cardview.visibility = View.GONE
+                            customer_code_input.hint = "Enter Customer No"
+                        } else if (billType.equals("TGPNM")) {
+                            year_month_layout.visibility = View.VISIBLE
+                            customer_code_input_cardview.visibility = View.VISIBLE
+                            meter_no_input_cardview.visibility = View.GONE
+                            invoice_no_input_cardview.visibility = View.GONE
+                            input_mobile_no_cardview.visibility = View.VISIBLE
+                            customer_code_input.hint = "Enter Customer Code"
+                        } else if(billType.equals("BLPGLM")){
+                            year_month_layout.visibility = View.GONE
+                            customer_code_input_cardview.visibility = View.GONE
+                            meter_no_input_cardview.visibility = View.VISIBLE
+                            invoice_no_input_cardview.visibility = View.GONE
+                            input_mobile_no_cardview.visibility = View.GONE
+                        }
+
+                        alertDialog.dismiss()
+                    }
+                })
+
+        dropdown_recycler.adapter = mAdapter
+        mAdapter?.notifyDataSetChanged()
+
+
+        ivClose.setOnClickListener { alertDialog.dismiss() }
+
+
+        alertDialog.show()
+
+    }
+
 }

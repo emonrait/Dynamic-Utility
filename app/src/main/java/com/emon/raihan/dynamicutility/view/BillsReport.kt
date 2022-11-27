@@ -2,24 +2,31 @@ package com.emon.raihan.dynamicutility.view
 
 import android.Manifest
 import android.app.Activity
+import android.app.AlertDialog
 import android.app.DatePickerDialog
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.media.MediaScannerConnection
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Environment
 import android.util.Log
+import android.view.LayoutInflater
 import android.view.View
 import android.widget.*
 import androidx.appcompat.widget.Toolbar
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.DefaultItemAnimator
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.emon.raihan.dynamicutility.R
+import com.emon.raihan.dynamicutility.adaptar.DropdownListAdaptar
 import com.emon.raihan.dynamicutility.model.CodeDesOptions
 import com.emon.raihan.dynamicutility.util.CustomActivityClear
 import com.emon.raihan.dynamicutility.util.CustomAppCompatActivity
@@ -143,6 +150,10 @@ class BillsReport : CustomAppCompatActivity() {
             billType = codeDesOptions[position].code.toString()
         }
 
+        sp_bill_type_value.setOnClickListener {
+            showDropDoownDialog()
+        }
+
         btnSearch.setOnClickListener {
             val bitmap = CustomDailog.getBitmapFromView(peram_layout)
             if (addJpgSignatureToGallery(this, bitmap)) {
@@ -185,5 +196,47 @@ class BillsReport : CustomAppCompatActivity() {
         }
     }
 
+    fun showDropDoownDialog() {
+        lateinit var et_bill_type_value: TextInputEditText
+        lateinit var mAdapter: DropdownListAdaptar
+        lateinit var ivClose: ImageView
+        lateinit var dropdown_recycler: RecyclerView
+        val dialog = AlertDialog.Builder(this).setCancelable(false)
+        val inflater = LayoutInflater.from(this)
+        val regLayout = inflater.inflate(R.layout.dialog_dropdown_picker, null)
+        et_bill_type_value = regLayout.findViewById(R.id.et_bill_type_value)
+        dropdown_recycler = regLayout.findViewById(R.id.dropdown_recycler)
+        ivClose = regLayout.findViewById(R.id.ivClose)
+        dialog.setView(regLayout)
+        val alertDialog = dialog.create()
+        alertDialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+
+        val mLayoutManager = LinearLayoutManager(this)
+        dropdown_recycler.layoutManager = mLayoutManager
+        dropdown_recycler.itemAnimator = DefaultItemAnimator()
+
+        mAdapter =
+            DropdownListAdaptar(
+                codeDesOptions, dialog,
+                object : DropdownListAdaptar.OnItemClickListener {
+                    override fun onItemClick(item: CodeDesOptions) {
+                        billType = item.code.toString()
+                       // bill_type_title.text = item.desc
+                        sp_bill_type_value.setText(item.desc)
+
+                        alertDialog.dismiss()
+                    }
+                })
+
+        dropdown_recycler.adapter = mAdapter
+        mAdapter?.notifyDataSetChanged()
+
+
+        ivClose.setOnClickListener { alertDialog.dismiss() }
+
+
+        alertDialog.show()
+
+    }
 
 }
