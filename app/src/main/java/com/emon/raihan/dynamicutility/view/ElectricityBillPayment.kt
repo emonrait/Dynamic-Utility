@@ -201,6 +201,20 @@ class ElectricityBillPayment : CustomAppCompatActivity() {
             if (billType.isEmpty()) {
                 Toast.makeText(this, "Please Select Bill Type", Toast.LENGTH_SHORT).show()
                 DialogCustom.showErrorMessage(this, "Please Select Bill Type")
+            } else if (billType.endsWith("PALLIPRE")) {
+                if (et_customer_code_value.text.toString().isEmpty()) {
+                    et_customer_code_value.requestFocus()
+                    Toast.makeText(this, "Please Enter Meter No", Toast.LENGTH_SHORT).show()
+                    DialogCustom.showErrorMessage(this, "Please Enter Meter No")
+                } else if (et_amount_value.text.toString().isEmpty()) {
+                    et_amount_value.requestFocus()
+                    DialogCustom.showErrorMessage(this, "Please Enter Recharge Amount")
+                    Toast.makeText(this, "Please Enter Recharge Amount", Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(this, "Success!", Toast.LENGTH_SHORT).show()
+                    DialogCustom.showSuccessMessage(this, "Success!")
+
+                }
             } else if (billType.endsWith("PRE")) {
                 if (et_customer_code_value.text.toString().isEmpty()) {
                     et_customer_code_value.requestFocus()
@@ -278,10 +292,20 @@ class ElectricityBillPayment : CustomAppCompatActivity() {
                 object : DropdownListAdaptar.OnItemClickListener {
                     override fun onItemClick(item: CodeDesOptions) {
                         sp_bill_type_value.setText(item.desc)
+                        bill_type_title.text = item.desc
                         billType = item.code.toString()
                         bill_type_view_layout.visibility = View.VISIBLE
                         iv_bill_type_logo.setImageResource(R.drawable.electricity_bill)
-                        if (billType.endsWith("PRE")) {
+                        if (billType.equals("PALLIPRE")) {
+                            customer_code_input.hint = "Enter Meter Number"
+                            year_month_layout.visibility = View.GONE
+                            meter_no_input_cardview.visibility = View.GONE
+                            palli_type_input_cardview.visibility = View.GONE
+                            input_amount_cardview.visibility = View.VISIBLE
+                            btn_validate_cardview.visibility = View.VISIBLE
+                            customer_code_input_cardview.visibility = View.VISIBLE
+
+                        } else if (billType.endsWith("PRE")) {
                             year_month_layout.visibility = View.GONE
                             meter_no_input_cardview.visibility = View.GONE
                             palli_type_input_cardview.visibility = View.GONE
