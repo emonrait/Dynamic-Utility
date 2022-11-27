@@ -25,6 +25,8 @@ import com.emon.raihan.dynamicutility.util.DialogCustom
 import com.google.android.material.textfield.MaterialAutoCompleteTextView
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
+import java.util.*
+import kotlin.collections.ArrayList
 
 class ElectricityBillPayment : CustomAppCompatActivity() {
     private lateinit var toolbar: Toolbar
@@ -291,12 +293,15 @@ class ElectricityBillPayment : CustomAppCompatActivity() {
                 codeDesOptions, dialog,
                 object : DropdownListAdaptar.OnItemClickListener {
                     override fun onItemClick(item: CodeDesOptions) {
+                        if (listOf("PALLIPRE", "BPDBPRE", "BPDBSPRE").contains(billType)) {
+                            DialogCustom.showSuccessMessage(this@ElectricityBillPayment, "TEST")
+                        }
                         sp_bill_type_value.setText(item.desc)
                         bill_type_title.text = item.desc
                         billType = item.code.toString()
                         bill_type_view_layout.visibility = View.VISIBLE
                         iv_bill_type_logo.setImageResource(R.drawable.electricity_bill)
-                        if (billType.equals("PALLIPRE")) {
+                        if (billType == "PALLIPRE" || billType == "BPDBPRE" || billType == "BPDBSPRE") {
                             customer_code_input.hint = "Enter Meter Number"
                             year_month_layout.visibility = View.GONE
                             meter_no_input_cardview.visibility = View.GONE
