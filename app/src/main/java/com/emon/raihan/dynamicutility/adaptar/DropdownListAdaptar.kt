@@ -1,18 +1,18 @@
 package com.emon.raihan.dynamicutility.adaptar
 
+import android.annotation.SuppressLint
 import android.app.AlertDialog
-import android.app.Dialog
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.*
+import android.widget.Filter
+import android.widget.Filterable
+import android.widget.LinearLayout
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.emon.raihan.dynamicutility.R
 import com.emon.raihan.dynamicutility.model.CodeDesOptions
-import com.emon.raihan.dynamicutility.model.Loan
-
-import java.util.ArrayList
 
 class DropdownListAdaptar(
     private var movieList: ArrayList<CodeDesOptions>,
@@ -53,7 +53,7 @@ class DropdownListAdaptar(
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val currentItem = requestFilterList[position]
         val tv_bill_type_name: TextView = holder.itemView.findViewById(R.id.tv_bill_type_name)
-        val iv_bill_type: ImageView = holder.itemView.findViewById(R.id.iv_bill_type)
+       // val iv_bill_type: ImageView = holder.itemView.findViewById(R.id.iv_bill_type)
         val view_layout: LinearLayout = holder.itemView.findViewById(R.id.view_layout)
 
         tv_bill_type_name.text = currentItem.desc
@@ -101,6 +101,7 @@ class DropdownListAdaptar(
                 return filterResults
             }
 
+            @SuppressLint("NotifyDataSetChanged")
             @Suppress("UNCHECKED_CAST")
             override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
                 requestFilterList = results?.values as ArrayList<CodeDesOptions>

@@ -5,6 +5,7 @@ import android.annotation.SuppressLint
 import android.app.Activity
 import android.app.AlertDialog
 import android.app.DatePickerDialog
+import android.content.Context
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.Canvas
@@ -16,6 +17,7 @@ import android.os.Environment
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.NumberPicker
@@ -362,13 +364,25 @@ class CustomDailog {
 
         }
 
+        fun hideKeyboard(activity: Activity?) {
+            if (activity != null && activity.window != null
+            ) {
+                val imm = activity
+                    .getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                imm.hideSoftInputFromWindow(
+                    activity.window.decorView
+                        .windowToken, 0
+                )
+            }
+        }
+
+        @SuppressLint("NotifyDataSetChanged")
         fun showDropDoownDialog(
             activity: Activity,
             billTypeList: ArrayList<CodeDesOptions>,
             sp_bill_type_value: MaterialAutoCompleteTextView
 
         ) {
-            var billTypeValu=""
             lateinit var et_bill_type_value: TextInputEditText
             lateinit var mAdapter: DropdownListAdaptar
             lateinit var ivClose: ImageView
@@ -399,7 +413,7 @@ class CustomDailog {
                     })
 
             dropdown_recycler.adapter = mAdapter
-            mAdapter?.notifyDataSetChanged()
+            mAdapter.notifyDataSetChanged()
 
 
             ivClose.setOnClickListener { alertDialog.dismiss() }
@@ -410,4 +424,6 @@ class CustomDailog {
         }
 
     }
+
+
 }
