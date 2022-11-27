@@ -5,6 +5,8 @@ import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.ArrayAdapter
@@ -21,10 +23,10 @@ import com.emon.raihan.dynamicutility.model.CodeDesOptions
 import com.emon.raihan.dynamicutility.util.CustomActivityClear
 import com.emon.raihan.dynamicutility.util.CustomAppCompatActivity
 import com.emon.raihan.dynamicutility.util.CustomDailog
-import com.emon.raihan.dynamicutility.util.DialogCustom
 import com.google.android.material.textfield.MaterialAutoCompleteTextView
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
+
 
 class WASABillPayment : CustomAppCompatActivity() {
     private lateinit var toolbar: Toolbar
@@ -168,6 +170,14 @@ class WASABillPayment : CustomAppCompatActivity() {
 
         dropdown_recycler.adapter = mAdapter
         mAdapter?.notifyDataSetChanged()
+
+        et_bill_type_value.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {}
+            override fun afterTextChanged(s: Editable) {
+                mAdapter.filter.filter(s)
+            }
+        })
 
 
         ivClose.setOnClickListener { alertDialog.dismiss() }

@@ -15,6 +15,8 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Environment
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -221,7 +223,7 @@ class BillsReport : CustomAppCompatActivity() {
                 object : DropdownListAdaptar.OnItemClickListener {
                     override fun onItemClick(item: CodeDesOptions) {
                         billType = item.code.toString()
-                       // bill_type_title.text = item.desc
+                        // bill_type_title.text = item.desc
                         sp_bill_type_value.setText(item.desc)
 
                         alertDialog.dismiss()
@@ -231,6 +233,13 @@ class BillsReport : CustomAppCompatActivity() {
         dropdown_recycler.adapter = mAdapter
         mAdapter?.notifyDataSetChanged()
 
+        et_bill_type_value.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {}
+            override fun afterTextChanged(s: Editable) {
+                mAdapter.filter.filter(s)
+            }
+        })
 
         ivClose.setOnClickListener { alertDialog.dismiss() }
 

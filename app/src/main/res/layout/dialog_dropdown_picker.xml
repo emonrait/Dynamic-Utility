@@ -42,9 +42,9 @@
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_gravity="end"
+                    android:contentDescription="@string/close_icon"
                     android:gravity="end"
-                    android:src="@drawable/ic_close"
-                    android:contentDescription="@string/close_icon" />
+                    android:src="@drawable/ic_close" />
             </LinearLayout>
 
             <LinearLayout
@@ -77,7 +77,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/input_field_height_size"
                             android:drawableEnd="@drawable/ic_search"
-                            android:inputType="number"
+                            android:inputType="text"
                             android:padding="@dimen/padding_5"
                             android:singleLine="true"
                             android:textColor="@color/black"
