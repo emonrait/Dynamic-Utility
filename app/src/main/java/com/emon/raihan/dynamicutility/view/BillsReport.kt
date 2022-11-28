@@ -11,7 +11,6 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.LayoutInflater
-import android.view.View.OnFocusChangeListener
 import android.widget.*
 import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.DefaultItemAnimator
@@ -29,7 +28,6 @@ import com.emon.raihan.dynamicutility.util.CustomDailog.Companion.verifyStorageP
 import com.emon.raihan.dynamicutility.util.DateUtil
 import com.google.android.material.textfield.MaterialAutoCompleteTextView
 import com.google.android.material.textfield.TextInputEditText
-import java.util.*
 
 class BillsReport : CustomAppCompatActivity() {
     private lateinit var toolbar: Toolbar
@@ -75,10 +73,7 @@ class BillsReport : CustomAppCompatActivity() {
         peram_layout = findViewById(R.id.peram_layout)
 
         setSupportActionBar(toolbar)
-        toolbar_title.text = "Bills Report"
-        // Objects.requireNonNull(supportActionBar)?.setHomeButtonEnabled(true)
-        //  supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-        //  supportActionBar!!.title = "About Me"
+        toolbar_title.text = getString(R.string.bills_report)
 
         iv_header_back.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
@@ -101,8 +96,6 @@ class BillsReport : CustomAppCompatActivity() {
         et_from_date.setText(fromDate)
         et_to_date.setText(toDate)
 
-        //  et_from_date.setOnClickListener { fromDate() }
-        //  et_to_date.setOnClickListener { toDate() }
 
         et_from_date.setOnClickListener { CustomDailog.fromDate(this, et_from_date) }
         et_to_date.setOnClickListener { CustomDailog.toDate(this, et_to_date) }

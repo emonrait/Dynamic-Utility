@@ -5,7 +5,6 @@ import android.app.AlertDialog
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -26,11 +25,9 @@ import com.emon.raihan.dynamicutility.model.CodeDesOptions
 import com.emon.raihan.dynamicutility.util.CustomActivityClear
 import com.emon.raihan.dynamicutility.util.CustomAppCompatActivity
 import com.emon.raihan.dynamicutility.util.CustomDailog
-import com.emon.raihan.dynamicutility.util.DialogCustom
 import com.google.android.material.textfield.MaterialAutoCompleteTextView
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
-import java.util.*
 
 class GASBillPayment : CustomAppCompatActivity() {
     private lateinit var toolbar: Toolbar
@@ -85,17 +82,14 @@ class GASBillPayment : CustomAppCompatActivity() {
         sp_year_input = findViewById(R.id.sp_year_input)
 
         setSupportActionBar(toolbar)
-        toolbar_title.text = "Gas Bill Payment"
-        // Objects.requireNonNull(supportActionBar)?.setHomeButtonEnabled(true)
-        //  supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-        //  supportActionBar!!.title = "About Me"
+        toolbar_title.text = getString(R.string.gas_bill_payment)
 
         iv_header_back.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             CustomActivityClear.doClearActivity(intent, this)
         }
 
-        input_value_param_layout.visibility=View.GONE
+        input_value_param_layout.visibility = View.GONE
         codeDesOptions.add(CodeDesOptions("Titas Gas Postpaid (Non-Metered)", "TGPNM"))
         codeDesOptions.add(CodeDesOptions("Titas Gas Postpaid (Metered)", "TGPM"))
         codeDesOptions.add(CodeDesOptions("Karnaphuli Gas Ltd", "KGL"))
@@ -110,7 +104,7 @@ class GASBillPayment : CustomAppCompatActivity() {
 
         sp_bill_type_value.setOnItemClickListener { parent, arg1, position, id ->
             billType = codeDesOptions[position].code.toString()
-            input_value_param_layout.visibility=View.VISIBLE
+            input_value_param_layout.visibility = View.VISIBLE
             bill_type_title.text = codeDesOptions[position].desc.toString()
             bill_type_view_layout.visibility = View.VISIBLE
             iv_bill_type_logo.setImageResource(R.drawable.gas_bill)
@@ -143,7 +137,7 @@ class GASBillPayment : CustomAppCompatActivity() {
                 invoice_no_input_cardview.visibility = View.GONE
                 input_mobile_no_cardview.visibility = View.VISIBLE
                 customer_code_input.hint = "Enter Customer Code"
-            } else if(billType.equals("BLPGLM")){
+            } else if (billType.equals("BLPGLM")) {
                 year_month_layout.visibility = View.GONE
                 customer_code_input_cardview.visibility = View.GONE
                 meter_no_input_cardview.visibility = View.VISIBLE
@@ -163,11 +157,11 @@ class GASBillPayment : CustomAppCompatActivity() {
         }
 
         sp_year_input.setOnClickListener {
-             CustomDailog.createYearPicker(this, sp_year_value)
+            CustomDailog.createYearPicker(this, sp_year_value)
         }
 
         sp_month_value.setOnClickListener {
-             CustomDailog.createMonthPicker(this, sp_month_value)
+            CustomDailog.createMonthPicker(this, sp_month_value)
         }
         sp_month_input.setOnClickListener {
             CustomDailog.createMonthPicker(this, sp_month_value)
@@ -201,7 +195,7 @@ class GASBillPayment : CustomAppCompatActivity() {
                     override fun onItemClick(item: CodeDesOptions) {
                         sp_bill_type_value.setText(item.desc)
                         billType = item.code.toString()
-                        input_value_param_layout.visibility=View.VISIBLE
+                        input_value_param_layout.visibility = View.VISIBLE
                         bill_type_title.text = item.desc.toString()
                         bill_type_view_layout.visibility = View.VISIBLE
                         iv_bill_type_logo.setImageResource(R.drawable.gas_bill)
@@ -234,7 +228,7 @@ class GASBillPayment : CustomAppCompatActivity() {
                             invoice_no_input_cardview.visibility = View.GONE
                             input_mobile_no_cardview.visibility = View.VISIBLE
                             customer_code_input.hint = "Enter Customer Code"
-                        } else if(billType.equals("BLPGLM")){
+                        } else if (billType.equals("BLPGLM")) {
                             year_month_layout.visibility = View.GONE
                             customer_code_input_cardview.visibility = View.GONE
                             meter_no_input_cardview.visibility = View.VISIBLE
