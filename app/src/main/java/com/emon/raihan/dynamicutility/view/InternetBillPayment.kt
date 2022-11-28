@@ -5,7 +5,6 @@ import android.app.AlertDialog
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -26,11 +25,9 @@ import com.emon.raihan.dynamicutility.model.CodeDesOptions
 import com.emon.raihan.dynamicutility.util.CustomActivityClear
 import com.emon.raihan.dynamicutility.util.CustomAppCompatActivity
 import com.emon.raihan.dynamicutility.util.CustomDailog
-import com.emon.raihan.dynamicutility.util.DialogCustom
 import com.google.android.material.textfield.MaterialAutoCompleteTextView
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
-import java.util.*
 
 class InternetBillPayment : CustomAppCompatActivity() {
     private lateinit var toolbar: Toolbar
@@ -83,10 +80,7 @@ class InternetBillPayment : CustomAppCompatActivity() {
         sp_year_input = findViewById(R.id.sp_year_input)
 
         setSupportActionBar(toolbar)
-        toolbar_title.text = "Internet Bill Payment"
-        // Objects.requireNonNull(supportActionBar)?.setHomeButtonEnabled(true)
-        //  supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-        //  supportActionBar!!.title = "About Me"
+        toolbar_title.text = getString(R.string.internet_bill_payment)
 
         iv_header_back.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)

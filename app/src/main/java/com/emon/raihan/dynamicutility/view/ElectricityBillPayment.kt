@@ -1,7 +1,6 @@
 package com.emon.raihan.dynamicutility.view
 
 import android.annotation.SuppressLint
-import android.app.Activity
 import android.app.AlertDialog
 import android.content.Intent
 import android.graphics.Color
@@ -11,7 +10,10 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
-import android.widget.*
+import android.widget.ImageView
+import android.widget.LinearLayout
+import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
 import androidx.appcompat.widget.Toolbar
 import androidx.cardview.widget.CardView
@@ -28,8 +30,6 @@ import com.emon.raihan.dynamicutility.util.DialogCustom
 import com.google.android.material.textfield.MaterialAutoCompleteTextView
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
-import java.util.*
-import kotlin.collections.ArrayList
 
 class ElectricityBillPayment : CustomAppCompatActivity() {
     private lateinit var toolbar: Toolbar
@@ -363,6 +363,7 @@ class ElectricityBillPayment : CustomAppCompatActivity() {
 
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     fun showDropDoownDialogPalli() {
         lateinit var et_bill_type_value: TextInputEditText
         lateinit var mAdapter: DropdownListAdaptar
@@ -395,7 +396,7 @@ class ElectricityBillPayment : CustomAppCompatActivity() {
                 })
 
         dropdown_recycler.adapter = mAdapter
-        mAdapter?.notifyDataSetChanged()
+        mAdapter.notifyDataSetChanged()
 
         et_bill_type_value.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}

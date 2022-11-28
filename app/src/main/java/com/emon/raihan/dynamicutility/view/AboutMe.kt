@@ -6,9 +6,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.widget.Toolbar
@@ -17,7 +15,6 @@ import androidx.core.content.ContextCompat
 import com.emon.raihan.dynamicutility.R
 import com.emon.raihan.dynamicutility.util.CustomActivityClear
 import com.emon.raihan.dynamicutility.util.CustomAppCompatActivity
-import java.util.*
 
 class AboutMe : CustomAppCompatActivity() {
     private lateinit var toolbar: Toolbar
@@ -50,10 +47,7 @@ class AboutMe : CustomAppCompatActivity() {
         user_mobile = findViewById(R.id.user_mobile)
 
         setSupportActionBar(toolbar)
-        toolbar_title.text = "About Me"
-       // Objects.requireNonNull(supportActionBar)?.setHomeButtonEnabled(true)
-      //  supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-      //  supportActionBar!!.title = "About Me"
+        toolbar_title.text = getString(R.string.about_me)
 
         iv_header_back.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
@@ -76,7 +70,7 @@ class AboutMe : CustomAppCompatActivity() {
             )
         }
 
-        user_mobile.setOnClickListener(View.OnClickListener {
+        user_mobile.setOnClickListener {
             if (!checkPermission()) {
                 requestPermission()
             } else {
@@ -85,9 +79,9 @@ class AboutMe : CustomAppCompatActivity() {
                     Uri.parse("tel:" + user_mobile.getText().toString().trim { it <= ' ' })
                 startActivity(callintetnt)
             }
-        })
+        }
 
-        user_mobile2.setOnClickListener(View.OnClickListener {
+        user_mobile2.setOnClickListener {
             if (!checkPermission()) {
                 requestPermission()
             } else {
@@ -96,7 +90,7 @@ class AboutMe : CustomAppCompatActivity() {
                     Uri.parse("tel:" + user_mobile2.getText().toString().trim { it <= ' ' })
                 startActivity(callintetnt)
             }
-        })
+        }
 
         user_email.setOnClickListener {
             val emailIntent = Intent(

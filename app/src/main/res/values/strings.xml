@@ -46,6 +46,9 @@
     <string name="policy_number">Enter Policy Number</string>
     <string name="select_purpose">Select Purpose</string>
     <string name="customer_id">Enter Customer ID</string>
+    <string name="about_me">About Me</string>
+    <string name="internet_bill_payment">Internet Bill Payment</string>
+    <string name="insurance_bill_payment">Insurance Bill Payment</string>
     <string name="bills_report">Bills Report</string>
     <string name="gas_bill_payment">Gas Bill Payment</string>
     <string name="binimoy_dashboard">Binimoy Dashboard</string>
