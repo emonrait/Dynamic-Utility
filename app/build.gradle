@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+
 }
 
 android {
@@ -16,12 +17,30 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    /*signingConfigs {
+        release {
+            storeFile file("keystore.jks")
+            storePassword "MY_KEYSTORE_PASSWORD"
+            keyAlias "MY_KEY_ALIAS"
+            keyPassword "MY_KEY_PASSWORD"
+        }
+    }*/
+
+
     buildTypes {
         release {
+         //   signingConfig signingConfigs.release
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    /*play {
+        track.set("internal") // internal / alpha / beta / production
+        updatePriority.set(5) // Between 0 and 5
+        serviceAccountCredentials.set(file("key.json"))
+    }
+*/
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
