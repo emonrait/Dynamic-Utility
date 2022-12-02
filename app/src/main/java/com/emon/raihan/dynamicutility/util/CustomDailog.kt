@@ -29,9 +29,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.emon.raihan.dynamicutility.R
 import com.emon.raihan.dynamicutility.adaptar.DropdownListAdaptar
-import com.emon.raihan.dynamicutility.adaptar.LoanListAdaptar
 import com.emon.raihan.dynamicutility.model.CodeDesOptions
-import com.emon.raihan.dynamicutility.model.Loan
 import com.google.android.material.textfield.MaterialAutoCompleteTextView
 import com.google.android.material.textfield.TextInputEditText
 import java.io.File
@@ -39,7 +37,6 @@ import java.io.FileOutputStream
 import java.io.IOException
 import java.io.OutputStream
 import java.util.*
-import kotlin.collections.ArrayList
 
 class CustomDailog {
 

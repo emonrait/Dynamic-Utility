@@ -87,4 +87,9 @@
     <string name="search_by_bill_type">Search by Bill Type</string>
     <string name="select_bill_type">Select Bill Type</string>
     <string name="close_icon">Close Icon</string>
+    <string name="statement">Statement</string>
+    <string name="home">Home</string>
+    <string name="beneficiary">Beneficiary</string>
+    <string name="menu">Menu</string>
+    <string name="select_account_no">Select Account No</string>
 </resources>
