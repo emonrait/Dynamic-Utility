@@ -92,4 +92,7 @@
     <string name="beneficiary">Beneficiary</string>
     <string name="menu">Menu</string>
     <string name="select_account_no">Select Account No</string>
+    <string name="btn_tap_for_balance">Tap for Balance</string>
+    <string name="all_account_info"><u>All Account Info</u></string>
+    <string name="welcome_welcome">Welcome</string>
 </resources>

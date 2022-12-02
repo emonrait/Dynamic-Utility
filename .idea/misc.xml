@@ -4,12 +4,15 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="../../../../layout/custom_preview.xml" value="0.16304347826086957" />
+        <entry key="app/src/main/res/drawable/balance_icon.xml" value="0.18" />
         <entry key="app/src/main/res/drawable/botom_bar_selector.xml" value="0.18" />
         <entry key="app/src/main/res/drawable/bt_background_rounded_green.xml" value="0.18" />
         <entry key="app/src/main/res/drawable/btn_round_border_transparent.xml" value="0.18" />
         <entry key="app/src/main/res/drawable/cardview_background_shadow.xml" value="0.18" />
+        <entry key="app/src/main/res/drawable/header_round_border_background.xml" value="0.18" />
         <entry key="app/src/main/res/drawable/ic_date.xml" value="0.18" />
         <entry key="app/src/main/res/drawable/ic_programmer.xml" value="0.18" />
+        <entry key="app/src/main/res/drawable/tap_for_balance_background.xml" value="0.18" />
         <entry key="app/src/main/res/layout/account_number_dropdown.xml" value="0.23385416666666667" />
         <entry key="app/src/main/res/layout/activity_about_me.xml" value="0.24270833333333333" />
         <entry key="app/src/main/res/layout/activity_bills_report.xml" value="0.24270833333333333" />

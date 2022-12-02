@@ -43,7 +43,8 @@
                     android:singleLine="true"
                     android:text="@string/menu_name"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/row_welcome_menu_tv2_size_base" />
+                    android:textSize="@dimen/row_welcome_menu_tv2_size_base"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/menu_soft_code"
