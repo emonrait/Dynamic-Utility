@@ -15,7 +15,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/peram_layout"
+        android:id="@+id/statetment_param_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/toolbar_layout"
