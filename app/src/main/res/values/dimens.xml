@@ -17,6 +17,7 @@
     <dimen name="textsize_base">14sp</dimen>
     <dimen name="loan_amount_textsize_base">18sp</dimen>
     <dimen name="toolbar_textsize_base">16sp</dimen>
+    <dimen name="toolbar_quick_reach_textsize_base">20sp</dimen>
     <dimen name="margin_20">20dp</dimen>
     <dimen name="login_button_height_base">60dp</dimen>
     <dimen name="prepost_paid_height_base">60dp</dimen>
@@ -43,4 +44,5 @@
     <dimen name="binimoy_id_padding_right">50dp</dimen>
     <dimen name="padding_2">2dp</dimen>
     <dimen name="welcome_menu_icon_height_base">30dp</dimen>
+    <dimen name="row_width_30">30dp</dimen>
 </resources>

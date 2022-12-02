@@ -96,4 +96,9 @@
     <string name="all_account_info"><u>All Account Info</u></string>
     <string name="welcome_welcome">Welcome</string>
     <string name="_04934008646">04934008646</string>
+    <string name="english">English</string>
+    <string name="bangla_bangla">Bangla</string>
+    <string name="smart_app">Smart App</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
 </resources>

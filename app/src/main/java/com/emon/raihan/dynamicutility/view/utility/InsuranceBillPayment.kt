@@ -1,4 +1,4 @@
-package com.emon.raihan.dynamicutility.view
+package com.emon.raihan.dynamicutility.view.utility
 
 import android.annotation.SuppressLint
 import android.app.AlertDialog
@@ -24,12 +24,11 @@ import com.emon.raihan.dynamicutility.adaptar.DropdownListAdaptar
 import com.emon.raihan.dynamicutility.model.CodeDesOptions
 import com.emon.raihan.dynamicutility.util.CustomActivityClear
 import com.emon.raihan.dynamicutility.util.CustomAppCompatActivity
-import com.emon.raihan.dynamicutility.util.CustomDailog
+import com.emon.raihan.dynamicutility.view.MainActivity
 import com.google.android.material.textfield.MaterialAutoCompleteTextView
 import com.google.android.material.textfield.TextInputEditText
-import com.google.android.material.textfield.TextInputLayout
 
-class InternetBillPayment : CustomAppCompatActivity() {
+class InsuranceBillPayment : CustomAppCompatActivity() {
     private lateinit var toolbar: Toolbar
     private lateinit var iv_header_back: ImageView
     private lateinit var toolbar_title: TextView
@@ -39,17 +38,10 @@ class InternetBillPayment : CustomAppCompatActivity() {
     private lateinit var bill_type_view_layout: LinearLayout
 
     private lateinit var sp_bill_type_value: MaterialAutoCompleteTextView
-    private lateinit var year_month_layout: LinearLayout
     private lateinit var input_value_param_layout: LinearLayout
-    private lateinit var customer_code_input_cardview: CardView
+    private lateinit var sp_purpose_cardview: CardView
+    private lateinit var policy_number_input_cardview: CardView
     private lateinit var input_mobile_no_cardview: CardView
-    private lateinit var amount_input_cardview: CardView
-    private lateinit var customer_code_input: TextInputLayout
-
-    private lateinit var sp_year_value: MaterialAutoCompleteTextView
-    private lateinit var sp_month_value: MaterialAutoCompleteTextView
-    private lateinit var sp_month_input: TextInputLayout
-    private lateinit var sp_year_input: TextInputLayout
 
     var codeDesOptions: ArrayList<CodeDesOptions> = ArrayList<CodeDesOptions>()
     var billType = ""
@@ -57,7 +49,7 @@ class InternetBillPayment : CustomAppCompatActivity() {
     var month = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_internet_bill_payment)
+        setContentView(R.layout.activity_insurance_bill_payment)
 
         toolbar = findViewById(R.id.toolbar)
         iv_header_back = toolbar.findViewById(R.id.iv_header_back)
@@ -68,19 +60,13 @@ class InternetBillPayment : CustomAppCompatActivity() {
         bill_type_view_layout = findViewById(R.id.bill_type_view_layout)
 
         sp_bill_type_value = findViewById(R.id.sp_bill_type_value)
-        year_month_layout = findViewById(R.id.year_month_layout)
-        customer_code_input_cardview = findViewById(R.id.customer_code_input_cardview)
-        customer_code_input = findViewById(R.id.customer_code_input)
-        input_mobile_no_cardview = findViewById(R.id.input_mobile_no_cardview)
-        amount_input_cardview = findViewById(R.id.amount_input_cardview)
         input_value_param_layout = findViewById(R.id.input_value_param_layout)
-        sp_year_value = findViewById(R.id.sp_year_value)
-        sp_month_value = findViewById(R.id.sp_month_value)
-        sp_month_input = findViewById(R.id.sp_month_input)
-        sp_year_input = findViewById(R.id.sp_year_input)
+        sp_purpose_cardview = findViewById(R.id.sp_purpose_cardview)
+        policy_number_input_cardview = findViewById(R.id.policy_number_input_cardview)
+        input_mobile_no_cardview = findViewById(R.id.input_mobile_no_cardview)
 
         setSupportActionBar(toolbar)
-        toolbar_title.text = getString(R.string.internet_bill_payment)
+        toolbar_title.text = getString(R.string.insurance_bill_payment)
 
         iv_header_back.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
@@ -88,11 +74,12 @@ class InternetBillPayment : CustomAppCompatActivity() {
         }
 
         input_value_param_layout.visibility = View.GONE
-        codeDesOptions.add(CodeDesOptions("Carnival", "CARNIVALPRE"))
-        codeDesOptions.add(CodeDesOptions("Link3", "LINK3PRE"))
-        codeDesOptions.add(CodeDesOptions("Amber IT", "AMBERPRE"))
-        codeDesOptions.add(CodeDesOptions("Sam Online", "SAMPRE"))
-        codeDesOptions.add(CodeDesOptions("KS Network Ltd", "KSNL"))
+
+        codeDesOptions.add(CodeDesOptions("Metlife", "METLIFE"))
+        codeDesOptions.add(CodeDesOptions("Jibon Bima Corporation", "JBC"))
+        codeDesOptions.add(CodeDesOptions("Pragati Life Insurance", "PRAGATI"))
+        codeDesOptions.add(CodeDesOptions("Prime Islami Life Insurance", "PIL"))
+        codeDesOptions.add(CodeDesOptions("Fareast Islami Life Insurance", "FIL"))
         val arrayAdapter = ArrayAdapter(this, R.layout.dropdown_item, codeDesOptions)
         sp_bill_type_value.setAdapter(arrayAdapter)
 
@@ -102,39 +89,26 @@ class InternetBillPayment : CustomAppCompatActivity() {
             input_value_param_layout.visibility = View.VISIBLE
             bill_type_title.text = codeDesOptions[position].desc.toString()
             bill_type_view_layout.visibility = View.VISIBLE
-            iv_bill_type_logo.setImageResource(R.drawable.internet_bill)
-            if (billType.endsWith("PRE")) {
-                year_month_layout.visibility = View.GONE
-                customer_code_input_cardview.visibility = View.VISIBLE
-                input_mobile_no_cardview.visibility = View.VISIBLE
-                amount_input_cardview.visibility = View.VISIBLE
-            } else {
-                year_month_layout.visibility = View.VISIBLE
+            iv_bill_type_logo.setImageResource(R.drawable.insurance_bill)
+
+            if (billType.equals("METLIFE")) {
+                sp_purpose_cardview.visibility = View.VISIBLE
+                policy_number_input_cardview.visibility = View.VISIBLE
                 input_mobile_no_cardview.visibility = View.GONE
-                amount_input_cardview.visibility = View.GONE
-                customer_code_input_cardview.visibility = View.VISIBLE
-                customer_code_input.hint = "Enter Bill Account Number"
+            } else {
+                sp_purpose_cardview.visibility = View.GONE
+                policy_number_input_cardview.visibility = View.VISIBLE
+                input_mobile_no_cardview.visibility = View.VISIBLE
             }
+
 
         }
 
         sp_bill_type_value.setOnClickListener {
             showDropDoownDialog()
         }
-        sp_year_value.setOnClickListener {
-            CustomDailog.createYearPicker(this,sp_year_value)
-        }
 
-        sp_year_input.setOnClickListener {
-            CustomDailog.createYearPicker(this,sp_year_value)
-        }
 
-        sp_month_value.setOnClickListener {
-            CustomDailog.createMonthPicker(this,sp_month_value)
-        }
-        sp_month_input.setOnClickListener {
-            CustomDailog.createMonthPicker(this,sp_month_value)
-        }
     }
 
     @SuppressLint("NotifyDataSetChanged")
@@ -167,18 +141,16 @@ class InternetBillPayment : CustomAppCompatActivity() {
                         input_value_param_layout.visibility = View.VISIBLE
                         bill_type_title.text = item.desc.toString()
                         bill_type_view_layout.visibility = View.VISIBLE
-                        iv_bill_type_logo.setImageResource(R.drawable.internet_bill)
-                        if (billType.endsWith("PRE")) {
-                            year_month_layout.visibility = View.GONE
-                            customer_code_input_cardview.visibility = View.VISIBLE
-                            input_mobile_no_cardview.visibility = View.VISIBLE
-                            amount_input_cardview.visibility = View.VISIBLE
-                        } else {
-                            year_month_layout.visibility = View.VISIBLE
+                        iv_bill_type_logo.setImageResource(R.drawable.insurance_bill)
+
+                        if (billType.equals("METLIFE")) {
+                            sp_purpose_cardview.visibility = View.VISIBLE
+                            policy_number_input_cardview.visibility = View.VISIBLE
                             input_mobile_no_cardview.visibility = View.GONE
-                            amount_input_cardview.visibility = View.GONE
-                            customer_code_input_cardview.visibility = View.VISIBLE
-                            customer_code_input.hint = "Enter Bill Account Number"
+                        } else {
+                            sp_purpose_cardview.visibility = View.GONE
+                            policy_number_input_cardview.visibility = View.VISIBLE
+                            input_mobile_no_cardview.visibility = View.VISIBLE
                         }
 
                         alertDialog.dismiss()

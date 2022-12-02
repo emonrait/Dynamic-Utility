@@ -7,7 +7,7 @@
     android:fillViewport="true"
     android:fitsSystemWindows="true"
     android:orientation="vertical"
-    tools:context=".view.InternetBillPayment">
+    tools:context=".view.utility.InternetBillPayment">
 
     <LinearLayout
         android:id="@+id/toolbar_layout"

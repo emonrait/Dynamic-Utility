@@ -1,7 +1,6 @@
 package com.emon.raihan.dynamicutility.view
 
 import android.annotation.SuppressLint
-import androidx.appcompat.app.AppCompatActivity
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -15,6 +14,9 @@ import com.emon.raihan.dynamicutility.view.binimoy.BinimoyDashboard
 import com.emon.raihan.dynamicutility.view.loan.LoanApplication
 import com.emon.raihan.dynamicutility.view.loan.LoanDashboard
 import com.emon.raihan.dynamicutility.view.loan.LoanResult
+import com.emon.raihan.dynamicutility.view.utility.*
+import com.emon.raihan.dynamicutility.view.welcome.GASBillPayment
+import com.emon.raihan.dynamicutility.view.utility.InternetBillPayment
 import com.emon.raihan.dynamicutility.view.welcome.Welcome
 import java.util.ArrayList
 

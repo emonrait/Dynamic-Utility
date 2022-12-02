@@ -7,7 +7,7 @@
     android:fillViewport="true"
     android:fitsSystemWindows="true"
     android:orientation="vertical"
-    tools:context=".view.ElectricityBillPayment">
+    tools:context=".view.utility.ElectricityBillPayment">
 
     <LinearLayout
         android:id="@+id/toolbar_layout"

@@ -7,7 +7,7 @@
     android:fillViewport="true"
     android:fitsSystemWindows="true"
     android:orientation="vertical"
-    tools:context=".view.WASABillPayment">
+    tools:context=".view.utility.WASABillPayment">
 
     <LinearLayout
         android:id="@+id/toolbar_layout"

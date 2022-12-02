@@ -1,4 +1,4 @@
-package com.emon.raihan.dynamicutility.view
+package com.emon.raihan.dynamicutility.view.welcome
 
 import android.annotation.SuppressLint
 import android.app.AlertDialog
@@ -25,6 +25,7 @@ import com.emon.raihan.dynamicutility.model.CodeDesOptions
 import com.emon.raihan.dynamicutility.util.CustomActivityClear
 import com.emon.raihan.dynamicutility.util.CustomAppCompatActivity
 import com.emon.raihan.dynamicutility.util.CustomDailog
+import com.emon.raihan.dynamicutility.view.MainActivity
 import com.google.android.material.textfield.MaterialAutoCompleteTextView
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout

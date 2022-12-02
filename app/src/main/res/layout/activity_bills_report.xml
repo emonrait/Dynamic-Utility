@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".view.BillsReport">
+    tools:context=".view.utility.BillsReport">
 
     <LinearLayout
         android:id="@+id/toolbar_layout"

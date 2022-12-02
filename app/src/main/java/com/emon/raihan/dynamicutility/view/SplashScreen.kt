@@ -30,7 +30,7 @@ class SplashScreen : CustomAppCompatActivity() {
         handler = Handler(Looper.getMainLooper())
         runnable = Runnable {
             timer.cancel()
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, QuickReach::class.java)
             startActivity(intent)
             finish()
         }
