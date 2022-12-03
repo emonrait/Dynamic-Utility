@@ -84,7 +84,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:singleLine="true"
-                    android:text="GP"
+                    android:text="@string/gp"
                     android:textColor="@color/black"
                     android:textSize="@dimen/textsize_base"
                     android:textStyle="bold" />
@@ -109,7 +109,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:singleLine="true"
-                    android:text="Banglalink"
+                    android:text="@string/banglalink"
                     android:textColor="@color/black"
                     android:textSize="@dimen/textsize_base"
                     android:textStyle="bold" />
@@ -134,7 +134,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:singleLine="true"
-                    android:text="Robi"
+                    android:text="@string/robi"
                     android:textColor="@color/black"
                     android:textSize="@dimen/textsize_base"
                     android:textStyle="bold" />
@@ -159,7 +159,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:singleLine="true"
-                    android:text="Airtel"
+                    android:text="@string/airtel"
                     android:textColor="@color/black"
                     android:textSize="@dimen/textsize_base"
                     android:textStyle="bold" />
@@ -183,7 +183,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:singleLine="true"
-                    android:text="Teletalk"
+                    android:text="@string/teletalk"
                     android:textColor="@color/black"
                     android:textSize="@dimen/textsize_base"
                     android:textStyle="bold" />

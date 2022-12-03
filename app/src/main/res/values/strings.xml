@@ -110,4 +110,9 @@
     <string name="zero">0.00 BDT</string>
     <string name="prepaid">Prepaid</string>
     <string name="postpaid">Postpaid</string>
+    <string name="teletalk">Teletalk</string>
+    <string name="airtel">Airtel</string>
+    <string name="robi">Robi</string>
+    <string name="banglalink">Banglalink</string>
+    <string name="gp">GP</string>
 </resources>
