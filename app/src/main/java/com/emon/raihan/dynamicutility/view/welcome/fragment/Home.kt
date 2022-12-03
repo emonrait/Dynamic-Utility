@@ -18,7 +18,7 @@ import com.emon.raihan.dynamicutility.view.loan.LoanApplication
 import com.emon.raihan.dynamicutility.view.loan.LoanDashboard
 import com.emon.raihan.dynamicutility.view.loan.LoanResult
 import com.emon.raihan.dynamicutility.view.utility.*
-import com.emon.raihan.dynamicutility.view.welcome.GASBillPayment
+import com.emon.raihan.dynamicutility.view.utility.GASBillPayment
 import com.emon.raihan.dynamicutility.view.utility.InternetBillPayment
 import com.emon.raihan.dynamicutility.view.welcome.Welcome
 import java.util.ArrayList
@@ -38,18 +38,18 @@ class Home : Fragment() {
         menuGridView = view.findViewById(R.id.menuGridView)
         menuList = ArrayList<Menu>()
 
-        menuList.add(Menu("EBP", "Transfer", R.drawable.electricity_bill))
-        menuList.add(Menu("WASA", "Utility", R.drawable.water_bill))
-        menuList.add(Menu("GAS", "Recharge", R.drawable.gas_bill))
-        menuList.add(Menu("EDU", "MFS", R.drawable.education_bill))
-        menuList.add(Menu("INS", "Online Purchase", R.drawable.insurance_bill))
-        menuList.add(Menu("IN", "Tuition Fee", R.drawable.internet_bill))
-        menuList.add(Menu("EN", "Crad Services", R.drawable.entertainment_bill))
-        menuList.add(Menu("LD", "Payoneer", R.drawable.invoice))
-        menuList.add(Menu("W", "Insurance Pay", R.drawable.internet_bill))
-        menuList.add(Menu("BINIMOY", "Govt. Fee", R.drawable.binimoy))
-        menuList.add(Menu("BR", "A/C Services", R.drawable.invoice))
-        menuList.add(Menu("AM", "Call Cenetr", R.drawable.ic_programmer))
+        menuList.add(Menu("FTR", "Transfer", R.drawable.electricity_bill))
+        menuList.add(Menu("UTI", "Utility", R.drawable.water_bill))
+        menuList.add(Menu("TOP", "Recharge", R.drawable.gas_bill))
+        menuList.add(Menu("MFS", "MFS", R.drawable.education_bill))
+        menuList.add(Menu("ONPU", "Online Purchase", R.drawable.insurance_bill))
+        menuList.add(Menu("TUF", "Tuition Fee", R.drawable.internet_bill))
+        menuList.add(Menu("CAS", "Crad Services", R.drawable.entertainment_bill))
+        menuList.add(Menu("PA", "Payoneer", R.drawable.invoice))
+        menuList.add(Menu("INSP", "Insurance Pay", R.drawable.internet_bill))
+        menuList.add(Menu("GOVF", "Govt. Fee", R.drawable.binimoy))
+        menuList.add(Menu("ACS", "A/C Services", R.drawable.invoice))
+        menuList.add(Menu("CALL", "Call Cenetr", R.drawable.ic_programmer))
 
 
         adapter = MenuAdapter(requireActivity(), menuList)
@@ -63,67 +63,57 @@ class Home : Fragment() {
                     view.findViewById<View>(R.id.menu_name) as TextView
 
                 when {
-                    "EBP" == menu_soft_code.text.toString() -> {
+                    "FTR" == menu_soft_code.text.toString() -> {
                         val intent = Intent(requireActivity(), ElectricityBillPayment::class.java)
                         startActivity(intent)
                     }
-                    "WASA" == menu_soft_code.text.toString() -> {
-                        val intent = Intent(requireActivity(), WASABillPayment::class.java)
+                    "UTI" == menu_soft_code.text.toString() -> {
+                        val intent = Intent(requireActivity(), MainActivity::class.java)
                         startActivity(intent)
                     }
-                    "GAS" == menu_soft_code.text.toString() -> {
+                    "TOP" == menu_soft_code.text.toString() -> {
                         val intent = Intent(requireActivity(), GASBillPayment::class.java)
                         startActivity(intent)
                     }
-                    "AM" == menu_soft_code.text.toString() -> {
+                    "MFS" == menu_soft_code.text.toString() -> {
                         val intent = Intent(requireActivity(), AboutMe::class.java)
                         startActivity(intent)
                     }
-                    "EDU" == menu_soft_code.text.toString() -> {
+                    "ONPU" == menu_soft_code.text.toString() -> {
 
                         val intent = Intent(requireActivity(), EductaionBillPayment::class.java)
                         startActivity(intent)
                     }
-                    "INS" == menu_soft_code.text.toString() -> {
+                    "TUF" == menu_soft_code.text.toString() -> {
+
+                        val intent = Intent(requireActivity(), EductaionBillPayment::class.java)
+                        startActivity(intent)
+                    }
+                    "CAS" == menu_soft_code.text.toString() -> {
+
+                        val intent = Intent(requireActivity(), EductaionBillPayment::class.java)
+                        startActivity(intent)
+                    }
+                    "PA" == menu_soft_code.text.toString() -> {
+
+                        val intent = Intent(requireActivity(), EductaionBillPayment::class.java)
+                        startActivity(intent)
+                    }
+                    "INSP" == menu_soft_code.text.toString() -> {
                         val intent = Intent(requireActivity(), InsuranceBillPayment::class.java)
                         startActivity(intent)
                     }
-                    "IN" == menu_soft_code.text.toString() -> {
+                    "GOVF" == menu_soft_code.text.toString() -> {
                         val intent = Intent(requireActivity(), InternetBillPayment::class.java)
                         startActivity(intent)
                     }
-                    "EN" == menu_soft_code.text.toString() -> {
+                    "ACS" == menu_soft_code.text.toString() -> {
                         val intent = Intent(requireActivity(), EntertainmentBillPayment::class.java)
                         startActivity(intent)
 
                     }
-                    "BR" == menu_soft_code.text.toString() -> {
+                    "CALL" == menu_soft_code.text.toString() -> {
                         val intent = Intent(requireActivity(), BillsReport::class.java)
-                        startActivity(intent)
-
-                    }
-                    "LA" == menu_soft_code.text.toString() -> {
-                        val intent = Intent(requireActivity(), LoanApplication::class.java)
-                        startActivity(intent)
-
-                    }
-                    "LD" == menu_soft_code.text.toString() -> {
-                        val intent = Intent(requireActivity(), LoanDashboard::class.java)
-                        startActivity(intent)
-
-                    }
-                    "LR" == menu_soft_code.text.toString() -> {
-                        val intent = Intent(requireActivity(), LoanResult::class.java)
-                        startActivity(intent)
-
-                    }
-                    "BINIMOY" == menu_soft_code.text.toString() -> {
-                        val intent = Intent(requireActivity(), BinimoyDashboard::class.java)
-                        startActivity(intent)
-
-                    }
-                    "W" == menu_soft_code.text.toString() -> {
-                        val intent = Intent(requireActivity(), Welcome::class.java)
                         startActivity(intent)
 
                     }
