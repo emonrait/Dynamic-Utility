@@ -1,4 +1,4 @@
-package com.emon.raihan.dynamicutility.view.binimoy
+package com.emon.raihan.dynamicutility.view.welcome.binimoy
 
 import android.content.Intent
 import android.graphics.Color

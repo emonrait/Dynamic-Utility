@@ -1,4 +1,4 @@
-package com.emon.raihan.dynamicutility.view.loan
+package com.emon.raihan.dynamicutility.view.welcome.loan
 
 import android.content.Intent
 import android.os.Bundle

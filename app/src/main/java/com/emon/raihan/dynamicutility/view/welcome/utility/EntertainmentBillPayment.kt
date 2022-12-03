@@ -1,4 +1,4 @@
-package com.emon.raihan.dynamicutility.view.utility
+package com.emon.raihan.dynamicutility.view.welcome.utility
 
 import android.annotation.SuppressLint
 import android.app.AlertDialog

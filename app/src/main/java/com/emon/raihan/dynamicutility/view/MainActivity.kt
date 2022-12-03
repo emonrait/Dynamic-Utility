@@ -10,13 +10,13 @@ import com.emon.raihan.dynamicutility.R
 import com.emon.raihan.dynamicutility.adaptar.MenuAdapter
 import com.emon.raihan.dynamicutility.model.Menu
 import com.emon.raihan.dynamicutility.util.CustomAppCompatActivity
-import com.emon.raihan.dynamicutility.view.binimoy.BinimoyDashboard
-import com.emon.raihan.dynamicutility.view.loan.LoanApplication
-import com.emon.raihan.dynamicutility.view.loan.LoanDashboard
-import com.emon.raihan.dynamicutility.view.loan.LoanResult
-import com.emon.raihan.dynamicutility.view.utility.*
-import com.emon.raihan.dynamicutility.view.utility.GASBillPayment
-import com.emon.raihan.dynamicutility.view.utility.InternetBillPayment
+import com.emon.raihan.dynamicutility.view.welcome.binimoy.BinimoyDashboard
+import com.emon.raihan.dynamicutility.view.welcome.loan.LoanApplication
+import com.emon.raihan.dynamicutility.view.welcome.loan.LoanDashboard
+import com.emon.raihan.dynamicutility.view.welcome.loan.LoanResult
+import com.emon.raihan.dynamicutility.view.welcome.utility.*
+import com.emon.raihan.dynamicutility.view.welcome.utility.GASBillPayment
+import com.emon.raihan.dynamicutility.view.welcome.utility.InternetBillPayment
 import com.emon.raihan.dynamicutility.view.welcome.Welcome
 import java.util.ArrayList
 

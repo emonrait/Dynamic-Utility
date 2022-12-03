@@ -1,8 +1,7 @@
-package com.emon.raihan.dynamicutility.view.loan
+package com.emon.raihan.dynamicutility.view.welcome.loan
 
 import android.Manifest
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.*
 import androidx.appcompat.widget.Toolbar
@@ -10,9 +9,7 @@ import com.emon.raihan.dynamicutility.R
 import com.emon.raihan.dynamicutility.model.CodeDesOptions
 import com.emon.raihan.dynamicutility.util.CustomActivityClear
 import com.emon.raihan.dynamicutility.util.CustomAppCompatActivity
-import com.emon.raihan.dynamicutility.view.MainActivity
 import com.google.android.material.textfield.MaterialAutoCompleteTextView
-import com.google.android.material.textfield.TextInputEditText
 import java.util.*
 
 class LoanApplication : CustomAppCompatActivity() {

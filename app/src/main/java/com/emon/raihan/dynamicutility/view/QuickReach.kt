@@ -9,17 +9,12 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.denzcoskun.imageslider.ImageSlider
 import com.denzcoskun.imageslider.constants.ScaleTypes
-import com.denzcoskun.imageslider.interfaces.ItemChangeListener
-import com.denzcoskun.imageslider.interfaces.ItemClickListener
 import com.denzcoskun.imageslider.models.SlideModel
 import com.emon.raihan.dynamicutility.R
-import com.emon.raihan.dynamicutility.adaptar.LoanListAdaptar
 import com.emon.raihan.dynamicutility.adaptar.QuickReachMenuAdaptar
-import com.emon.raihan.dynamicutility.model.Loan
 import com.emon.raihan.dynamicutility.model.Menu
 
 import com.emon.raihan.dynamicutility.util.CustomAppCompatActivity
-import com.emon.raihan.dynamicutility.view.utility.InternetBillPayment
 import com.emon.raihan.dynamicutility.view.welcome.Welcome
 
 

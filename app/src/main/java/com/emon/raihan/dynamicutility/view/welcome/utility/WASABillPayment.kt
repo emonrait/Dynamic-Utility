@@ -1,4 +1,4 @@
-package com.emon.raihan.dynamicutility.view.utility
+package com.emon.raihan.dynamicutility.view.welcome.utility
 
 import android.annotation.SuppressLint
 import android.app.AlertDialog
@@ -15,7 +15,6 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.widget.Toolbar
-import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -30,7 +29,8 @@ import com.google.android.material.textfield.MaterialAutoCompleteTextView
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 
-class InternetBillPayment : CustomAppCompatActivity() {
+
+class WASABillPayment : CustomAppCompatActivity() {
     private lateinit var toolbar: Toolbar
     private lateinit var iv_header_back: ImageView
     private lateinit var toolbar_title: TextView
@@ -40,15 +40,9 @@ class InternetBillPayment : CustomAppCompatActivity() {
     private lateinit var bill_type_view_layout: LinearLayout
 
     private lateinit var sp_bill_type_value: MaterialAutoCompleteTextView
-    private lateinit var year_month_layout: LinearLayout
-    private lateinit var input_value_param_layout: LinearLayout
-    private lateinit var customer_code_input_cardview: CardView
-    private lateinit var input_mobile_no_cardview: CardView
-    private lateinit var amount_input_cardview: CardView
-    private lateinit var customer_code_input: TextInputLayout
-
     private lateinit var sp_year_value: MaterialAutoCompleteTextView
     private lateinit var sp_month_value: MaterialAutoCompleteTextView
+    private lateinit var customer_code_input: TextInputLayout
     private lateinit var sp_month_input: TextInputLayout
     private lateinit var sp_year_input: TextInputLayout
 
@@ -58,7 +52,7 @@ class InternetBillPayment : CustomAppCompatActivity() {
     var month = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_internet_bill_payment)
+        setContentView(R.layout.activity_wasabill_payment)
 
         toolbar = findViewById(R.id.toolbar)
         iv_header_back = toolbar.findViewById(R.id.iv_header_back)
@@ -69,73 +63,68 @@ class InternetBillPayment : CustomAppCompatActivity() {
         bill_type_view_layout = findViewById(R.id.bill_type_view_layout)
 
         sp_bill_type_value = findViewById(R.id.sp_bill_type_value)
-        year_month_layout = findViewById(R.id.year_month_layout)
-        customer_code_input_cardview = findViewById(R.id.customer_code_input_cardview)
         customer_code_input = findViewById(R.id.customer_code_input)
-        input_mobile_no_cardview = findViewById(R.id.input_mobile_no_cardview)
-        amount_input_cardview = findViewById(R.id.amount_input_cardview)
-        input_value_param_layout = findViewById(R.id.input_value_param_layout)
         sp_year_value = findViewById(R.id.sp_year_value)
         sp_month_value = findViewById(R.id.sp_month_value)
         sp_month_input = findViewById(R.id.sp_month_input)
         sp_year_input = findViewById(R.id.sp_year_input)
 
         setSupportActionBar(toolbar)
-        toolbar_title.text = getString(R.string.internet_bill_payment)
+        toolbar_title.text = "Wasa Bill Payment"
+        // Objects.requireNonNull(supportActionBar)?.setHomeButtonEnabled(true)
+        //  supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        //  supportActionBar!!.title = "About Me"
 
         iv_header_back.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             CustomActivityClear.doClearActivity(intent, this)
         }
 
-        input_value_param_layout.visibility = View.GONE
-        codeDesOptions.add(CodeDesOptions("Carnival", "CARNIVALPRE"))
-        codeDesOptions.add(CodeDesOptions("Link3", "LINK3PRE"))
-        codeDesOptions.add(CodeDesOptions("Amber IT", "AMBERPRE"))
-        codeDesOptions.add(CodeDesOptions("Sam Online", "SAMPRE"))
-        codeDesOptions.add(CodeDesOptions("KS Network Ltd", "KSNL"))
+
+        codeDesOptions.add(CodeDesOptions("Dhaka Wasa", "DWASA"))
+        codeDesOptions.add(CodeDesOptions("Chattagram Wasa", "CWASA"))
+        codeDesOptions.add(CodeDesOptions("Khulna Wasa (Metered)", "KWASA"))
+        codeDesOptions.add(CodeDesOptions("Rajshahi Wasa", "RWASA"))
         val arrayAdapter = ArrayAdapter(this, R.layout.dropdown_item, codeDesOptions)
         sp_bill_type_value.setAdapter(arrayAdapter)
 
 
         sp_bill_type_value.setOnItemClickListener { parent, arg1, position, id ->
             billType = codeDesOptions[position].code.toString()
-            input_value_param_layout.visibility = View.VISIBLE
             bill_type_title.text = codeDesOptions[position].desc.toString()
             bill_type_view_layout.visibility = View.VISIBLE
-            iv_bill_type_logo.setImageResource(R.drawable.internet_bill)
-            if (billType.endsWith("PRE")) {
-                year_month_layout.visibility = View.GONE
-                customer_code_input_cardview.visibility = View.VISIBLE
-                input_mobile_no_cardview.visibility = View.VISIBLE
-                amount_input_cardview.visibility = View.VISIBLE
-            } else {
-                year_month_layout.visibility = View.VISIBLE
-                input_mobile_no_cardview.visibility = View.GONE
-                amount_input_cardview.visibility = View.GONE
-                customer_code_input_cardview.visibility = View.VISIBLE
-                customer_code_input.hint = "Enter Bill Account Number"
+            iv_bill_type_logo.setImageResource(R.drawable.water_bill)
+            if (billType == "DWASA") {
+                customer_code_input.hint = "Enter Bill Number"
+            } else if (billType == "CWASA") {
+                customer_code_input.hint = "Enter Account No."
+            } else if (billType == "KWASA") {
+                customer_code_input.hint = "Enter Customer Number"
+            } else if (billType == "RWASA") {
+                customer_code_input.hint = "Enter Bill Number"
             }
-
         }
 
         sp_bill_type_value.setOnClickListener {
             showDropDoownDialog()
         }
+
         sp_year_value.setOnClickListener {
-            CustomDailog.createYearPicker(this,sp_year_value)
+            CustomDailog.createYearPicker(this, sp_year_value)
         }
 
         sp_year_input.setOnClickListener {
-            CustomDailog.createYearPicker(this,sp_year_value)
+            CustomDailog.createYearPicker(this, sp_year_value)
         }
 
         sp_month_value.setOnClickListener {
-            CustomDailog.createMonthPicker(this,sp_month_value)
+            CustomDailog.createMonthPicker(this, sp_month_value)
         }
         sp_month_input.setOnClickListener {
-            CustomDailog.createMonthPicker(this,sp_month_value)
+            CustomDailog.createMonthPicker(this, sp_month_value)
         }
+
+
     }
 
     @SuppressLint("NotifyDataSetChanged")
@@ -165,21 +154,17 @@ class InternetBillPayment : CustomAppCompatActivity() {
                     override fun onItemClick(item: CodeDesOptions) {
                         sp_bill_type_value.setText(item.desc)
                         billType = item.code.toString()
-                        input_value_param_layout.visibility = View.VISIBLE
                         bill_type_title.text = item.desc.toString()
                         bill_type_view_layout.visibility = View.VISIBLE
-                        iv_bill_type_logo.setImageResource(R.drawable.internet_bill)
-                        if (billType.endsWith("PRE")) {
-                            year_month_layout.visibility = View.GONE
-                            customer_code_input_cardview.visibility = View.VISIBLE
-                            input_mobile_no_cardview.visibility = View.VISIBLE
-                            amount_input_cardview.visibility = View.VISIBLE
-                        } else {
-                            year_month_layout.visibility = View.VISIBLE
-                            input_mobile_no_cardview.visibility = View.GONE
-                            amount_input_cardview.visibility = View.GONE
-                            customer_code_input_cardview.visibility = View.VISIBLE
-                            customer_code_input.hint = "Enter Bill Account Number"
+                        iv_bill_type_logo.setImageResource(R.drawable.water_bill)
+                        if (billType == "DWASA") {
+                            customer_code_input.hint = "Enter Bill Number"
+                        } else if (billType == "CWASA") {
+                            customer_code_input.hint = "Enter Account No."
+                        } else if (billType == "KWASA") {
+                            customer_code_input.hint = "Enter Customer Number"
+                        } else if (billType == "RWASA") {
+                            customer_code_input.hint = "Enter Bill Number"
                         }
 
                         alertDialog.dismiss()
@@ -196,6 +181,8 @@ class InternetBillPayment : CustomAppCompatActivity() {
                 mAdapter.filter.filter(s)
             }
         })
+
+
         ivClose.setOnClickListener { alertDialog.dismiss() }
 
 

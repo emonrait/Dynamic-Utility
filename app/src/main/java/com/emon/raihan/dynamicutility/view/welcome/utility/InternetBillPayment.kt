@@ -1,4 +1,4 @@
-package com.emon.raihan.dynamicutility.view.utility
+package com.emon.raihan.dynamicutility.view.welcome.utility
 
 import android.annotation.SuppressLint
 import android.app.AlertDialog
@@ -30,7 +30,7 @@ import com.google.android.material.textfield.MaterialAutoCompleteTextView
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 
-class GASBillPayment : CustomAppCompatActivity() {
+class InternetBillPayment : CustomAppCompatActivity() {
     private lateinit var toolbar: Toolbar
     private lateinit var iv_header_back: ImageView
     private lateinit var toolbar_title: TextView
@@ -40,12 +40,11 @@ class GASBillPayment : CustomAppCompatActivity() {
     private lateinit var bill_type_view_layout: LinearLayout
 
     private lateinit var sp_bill_type_value: MaterialAutoCompleteTextView
-    private lateinit var input_value_param_layout: LinearLayout
     private lateinit var year_month_layout: LinearLayout
+    private lateinit var input_value_param_layout: LinearLayout
     private lateinit var customer_code_input_cardview: CardView
-    private lateinit var meter_no_input_cardview: CardView
-    private lateinit var invoice_no_input_cardview: CardView
     private lateinit var input_mobile_no_cardview: CardView
+    private lateinit var amount_input_cardview: CardView
     private lateinit var customer_code_input: TextInputLayout
 
     private lateinit var sp_year_value: MaterialAutoCompleteTextView
@@ -59,7 +58,7 @@ class GASBillPayment : CustomAppCompatActivity() {
     var month = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_gasbill_payment)
+        setContentView(R.layout.activity_internet_bill_payment)
 
         toolbar = findViewById(R.id.toolbar)
         iv_header_back = toolbar.findViewById(R.id.iv_header_back)
@@ -73,9 +72,8 @@ class GASBillPayment : CustomAppCompatActivity() {
         year_month_layout = findViewById(R.id.year_month_layout)
         customer_code_input_cardview = findViewById(R.id.customer_code_input_cardview)
         customer_code_input = findViewById(R.id.customer_code_input)
-        meter_no_input_cardview = findViewById(R.id.meter_no_input_cardview)
-        invoice_no_input_cardview = findViewById(R.id.invoice_no_input_cardview)
         input_mobile_no_cardview = findViewById(R.id.input_mobile_no_cardview)
+        amount_input_cardview = findViewById(R.id.amount_input_cardview)
         input_value_param_layout = findViewById(R.id.input_value_param_layout)
         sp_year_value = findViewById(R.id.sp_year_value)
         sp_month_value = findViewById(R.id.sp_month_value)
@@ -83,7 +81,7 @@ class GASBillPayment : CustomAppCompatActivity() {
         sp_year_input = findViewById(R.id.sp_year_input)
 
         setSupportActionBar(toolbar)
-        toolbar_title.text = getString(R.string.gas_bill_payment)
+        toolbar_title.text = getString(R.string.internet_bill_payment)
 
         iv_header_back.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
@@ -91,14 +89,11 @@ class GASBillPayment : CustomAppCompatActivity() {
         }
 
         input_value_param_layout.visibility = View.GONE
-        codeDesOptions.add(CodeDesOptions("Titas Gas Postpaid (Non-Metered)", "TGPNM"))
-        codeDesOptions.add(CodeDesOptions("Titas Gas Postpaid (Metered)", "TGPM"))
-        codeDesOptions.add(CodeDesOptions("Karnaphuli Gas Ltd", "KGL"))
-        codeDesOptions.add(CodeDesOptions("Jalalabad Gas Ltd", "JGLS"))
-        codeDesOptions.add(CodeDesOptions("Sundarban Gas Ltd", "SGLS"))
-        codeDesOptions.add(CodeDesOptions("Paschimanchal Gas Ltd", "PGLS"))
-        codeDesOptions.add(CodeDesOptions("Bakhrabad Gas Ltd", "BGL"))
-        codeDesOptions.add(CodeDesOptions("Bashundara LP Gas Ltd (Metered)", "BLPGLM"))
+        codeDesOptions.add(CodeDesOptions("Carnival", "CARNIVALPRE"))
+        codeDesOptions.add(CodeDesOptions("Link3", "LINK3PRE"))
+        codeDesOptions.add(CodeDesOptions("Amber IT", "AMBERPRE"))
+        codeDesOptions.add(CodeDesOptions("Sam Online", "SAMPRE"))
+        codeDesOptions.add(CodeDesOptions("KS Network Ltd", "KSNL"))
         val arrayAdapter = ArrayAdapter(this, R.layout.dropdown_item, codeDesOptions)
         sp_bill_type_value.setAdapter(arrayAdapter)
 
@@ -108,64 +103,38 @@ class GASBillPayment : CustomAppCompatActivity() {
             input_value_param_layout.visibility = View.VISIBLE
             bill_type_title.text = codeDesOptions[position].desc.toString()
             bill_type_view_layout.visibility = View.VISIBLE
-            iv_bill_type_logo.setImageResource(R.drawable.gas_bill)
-
-            if (billType.endsWith("GLS")) {
-                year_month_layout.visibility = View.VISIBLE
-                customer_code_input_cardview.visibility = View.VISIBLE
-                meter_no_input_cardview.visibility = View.GONE
-                invoice_no_input_cardview.visibility = View.GONE
-                input_mobile_no_cardview.visibility = View.GONE
-                customer_code_input.hint = "Enter Grahohk Shonket no."
-            } else if (billType.equals("KGL")) {
+            iv_bill_type_logo.setImageResource(R.drawable.internet_bill)
+            if (billType.endsWith("PRE")) {
                 year_month_layout.visibility = View.GONE
                 customer_code_input_cardview.visibility = View.VISIBLE
-                meter_no_input_cardview.visibility = View.GONE
-                invoice_no_input_cardview.visibility = View.GONE
                 input_mobile_no_cardview.visibility = View.VISIBLE
+                amount_input_cardview.visibility = View.VISIBLE
+            } else {
+                year_month_layout.visibility = View.VISIBLE
+                input_mobile_no_cardview.visibility = View.GONE
+                amount_input_cardview.visibility = View.GONE
+                customer_code_input_cardview.visibility = View.VISIBLE
                 customer_code_input.hint = "Enter Bill Account Number"
-            } else if (billType.equals("TGPM")) {
-                year_month_layout.visibility = View.GONE
-                customer_code_input_cardview.visibility = View.VISIBLE
-                meter_no_input_cardview.visibility = View.GONE
-                invoice_no_input_cardview.visibility = View.VISIBLE
-                input_mobile_no_cardview.visibility = View.GONE
-                customer_code_input.hint = "Enter Customer No"
-            } else if (billType.equals("TGPNM")) {
-                year_month_layout.visibility = View.VISIBLE
-                customer_code_input_cardview.visibility = View.VISIBLE
-                meter_no_input_cardview.visibility = View.GONE
-                invoice_no_input_cardview.visibility = View.GONE
-                input_mobile_no_cardview.visibility = View.VISIBLE
-                customer_code_input.hint = "Enter Customer Code"
-            } else if (billType.equals("BLPGLM")) {
-                year_month_layout.visibility = View.GONE
-                customer_code_input_cardview.visibility = View.GONE
-                meter_no_input_cardview.visibility = View.VISIBLE
-                invoice_no_input_cardview.visibility = View.GONE
-                input_mobile_no_cardview.visibility = View.GONE
             }
-
 
         }
 
         sp_bill_type_value.setOnClickListener {
             showDropDoownDialog()
         }
-
         sp_year_value.setOnClickListener {
-            CustomDailog.createYearPicker(this, sp_year_value)
+            CustomDailog.createYearPicker(this,sp_year_value)
         }
 
         sp_year_input.setOnClickListener {
-            CustomDailog.createYearPicker(this, sp_year_value)
+            CustomDailog.createYearPicker(this,sp_year_value)
         }
 
         sp_month_value.setOnClickListener {
-            CustomDailog.createMonthPicker(this, sp_month_value)
+            CustomDailog.createMonthPicker(this,sp_month_value)
         }
         sp_month_input.setOnClickListener {
-            CustomDailog.createMonthPicker(this, sp_month_value)
+            CustomDailog.createMonthPicker(this,sp_month_value)
         }
     }
 
@@ -199,42 +168,18 @@ class GASBillPayment : CustomAppCompatActivity() {
                         input_value_param_layout.visibility = View.VISIBLE
                         bill_type_title.text = item.desc.toString()
                         bill_type_view_layout.visibility = View.VISIBLE
-                        iv_bill_type_logo.setImageResource(R.drawable.gas_bill)
-
-                        if (billType.endsWith("GLS")) {
-                            year_month_layout.visibility = View.VISIBLE
-                            customer_code_input_cardview.visibility = View.VISIBLE
-                            meter_no_input_cardview.visibility = View.GONE
-                            invoice_no_input_cardview.visibility = View.GONE
-                            input_mobile_no_cardview.visibility = View.GONE
-                            customer_code_input.hint = "Enter Grahohk Shonket no."
-                        } else if (billType.equals("KGL")) {
+                        iv_bill_type_logo.setImageResource(R.drawable.internet_bill)
+                        if (billType.endsWith("PRE")) {
                             year_month_layout.visibility = View.GONE
                             customer_code_input_cardview.visibility = View.VISIBLE
-                            meter_no_input_cardview.visibility = View.GONE
-                            invoice_no_input_cardview.visibility = View.GONE
                             input_mobile_no_cardview.visibility = View.VISIBLE
+                            amount_input_cardview.visibility = View.VISIBLE
+                        } else {
+                            year_month_layout.visibility = View.VISIBLE
+                            input_mobile_no_cardview.visibility = View.GONE
+                            amount_input_cardview.visibility = View.GONE
+                            customer_code_input_cardview.visibility = View.VISIBLE
                             customer_code_input.hint = "Enter Bill Account Number"
-                        } else if (billType.equals("TGPM")) {
-                            year_month_layout.visibility = View.GONE
-                            customer_code_input_cardview.visibility = View.VISIBLE
-                            meter_no_input_cardview.visibility = View.GONE
-                            invoice_no_input_cardview.visibility = View.VISIBLE
-                            input_mobile_no_cardview.visibility = View.GONE
-                            customer_code_input.hint = "Enter Customer No"
-                        } else if (billType.equals("TGPNM")) {
-                            year_month_layout.visibility = View.VISIBLE
-                            customer_code_input_cardview.visibility = View.VISIBLE
-                            meter_no_input_cardview.visibility = View.GONE
-                            invoice_no_input_cardview.visibility = View.GONE
-                            input_mobile_no_cardview.visibility = View.VISIBLE
-                            customer_code_input.hint = "Enter Customer Code"
-                        } else if (billType.equals("BLPGLM")) {
-                            year_month_layout.visibility = View.GONE
-                            customer_code_input_cardview.visibility = View.GONE
-                            meter_no_input_cardview.visibility = View.VISIBLE
-                            invoice_no_input_cardview.visibility = View.GONE
-                            input_mobile_no_cardview.visibility = View.GONE
                         }
 
                         alertDialog.dismiss()
@@ -251,7 +196,6 @@ class GASBillPayment : CustomAppCompatActivity() {
                 mAdapter.filter.filter(s)
             }
         })
-
         ivClose.setOnClickListener { alertDialog.dismiss() }
 
 

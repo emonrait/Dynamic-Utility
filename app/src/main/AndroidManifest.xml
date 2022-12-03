@@ -41,67 +41,67 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity
-            android:name=".view.binimoy.PendingRtp"
+            android:name="com.emon.raihan.dynamicutility.view.welcome.binimoy.PendingRtp"
             android:configChanges="orientation|keyboardHidden"
             android:exported="true"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity
-            android:name=".view.binimoy.RequestToPay"
+            android:name="com.emon.raihan.dynamicutility.view.welcome.binimoy.RequestToPay"
             android:configChanges="orientation|keyboardHidden"
             android:exported="true"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity
-            android:name=".view.binimoy.DirectPay"
+            android:name="com.emon.raihan.dynamicutility.view.welcome.binimoy.DirectPay"
             android:configChanges="orientation|keyboardHidden"
             android:exported="true"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity
-            android:name=".view.binimoy.BinimoyDashboard"
+            android:name="com.emon.raihan.dynamicutility.view.welcome.binimoy.BinimoyDashboard"
             android:configChanges="orientation|keyboardHidden"
             android:exported="true"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity
-            android:name=".view.loan.LoanResult"
+            android:name="com.emon.raihan.dynamicutility.view.welcome.loan.LoanResult"
             android:configChanges="orientation|keyboardHidden"
             android:exported="true"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity
-            android:name=".view.loan.LoanApplication"
+            android:name="com.emon.raihan.dynamicutility.view.welcome.loan.LoanApplication"
             android:configChanges="orientation|keyboardHidden"
             android:exported="true"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity
-            android:name=".view.loan.LoanDashboard"
+            android:name="com.emon.raihan.dynamicutility.view.welcome.loan.LoanDashboard"
             android:configChanges="orientation|keyboardHidden"
             android:exported="true"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity
-            android:name=".view.utility.EntertainmentBillPayment"
+            android:name="com.emon.raihan.dynamicutility.view.welcome.utility.EntertainmentBillPayment"
             android:configChanges="orientation|keyboardHidden"
             android:exported="true"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity
-            android:name=".view.utility.InsuranceBillPayment"
+            android:name="com.emon.raihan.dynamicutility.view.welcome.utility.InsuranceBillPayment"
             android:configChanges="orientation|keyboardHidden"
             android:exported="true"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity
-            android:name=".view.utility.EductaionBillPayment"
+            android:name="com.emon.raihan.dynamicutility.view.welcome.utility.EductaionBillPayment"
             android:configChanges="orientation|keyboardHidden"
             android:exported="true"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity
-            android:name=".view.utility.InternetBillPayment"
+            android:name="com.emon.raihan.dynamicutility.view.welcome.utility.InternetBillPayment"
             android:configChanges="orientation|keyboardHidden"
             android:exported="true"
             android:screenOrientation="portrait"
@@ -113,7 +113,7 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity
-            android:name=".view.utility.BillsReport"
+            android:name="com.emon.raihan.dynamicutility.view.welcome.utility.BillsReport"
             android:configChanges="orientation|keyboardHidden"
             android:exported="true"
             android:screenOrientation="portrait"
@@ -125,19 +125,19 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity
-            android:name=".view.utility.GASBillPayment"
+            android:name="com.emon.raihan.dynamicutility.view.welcome.utility.GASBillPayment"
             android:configChanges="orientation|keyboardHidden"
             android:exported="true"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity
-            android:name=".view.utility.WASABillPayment"
+            android:name="com.emon.raihan.dynamicutility.view.welcome.utility.WASABillPayment"
             android:configChanges="orientation|keyboardHidden"
             android:exported="true"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity
-            android:name=".view.utility.ElectricityBillPayment"
+            android:name="com.emon.raihan.dynamicutility.view.welcome.utility.ElectricityBillPayment"
             android:configChanges="orientation|keyboardHidden"
             android:exported="true"
             android:screenOrientation="portrait"

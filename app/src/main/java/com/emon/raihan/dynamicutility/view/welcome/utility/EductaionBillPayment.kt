@@ -1,4 +1,4 @@
-package com.emon.raihan.dynamicutility.view.utility
+package com.emon.raihan.dynamicutility.view.welcome.utility
 
 import android.annotation.SuppressLint
 import android.app.AlertDialog
@@ -10,12 +10,8 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
-import android.widget.ArrayAdapter
-import android.widget.ImageView
-import android.widget.LinearLayout
-import android.widget.TextView
+import android.widget.*
 import androidx.appcompat.widget.Toolbar
-import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -24,11 +20,14 @@ import com.emon.raihan.dynamicutility.adaptar.DropdownListAdaptar
 import com.emon.raihan.dynamicutility.model.CodeDesOptions
 import com.emon.raihan.dynamicutility.util.CustomActivityClear
 import com.emon.raihan.dynamicutility.util.CustomAppCompatActivity
+import com.emon.raihan.dynamicutility.util.CustomDailog
 import com.emon.raihan.dynamicutility.view.MainActivity
 import com.google.android.material.textfield.MaterialAutoCompleteTextView
 import com.google.android.material.textfield.TextInputEditText
+import com.google.android.material.textfield.TextInputLayout
+import java.util.*
 
-class InsuranceBillPayment : CustomAppCompatActivity() {
+class EductaionBillPayment : CustomAppCompatActivity() {
     private lateinit var toolbar: Toolbar
     private lateinit var iv_header_back: ImageView
     private lateinit var toolbar_title: TextView
@@ -38,18 +37,20 @@ class InsuranceBillPayment : CustomAppCompatActivity() {
     private lateinit var bill_type_view_layout: LinearLayout
 
     private lateinit var sp_bill_type_value: MaterialAutoCompleteTextView
-    private lateinit var input_value_param_layout: LinearLayout
-    private lateinit var sp_purpose_cardview: CardView
-    private lateinit var policy_number_input_cardview: CardView
-    private lateinit var input_mobile_no_cardview: CardView
 
     var codeDesOptions: ArrayList<CodeDesOptions> = ArrayList<CodeDesOptions>()
+
+    private lateinit var sp_year_value: MaterialAutoCompleteTextView
+    private lateinit var sp_month_value: MaterialAutoCompleteTextView
+    private lateinit var sp_month_input: TextInputLayout
+    private lateinit var sp_year_input: TextInputLayout
+
     var billType = ""
     var year = ""
     var month = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_insurance_bill_payment)
+        setContentView(R.layout.activity_eductaion_bill_payment)
 
         toolbar = findViewById(R.id.toolbar)
         iv_header_back = toolbar.findViewById(R.id.iv_header_back)
@@ -60,46 +61,40 @@ class InsuranceBillPayment : CustomAppCompatActivity() {
         bill_type_view_layout = findViewById(R.id.bill_type_view_layout)
 
         sp_bill_type_value = findViewById(R.id.sp_bill_type_value)
-        input_value_param_layout = findViewById(R.id.input_value_param_layout)
-        sp_purpose_cardview = findViewById(R.id.sp_purpose_cardview)
-        policy_number_input_cardview = findViewById(R.id.policy_number_input_cardview)
-        input_mobile_no_cardview = findViewById(R.id.input_mobile_no_cardview)
+        sp_year_value = findViewById(R.id.sp_year_value)
+        sp_month_value = findViewById(R.id.sp_month_value)
+        sp_month_input = findViewById(R.id.sp_month_input)
+        sp_year_input = findViewById(R.id.sp_year_input)
 
         setSupportActionBar(toolbar)
-        toolbar_title.text = getString(R.string.insurance_bill_payment)
+        toolbar_title.text = "Education Bill Payment"
+        // Objects.requireNonNull(supportActionBar)?.setHomeButtonEnabled(true)
+        //  supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        //  supportActionBar!!.title = "About Me"
 
         iv_header_back.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             CustomActivityClear.doClearActivity(intent, this)
         }
 
-        input_value_param_layout.visibility = View.GONE
 
-        codeDesOptions.add(CodeDesOptions("Metlife", "METLIFE"))
-        codeDesOptions.add(CodeDesOptions("Jibon Bima Corporation", "JBC"))
-        codeDesOptions.add(CodeDesOptions("Pragati Life Insurance", "PRAGATI"))
-        codeDesOptions.add(CodeDesOptions("Prime Islami Life Insurance", "PIL"))
-        codeDesOptions.add(CodeDesOptions("Fareast Islami Life Insurance", "FIL"))
+        codeDesOptions.add(CodeDesOptions("Dhaka Wasa", "DWASA"))
+        codeDesOptions.add(CodeDesOptions("Chattagram Wasa", "CWASA"))
+        codeDesOptions.add(CodeDesOptions("Khulna Wasa", "KWASA"))
+        codeDesOptions.add(CodeDesOptions("Rajshahi Wasa", "RWASA"))
         val arrayAdapter = ArrayAdapter(this, R.layout.dropdown_item, codeDesOptions)
         sp_bill_type_value.setAdapter(arrayAdapter)
 
 
         sp_bill_type_value.setOnItemClickListener { parent, arg1, position, id ->
             billType = codeDesOptions[position].code.toString()
-            input_value_param_layout.visibility = View.VISIBLE
             bill_type_title.text = codeDesOptions[position].desc.toString()
             bill_type_view_layout.visibility = View.VISIBLE
-            iv_bill_type_logo.setImageResource(R.drawable.insurance_bill)
+            iv_bill_type_logo.setImageResource(R.drawable.education_bill)
 
-            if (billType.equals("METLIFE")) {
-                sp_purpose_cardview.visibility = View.VISIBLE
-                policy_number_input_cardview.visibility = View.VISIBLE
-                input_mobile_no_cardview.visibility = View.GONE
-            } else {
-                sp_purpose_cardview.visibility = View.GONE
-                policy_number_input_cardview.visibility = View.VISIBLE
-                input_mobile_no_cardview.visibility = View.VISIBLE
-            }
+            val toast = Toast.makeText(baseContext, "test", Toast.LENGTH_SHORT)
+            //.show()
+            toast.show()
 
 
         }
@@ -108,7 +103,20 @@ class InsuranceBillPayment : CustomAppCompatActivity() {
             showDropDoownDialog()
         }
 
+        sp_year_value.setOnClickListener {
+            CustomDailog.createYearPicker(this, sp_year_value)
+        }
 
+        sp_year_input.setOnClickListener {
+            CustomDailog.createYearPicker(this, sp_year_value)
+        }
+
+        sp_month_value.setOnClickListener {
+            CustomDailog.createMonthPicker(this, sp_month_value)
+        }
+        sp_month_input.setOnClickListener {
+            CustomDailog.createMonthPicker(this, sp_month_value)
+        }
     }
 
     @SuppressLint("NotifyDataSetChanged")
@@ -138,20 +146,13 @@ class InsuranceBillPayment : CustomAppCompatActivity() {
                     override fun onItemClick(item: CodeDesOptions) {
                         sp_bill_type_value.setText(item.desc)
                         billType = item.code.toString()
-                        input_value_param_layout.visibility = View.VISIBLE
                         bill_type_title.text = item.desc.toString()
                         bill_type_view_layout.visibility = View.VISIBLE
-                        iv_bill_type_logo.setImageResource(R.drawable.insurance_bill)
+                        iv_bill_type_logo.setImageResource(R.drawable.education_bill)
 
-                        if (billType.equals("METLIFE")) {
-                            sp_purpose_cardview.visibility = View.VISIBLE
-                            policy_number_input_cardview.visibility = View.VISIBLE
-                            input_mobile_no_cardview.visibility = View.GONE
-                        } else {
-                            sp_purpose_cardview.visibility = View.GONE
-                            policy_number_input_cardview.visibility = View.VISIBLE
-                            input_mobile_no_cardview.visibility = View.VISIBLE
-                        }
+                        val toast = Toast.makeText(baseContext, "test", Toast.LENGTH_SHORT)
+                        //.show()
+                        toast.show()
 
                         alertDialog.dismiss()
                     }
@@ -167,6 +168,7 @@ class InsuranceBillPayment : CustomAppCompatActivity() {
                 mAdapter.filter.filter(s)
             }
         })
+
         ivClose.setOnClickListener { alertDialog.dismiss() }
 
 

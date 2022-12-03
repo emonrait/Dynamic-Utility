@@ -1,4 +1,4 @@
-package com.emon.raihan.dynamicutility.view.loan.fragment
+package com.emon.raihan.dynamicutility.view.welcome.loan.fragment
 
 import android.annotation.SuppressLint
 import android.os.Bundle
