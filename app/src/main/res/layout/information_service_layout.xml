@@ -31,13 +31,13 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/whats_new"
+                    android:text="@string/information_service"
                     android:textColor="@color/black"
                     android:textSize="@dimen/textsize_base"
                     android:textStyle="bold" />
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/whatsnew_RecyclerView"
+                    android:id="@+id/information_RecyclerView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 

@@ -103,4 +103,5 @@
     <string name="register">Register</string>
     <string name="popular_service">Popular Service</string>
     <string name="whats_new">Whats New?</string>
+    <string name="information_service">Information Service</string>
 </resources>

@@ -28,9 +28,11 @@ class QuickReach : CustomAppCompatActivity() {
     private lateinit var btn_login: AppCompatButton
     private lateinit var poular_RecyclerView: RecyclerView
     private lateinit var whatsnew_RecyclerView: RecyclerView
+    private lateinit var information_RecyclerView: RecyclerView
     private lateinit var mAdapter: QuickReachMenuAdaptar
     var popularList: ArrayList<Menu> = ArrayList<Menu>()
     var whatsnew_List: ArrayList<Menu> = ArrayList<Menu>()
+    var information_List: ArrayList<Menu> = ArrayList<Menu>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,6 +41,7 @@ class QuickReach : CustomAppCompatActivity() {
         btn_login = findViewById(R.id.btn_login)
         poular_RecyclerView = findViewById(R.id.poular_RecyclerView)
         whatsnew_RecyclerView = findViewById(R.id.whatsnew_RecyclerView)
+        information_RecyclerView = findViewById(R.id.information_RecyclerView)
 
         val imageSlider = findViewById<ImageSlider>(R.id.imageSlider)
         val imageList = ArrayList<SlideModel>()
@@ -129,6 +132,31 @@ class QuickReach : CustomAppCompatActivity() {
         whatsnew_RecyclerView.adapter = mAdapter
         mAdapter.notifyDataSetChanged()
 
+
+
+        information_List.clear()
+        information_List.add(Menu("WB", "Within Bank", R.drawable.water_bill))
+        information_List.add(Menu("NPSB", "NPSB", R.drawable.education_bill))
+        information_List.add(Menu("BP", "Bills Pay", R.drawable.gas_bill))
+        information_List.add(Menu("bKash", "bKash", R.drawable.electricity_bill))
+        information_List.add(Menu("bKash", "bKash", R.drawable.electricity_bill))
+
+
+        val mLayoutManagerInfo = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        information_RecyclerView.layoutManager = mLayoutManagerInfo
+        information_RecyclerView.itemAnimator = DefaultItemAnimator()
+
+        mAdapter =
+            QuickReachMenuAdaptar(
+                information_List,
+                object : QuickReachMenuAdaptar.OnItemClickListener {
+                    override fun onItemClick(item: Menu) {
+                        Toast.makeText(this@QuickReach, item.menuTitle, Toast.LENGTH_SHORT).show()
+                    }
+                })
+
+        information_RecyclerView.adapter = mAdapter
+        mAdapter.notifyDataSetChanged()
 
     }
 
