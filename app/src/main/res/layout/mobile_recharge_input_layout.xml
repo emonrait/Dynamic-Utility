@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/input_value"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/source_ac_no_balance_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <include layout="@layout/source_ac_no_balance_layout" />
+        </LinearLayout>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/customer_code_input_cardview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="visible">
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/mobile_number_input"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/text_input_layout_left_size"
+                android:layout_marginTop="@dimen/text_input_layout_top_size"
+                android:layout_marginEnd="@dimen/text_input_layout_right_size"
+                android:layout_marginBottom="@dimen/text_input_layout_bottom_size"
+                android:hint="@string/mobile_number"
+                android:padding="@dimen/padding_5">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_mobile_number_value"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/input_field_height_size"
+                    android:drawableEnd="@drawable/ic_touch"
+                    android:inputType="number"
+                    android:maxLength="11"
+                    android:padding="@dimen/padding_5"
+                    android:singleLine="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/textsize_base" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+        <LinearLayout
+            android:id="@+id/year_month_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_10"
+            android:layout_marginTop="@dimen/margin_10"
+            android:layout_marginRight="@dimen/margin_10"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/operator_icon_height_base"
+                    android:layout_marginRight="@dimen/margin_5"
+                    android:background="@drawable/btn_round_border_transparent_black"
+                    android:padding="@dimen/padding_5"
+                    android:src="@drawable/ic_touch" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:text="GP"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/textsize_base"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/operator_icon_height_base"
+                    android:layout_marginRight="@dimen/margin_5"
+                    android:background="@drawable/btn_round_border_transparent_black"
+                    android:padding="@dimen/padding_5"
+                    android:src="@drawable/ic_touch" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:text="GP"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/textsize_base"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/operator_icon_height_base"
+                    android:layout_marginRight="@dimen/margin_5"
+                    android:background="@drawable/btn_round_border_transparent_black"
+                    android:padding="@dimen/padding_5"
+                    android:src="@drawable/ic_touch" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:text="GP"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/textsize_base"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/operator_icon_height_base"
+                    android:layout_marginRight="@dimen/margin_5"
+                    android:background="@drawable/btn_round_border_transparent_black"
+                    android:padding="@dimen/padding_5"
+                    android:src="@drawable/ic_touch" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:text="GP"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/textsize_base"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/operator_icon_height_base"
+                    android:layout_marginRight="@dimen/margin_5"
+                    android:background="@drawable/btn_round_border_transparent_black"
+                    android:padding="@dimen/padding_5"
+                    android:src="@drawable/ic_touch" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:text="GP"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/textsize_base"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/prepai_postpaid_input_cardview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="visible">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_10"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <TextView
+                    android:id="@+id/tv_prepaid"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/margin_5"
+                    android:layout_weight="1"
+                    android:background="@drawable/btn_round_border_transparent_black"
+                    android:gravity="center"
+                    android:padding="@dimen/padding_10"
+                    android:text="@string/prepaid"
+                    android:textSize="@dimen/textsize_base"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_postpaid"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_5"
+                    android:layout_weight="1"
+                    android:background="@drawable/btn_round_border_transparent_black"
+                    android:gravity="center"
+                    android:padding="@dimen/padding_10"
+                    android:text="@string/postpaid"
+                    android:textSize="@dimen/textsize_base"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/amountinput_cardview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="visible">
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/mamount_input"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/text_input_layout_left_size"
+                android:layout_marginTop="@dimen/text_input_layout_top_size"
+                android:layout_marginEnd="@dimen/text_input_layout_right_size"
+                android:layout_marginBottom="@dimen/text_input_layout_bottom_size"
+                android:hint="@string/amount"
+                android:padding="@dimen/padding_5">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_amount_value"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/input_field_height_size"
+                    android:inputType="number"
+                    android:padding="@dimen/padding_5"
+                    android:singleLine="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/textsize_base" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/input_value"
+        android:orientation="vertical">
+
+        <include layout="@layout/btn_proceed_layout" />
+    </LinearLayout>
+
+
+</RelativeLayout>

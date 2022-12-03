@@ -36,7 +36,7 @@
     <dimen name="text_input_layout_top_size">1dp</dimen>
     <dimen name="text_input_layout_bottom_size">1dp</dimen>
     <dimen name="btn_utility_validate_top_size">30dp</dimen>
-    <dimen name="input_field_height_size">60dp</dimen>
+    <dimen name="input_field_height_size">65dp</dimen>
     <dimen name="padding_10">10dp</dimen>
     <dimen name="padding_15">15dp</dimen>
     <dimen name="padding_20">20dp</dimen>
@@ -44,5 +44,8 @@
     <dimen name="binimoy_id_padding_right">50dp</dimen>
     <dimen name="padding_2">2dp</dimen>
     <dimen name="welcome_menu_icon_height_base">30dp</dimen>
+    <dimen name="operator_icon_height_base">50dp</dimen>
     <dimen name="row_width_30">30dp</dimen>
+    <dimen name="hide_layout_size_base">75dp</dimen>
+    <dimen name="input_padding_letf_base">15dp</dimen>
 </resources>

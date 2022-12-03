@@ -8,12 +8,14 @@
         <entry key="app/src/main/res/drawable/botom_bar_selector.xml" value="0.18" />
         <entry key="app/src/main/res/drawable/bt_background_rounded_green.xml" value="0.18" />
         <entry key="app/src/main/res/drawable/btn_round_border_transparent.xml" value="0.18" />
+        <entry key="app/src/main/res/drawable/btn_round_border_transparent_black.xml" value="0.18" />
         <entry key="app/src/main/res/drawable/btn_round_border_transparent_white.xml" value="0.18" />
         <entry key="app/src/main/res/drawable/cardview_background_shadow.xml" value="0.18" />
         <entry key="app/src/main/res/drawable/header_round_border_background.xml" value="0.18" />
         <entry key="app/src/main/res/drawable/ic_date.xml" value="0.18" />
         <entry key="app/src/main/res/drawable/ic_edit.xml" value="0.18" />
         <entry key="app/src/main/res/drawable/ic_programmer.xml" value="0.18" />
+        <entry key="app/src/main/res/drawable/linear_layout_bottom_round.xml" value="0.18" />
         <entry key="app/src/main/res/drawable/tap_for_balance_background.xml" value="0.18" />
         <entry key="app/src/main/res/layout/account_number_dropdown.xml" value="0.23385416666666667" />
         <entry key="app/src/main/res/layout/activity_about_me.xml" value="0.24270833333333333" />
@@ -54,6 +56,7 @@
         <entry key="app/src/main/res/layout/insurance_input_layout.xml" value="0.2578125" />
         <entry key="app/src/main/res/layout/internet_input_layout.xml" value="0.2578125" />
         <entry key="app/src/main/res/layout/loan_input_layout.xml" value="0.2578125" />
+        <entry key="app/src/main/res/layout/mobile_recharge_input_layout.xml" value="0.24895833333333334" />
         <entry key="app/src/main/res/layout/param_layout.xml" value="0.24270833333333333" />
         <entry key="app/src/main/res/layout/popular_service_layout.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/report_header.xml" value="0.24270833333333333" />
@@ -62,6 +65,7 @@
         <entry key="app/src/main/res/layout/row_popular_service.xml" value="0.24895833333333334" />
         <entry key="app/src/main/res/layout/row_sub_3menu.xml" value="0.2578125" />
         <entry key="app/src/main/res/layout/row_sub_menu.xml" value="0.2578125" />
+        <entry key="app/src/main/res/layout/source_ac_no_balance_layout.xml" value="0.24895833333333334" />
         <entry key="app/src/main/res/layout/statetment_param_layout.xml" value="0.23385416666666667" />
         <entry key="app/src/main/res/layout/test_dialog.xml" value="0.2947916666666667" />
         <entry key="app/src/main/res/layout/utility_bill_type_dropdown.xml" value="0.25677083333333334" />
