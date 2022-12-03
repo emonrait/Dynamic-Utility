@@ -23,6 +23,18 @@
         android:theme="@style/Theme.DynamicUtility"
         tools:targetApi="31">
         <activity
+            android:name=".view.welcome.mfs.MfsTransfer"
+            android:configChanges="orientation|keyboardHidden"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name=".view.welcome.mobilerecharge.MobileRecharge"
+            android:configChanges="orientation|keyboardHidden"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
             android:name=".view.welcome.Welcome"
             android:configChanges="orientation|keyboardHidden"
             android:exported="true"

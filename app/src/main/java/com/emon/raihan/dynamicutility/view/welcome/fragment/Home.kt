@@ -21,6 +21,8 @@ import com.emon.raihan.dynamicutility.view.utility.*
 import com.emon.raihan.dynamicutility.view.utility.GASBillPayment
 import com.emon.raihan.dynamicutility.view.utility.InternetBillPayment
 import com.emon.raihan.dynamicutility.view.welcome.Welcome
+import com.emon.raihan.dynamicutility.view.welcome.mfs.MfsTransfer
+import com.emon.raihan.dynamicutility.view.welcome.mobilerecharge.MobileRecharge
 import java.util.ArrayList
 
 
@@ -72,11 +74,11 @@ class Home : Fragment() {
                         startActivity(intent)
                     }
                     "TOP" == menu_soft_code.text.toString() -> {
-                        val intent = Intent(requireActivity(), GASBillPayment::class.java)
+                        val intent = Intent(requireActivity(), MobileRecharge::class.java)
                         startActivity(intent)
                     }
                     "MFS" == menu_soft_code.text.toString() -> {
-                        val intent = Intent(requireActivity(), AboutMe::class.java)
+                        val intent = Intent(requireActivity(), MfsTransfer::class.java)
                         startActivity(intent)
                     }
                     "ONPU" == menu_soft_code.text.toString() -> {

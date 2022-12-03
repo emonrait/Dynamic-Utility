@@ -51,6 +51,8 @@
     <string name="insurance_bill_payment">Insurance Bill Payment</string>
     <string name="bills_report">Bills Report</string>
     <string name="gas_bill_payment">Gas Bill Payment</string>
+    <string name="topup">Top Up</string>
+    <string name="mfs_transfer">MFS Transfer</string>
     <string name="binimoy_dashboard">Binimoy Dashboard</string>
     <string name="apply_loan">Apply Loan</string>
     <string name="loan_dashboard">Loan Dashboard</string>

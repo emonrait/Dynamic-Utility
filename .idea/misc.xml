@@ -29,6 +29,8 @@
         <entry key="app/src/main/res/layout/activity_loan_application.xml" value="0.2578125" />
         <entry key="app/src/main/res/layout/activity_loan_dashboard.xml" value="0.2578125" />
         <entry key="app/src/main/res/layout/activity_loan_result.xml" value="0.2578125" />
+        <entry key="app/src/main/res/layout/activity_mfs_transfer.xml" value="0.24895833333333334" />
+        <entry key="app/src/main/res/layout/activity_mobile_recharge.xml" value="0.24895833333333334" />
         <entry key="app/src/main/res/layout/activity_quick_reach.xml" value="0.21979166666666666" />
         <entry key="app/src/main/res/layout/activity_splash_screen.xml" value="0.24270833333333333" />
         <entry key="app/src/main/res/layout/activity_wasabill_payment.xml" value="0.24270833333333333" />
