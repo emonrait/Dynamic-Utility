@@ -56,6 +56,7 @@
         <entry key="app/src/main/res/layout/insurance_input_layout.xml" value="0.2578125" />
         <entry key="app/src/main/res/layout/internet_input_layout.xml" value="0.2578125" />
         <entry key="app/src/main/res/layout/loan_input_layout.xml" value="0.2578125" />
+        <entry key="app/src/main/res/layout/mfs_input_layout.xml" value="0.23385416666666667" />
         <entry key="app/src/main/res/layout/mobile_recharge_input_layout.xml" value="0.24895833333333334" />
         <entry key="app/src/main/res/layout/param_layout.xml" value="0.24270833333333333" />
         <entry key="app/src/main/res/layout/popular_service_layout.xml" value="0.3098958333333333" />
@@ -71,7 +72,7 @@
         <entry key="app/src/main/res/layout/utility_bill_type_dropdown.xml" value="0.25677083333333334" />
         <entry key="app/src/main/res/layout/utility_btn_validate_layout.xml" value="0.2578125" />
         <entry key="app/src/main/res/layout/utility_year_month_layout.xml" value="0.2578125" />
-        <entry key="app/src/main/res/layout/wasa_input_layout.xml" value="0.375" />
+        <entry key="app/src/main/res/layout/wasa_input_layout.xml" value="0.335" />
         <entry key="app/src/main/res/layout/whatsnew_service_layout.xml" value="0.24895833333333334" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.1" />
       </map>
