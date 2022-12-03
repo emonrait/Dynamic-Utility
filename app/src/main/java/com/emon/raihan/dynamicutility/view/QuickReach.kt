@@ -2,6 +2,7 @@ package com.emon.raihan.dynamicutility.view
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -13,7 +14,9 @@ import com.denzcoskun.imageslider.interfaces.ItemClickListener
 import com.denzcoskun.imageslider.models.SlideModel
 import com.emon.raihan.dynamicutility.R
 import com.emon.raihan.dynamicutility.adaptar.LoanListAdaptar
+import com.emon.raihan.dynamicutility.adaptar.QuickReachMenuAdaptar
 import com.emon.raihan.dynamicutility.model.Loan
+import com.emon.raihan.dynamicutility.model.Menu
 
 import com.emon.raihan.dynamicutility.util.CustomAppCompatActivity
 import com.emon.raihan.dynamicutility.view.utility.InternetBillPayment
@@ -24,8 +27,10 @@ class QuickReach : CustomAppCompatActivity() {
     private lateinit var btn_register: AppCompatButton
     private lateinit var btn_login: AppCompatButton
     private lateinit var poular_RecyclerView: RecyclerView
-    private lateinit var mAdapter: LoanListAdaptar
-    var loanList: ArrayList<Loan> = ArrayList<Loan>()
+    private lateinit var whatsnew_RecyclerView: RecyclerView
+    private lateinit var mAdapter: QuickReachMenuAdaptar
+    var popularList: ArrayList<Menu> = ArrayList<Menu>()
+    var whatsnew_List: ArrayList<Menu> = ArrayList<Menu>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,6 +38,7 @@ class QuickReach : CustomAppCompatActivity() {
         btn_register = findViewById(R.id.btn_register)
         btn_login = findViewById(R.id.btn_login)
         poular_RecyclerView = findViewById(R.id.poular_RecyclerView)
+        whatsnew_RecyclerView = findViewById(R.id.whatsnew_RecyclerView)
 
         val imageSlider = findViewById<ImageSlider>(R.id.imageSlider)
         val imageList = ArrayList<SlideModel>()
@@ -74,27 +80,53 @@ class QuickReach : CustomAppCompatActivity() {
             startActivity(intent)
         }
 
-        loanList.clear()
-        loanList.add(Loan("20,000.00 BDT", "22/11/2022 at 09.58 AM", "Personal Loan", "A"))
-        loanList.add(Loan("30,000.00 BDT", "23/11/2022 at 10.24 PM", "Personal Loan", "R"))
-        loanList.add(Loan("40,000.00 BDT", "24/11/2022 at 10.37 AM", "Personal Loan", "R"))
-        loanList.add(Loan("50,000.00 BDT", "25/11/2022 at 11.40 PM", "Personal Loan", "A"))
+        popularList.clear()
+        popularList.add(Menu("WB", "Within Bank", R.drawable.water_bill))
+        popularList.add(Menu("NPSB", "NPSB", R.drawable.education_bill))
+        popularList.add(Menu("BP", "Bills Pay", R.drawable.gas_bill))
+        popularList.add(Menu("bKash", "bKash", R.drawable.electricity_bill))
+        popularList.add(Menu("bKash", "bKash", R.drawable.electricity_bill))
 
 
-        val mLayoutManager = LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL, true)
+        val mLayoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         poular_RecyclerView.layoutManager = mLayoutManager
         poular_RecyclerView.itemAnimator = DefaultItemAnimator()
 
         mAdapter =
-            LoanListAdaptar(
-                loanList,
-                object : LoanListAdaptar.OnItemClickListener {
-                    override fun onItemClick(item: Loan) {
-
+            QuickReachMenuAdaptar(
+                popularList,
+                object : QuickReachMenuAdaptar.OnItemClickListener {
+                    override fun onItemClick(item: Menu) {
+                        Toast.makeText(this@QuickReach, item.menuTitle, Toast.LENGTH_SHORT).show()
                     }
                 })
 
         poular_RecyclerView.adapter = mAdapter
+        mAdapter.notifyDataSetChanged()
+
+
+        whatsnew_List.clear()
+        whatsnew_List.add(Menu("WB", "Within Bank", R.drawable.water_bill))
+        whatsnew_List.add(Menu("NPSB", "NPSB", R.drawable.education_bill))
+        whatsnew_List.add(Menu("BP", "Bills Pay", R.drawable.gas_bill))
+        whatsnew_List.add(Menu("bKash", "bKash", R.drawable.electricity_bill))
+        whatsnew_List.add(Menu("bKash", "bKash", R.drawable.electricity_bill))
+
+
+        val mLayoutManagerNew = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        whatsnew_RecyclerView.layoutManager = mLayoutManagerNew
+        whatsnew_RecyclerView.itemAnimator = DefaultItemAnimator()
+
+        mAdapter =
+            QuickReachMenuAdaptar(
+                whatsnew_List,
+                object : QuickReachMenuAdaptar.OnItemClickListener {
+                    override fun onItemClick(item: Menu) {
+                        Toast.makeText(this@QuickReach, item.menuTitle, Toast.LENGTH_SHORT).show()
+                    }
+                })
+
+        whatsnew_RecyclerView.adapter = mAdapter
         mAdapter.notifyDataSetChanged()
 
 

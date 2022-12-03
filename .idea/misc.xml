@@ -56,6 +56,7 @@
         <entry key="app/src/main/res/layout/report_header.xml" value="0.24270833333333333" />
         <entry key="app/src/main/res/layout/row_loan_list.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/row_menu.xml" value="0.2947916666666667" />
+        <entry key="app/src/main/res/layout/row_popular_service.xml" value="0.24895833333333334" />
         <entry key="app/src/main/res/layout/row_sub_3menu.xml" value="0.2578125" />
         <entry key="app/src/main/res/layout/row_sub_menu.xml" value="0.2578125" />
         <entry key="app/src/main/res/layout/statetment_param_layout.xml" value="0.23385416666666667" />
@@ -64,6 +65,7 @@
         <entry key="app/src/main/res/layout/utility_btn_validate_layout.xml" value="0.2578125" />
         <entry key="app/src/main/res/layout/utility_year_month_layout.xml" value="0.2578125" />
         <entry key="app/src/main/res/layout/wasa_input_layout.xml" value="0.375" />
+        <entry key="app/src/main/res/layout/whatsnew_service_layout.xml" value="0.24895833333333334" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.1" />
       </map>
     </option>

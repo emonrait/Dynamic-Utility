@@ -8,15 +8,16 @@ import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
 import com.emon.raihan.dynamicutility.R
 import com.emon.raihan.dynamicutility.model.Loan
+import com.emon.raihan.dynamicutility.model.Menu
 
 import java.util.ArrayList
 
 class QuickReachMenuAdaptar(
-    private var movieList: ArrayList<Loan>,
+    private var movieList: ArrayList<Menu>,
     listenerInit: OnItemClickListener
 ) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>(), Filterable {
-    var requestFilterList = ArrayList<Loan>()
+    var requestFilterList = ArrayList<Menu>()
     lateinit var mcontext: Context
 
     var listener: OnItemClickListener
@@ -32,14 +33,14 @@ class QuickReachMenuAdaptar(
     }
 
     interface OnItemClickListener {
-        fun onItemClick(item: Loan)
+        fun onItemClick(item: Menu)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
 
         val atmListView =
             LayoutInflater.from(parent.context)
-                .inflate(R.layout.row_loan_list, parent, false)
+                .inflate(R.layout.row_popular_service, parent, false)
         val sch = MyViewHolder(atmListView)
         mcontext = parent.context
         return sch
@@ -47,23 +48,25 @@ class QuickReachMenuAdaptar(
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val currentItem = requestFilterList[position]
-        val tv_amount: TextView? = holder.itemView.findViewById(R.id.tv_amount)
-        val tv_status: TextView? = holder.itemView.findViewById(R.id.tv_status)
-        val tv_display_amount: TextView? = holder.itemView.findViewById(R.id.tv_display_amount)
-        val tv_date: TextView? = holder.itemView.findViewById(R.id.tv_date)
+        val menu_icon: ImageView? = holder.itemView.findViewById(R.id.menu_icon)
+        val menu_name: TextView? = holder.itemView.findViewById(R.id.menu_name)
+        val menu_soft_code: TextView? = holder.itemView.findViewById(R.id.menu_soft_code)
 
-        tv_amount!!.text = currentItem.amount
-        tv_display_amount!!.text = currentItem.amount
-        tv_date!!.text = currentItem.date
+        menu_name!!.text = currentItem.menuTitle
+        if (menu_soft_code != null) {
+            menu_soft_code.text = currentItem.id.toString()
+        }
+
+        currentItem.imageId?.let { menu_icon?.setImageResource(it) }
 
 
 
 
-        tv_amount.setOnClickListener {
-              val selectedList: Loan = currentItem
-              listener.onItemClick(selectedList)
+        menu_icon?.setOnClickListener {
+            val selectedList: Menu = currentItem
+            listener.onItemClick(selectedList)
 
-          }
+        }
 
     }
 
@@ -81,13 +84,13 @@ class QuickReachMenuAdaptar(
                     requestFilterList = movieList
                 } else {
 
-                    val resultList = ArrayList<Loan>()
+                    val resultList = ArrayList<Menu>()
                     for (row in movieList) {
                         if (
-                            row.amount.toString().lowercase()
+                            row.menuTitle.toString().lowercase()
                                 .contains(constraint.toString().lowercase())
 
-                            || row.date.toString().lowercase()
+                            || row.id.toString().lowercase()
                                 .contains(
                                     constraint.toString().lowercase()
                                 )
@@ -104,7 +107,7 @@ class QuickReachMenuAdaptar(
 
             @Suppress("UNCHECKED_CAST")
             override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
-                requestFilterList = results?.values as ArrayList<Loan>
+                requestFilterList = results?.values as ArrayList<Menu>
                 notifyDataSetChanged()
             }
 

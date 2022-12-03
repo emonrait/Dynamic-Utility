@@ -101,4 +101,6 @@
     <string name="smart_app">Smart App</string>
     <string name="login">Login</string>
     <string name="register">Register</string>
+    <string name="popular_service">Popular Service</string>
+    <string name="whats_new">Whats New?</string>
 </resources>
